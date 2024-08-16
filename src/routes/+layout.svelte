@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '../app.scss';
 </script>
 
 <div class="app">
@@ -8,5 +8,5 @@
 	</main>
 </div>
 
-<style >
+<style lang="sass">
 </style>
