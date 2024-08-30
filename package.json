@@ -7,7 +7,7 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"add-styles":"git add .\\src\\app.sass && git .\\src\\lib\\styles\\*  && git .\\src\\lib\\fonts\\* ",
+		"add-styles":"git add .\\src\\app.sass && git add .\\src\\lib\\styles\\*  && git add .\\src\\lib\\fonts\\* && git status -s",
 		"add-components":"git add .\\src\\lib\\components\\*"
 	},
 	"devDependencies": {
