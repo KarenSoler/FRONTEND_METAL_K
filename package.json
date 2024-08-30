@@ -7,8 +7,8 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"add-styles":".\\.github\\pushes\\push-styles.bat",
-		"add-components":".\\.github\\pushes\\push-components",
+		"push-styles":".\\.github\\pushes\\push-styles.bat",
+		"push-components":".\\.github\\pushes\\push-components",
 		"reset-commits":".\\.github\\pushes\\reset-commits.bat",
 		"push-config":".\\.github\\pushes\\push-config.bat"
 	},
