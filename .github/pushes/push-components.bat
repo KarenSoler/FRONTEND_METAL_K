@@ -3,6 +3,7 @@ echo.
 
 ::Files to catch changes
 git add .\\src\\lib\\components\\* 
+git add .\\src\\lib\\jsons\\* 
 
 git status -s 
 
