@@ -22,3 +22,12 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+#Utilities integrity
+#styles
+./src/app.sass
+./src/lib/styles/*
+./src/lib/fonts/*
+
+#components
+./src/lib/components/*
