@@ -1,5 +1,4 @@
 <script>
-	import '../app.scss';
 </script>
 
 <div class="app">
@@ -9,4 +8,5 @@
 </div>
 
 <style lang="sass">
+	@import src\app.sass
 </style>

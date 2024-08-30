@@ -2,22 +2,26 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { sveltePreprocess } from 'svelte-preprocess';
 
-
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// for more information about preprocessors
 	preprocess: vitePreprocess(),
+	//SASS Compiler
 	preprocess: sveltePreprocess({
 		sass:{}
 	}),
-	base:'/test/',
 	kit: {
 		adapter: adapter({
 			fallback: '404.html'
 		}),
-		paths: {
+		paths: {//Base paths for deploy
 			assets: process.argv.includes('dev') ? '' : process.env.VITE_BASE_URL,
 			base: process.argv.includes('dev') ? '' : process.env.VITE_BASE_URL
+		},
+		alias:{//Fast Routes Access 
+			'@components/*':'src/lib/components/*'
+		},
+		env:{
+			privatePrefix:'PVE_',
+			publicPrefix: 'PBE_'
 		}
 	}
 };
