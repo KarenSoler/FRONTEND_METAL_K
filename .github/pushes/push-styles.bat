@@ -1,9 +1,9 @@
 @echo off
 echo.
 ::Files to catch changes
-git add .\\src\\app.sass
-git .\\src\\lib\\styles\\*
-git .\\src\\lib\\fonts\\* 
+git add .\src\app.sass
+git .\src\lib\styles\*
+git .\src\lib\fonts\* 
 
 git status -s 
 
