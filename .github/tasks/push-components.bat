@@ -15,15 +15,15 @@ if "%confirm%"=="N" goto cancel
 
 
 :commit
-set /p commit=^>Nombre del commit:
-echo.
-git commit -m "%commit%"
-SET /p push= ^> Realizar push(Y/N):
+    set /p commit=^>Nombre del commit:
+    echo.
+    git commit -m "%commit%"
+    SET /p push= ^> Realizar push(Y/N):
 
-if "%push%"=="Y" goto push
-if "%push%"=="N" goto cancel
+    if "%push%"=="Y" goto push
+    if "%push%"=="N" goto cancel
 
 :push
-git push origin HEAD
+    git push origin HEAD
 
 :cancel
