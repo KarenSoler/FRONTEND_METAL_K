@@ -2,18 +2,17 @@
 echo.
 
 ::Files to catch changes
-git add .\\src\\lib\\components\\* 
-git add .\\src\\lib\\jsons\\* 
+git add .\.github\*
+git add .\package.json
+git add .\svelte.config.js
+git add .\.env
 
 git status -s 
-
 echo .
-color F
 SET /p confirm= ^> Realizar commit(Y/N):
 
 if "%confirm%"=="Y" goto commit
 if "%confirm%"=="N" goto cancel
-
 
 :commit
 set /p commit=^>Nombre del commit:
