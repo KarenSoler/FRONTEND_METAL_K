@@ -1,0 +1,24 @@
+{
+	"svelte-component":{
+		"prefix": "svelte-base",
+		"body":[
+			"<script lang='ts'>",
+			"",
+			"</script>",
+			"",
+			"<!-- html -->",
+			"",
+			"<style lang='sass'>",
+			"",
+			"</style>"
+		],
+		"description": "Svelte Component Base Structure"
+	},
+	"Import sass module":{
+		"prefix": "get-sass",
+		"body":[
+			"@import src/lib/styles/$1"
+		],
+		"description": "Take a SASS module from $lib/styles"
+	}
+}
