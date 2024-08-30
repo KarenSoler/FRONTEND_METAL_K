@@ -8,7 +8,6 @@ git add .\\src\\lib\\jsons\\*
 git status -s 
 
 echo .
-color F
 SET /p confirm= ^> Realizar commit(Y/N):
 
 if "%confirm%"=="Y" goto commit

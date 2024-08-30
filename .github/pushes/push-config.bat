@@ -9,7 +9,6 @@ git add .\.env
 
 git status -s 
 echo .
-color F
 SET /p confirm= ^> Realizar commit(Y/N):
 
 if "%confirm%"=="Y" goto commit
