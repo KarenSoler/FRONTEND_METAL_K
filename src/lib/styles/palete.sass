@@ -1,1 +1,10 @@
-$base:red
+@media (prefers-color-scheme: dark)
+    :root
+        --example:#FFF
+
+@media (prefers-color-scheme: light)
+    :root
+        --example: #000
+
+$example:var(--example)
+        
