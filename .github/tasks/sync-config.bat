@@ -18,4 +18,6 @@ git merge -m "Sync config" --quiet u/config
 
 ::return
 git checkout u/config
+puase
+cls
     
