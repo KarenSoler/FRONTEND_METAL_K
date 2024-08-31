@@ -1,12 +1,5 @@
 @echo off
 echo.
-
-
-SET "trailerList= "
-set "trailerS=--trailer ^""
-set "trailerE=^" "
-
-
 ::Files to cat
 git add .\.github\*
 git add .\package.json
@@ -14,6 +7,10 @@ git add .\svelte.config.js
 git add .\.env
 
 git status -s
+
+SET "trailerList= "
+set "trailerS=--trailer ^""
+set "trailerE=^" "
 
 :askcommit
     SET /p confirm= ^> Realizar commit(Y/N):
