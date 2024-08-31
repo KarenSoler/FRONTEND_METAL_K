@@ -1,7 +1,5 @@
 <script lang='ts'>
     let external:string|undefined = undefined
-    console.log(external)
-
     export {external as class}
 </script>
 
