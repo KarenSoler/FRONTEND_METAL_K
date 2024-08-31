@@ -12,5 +12,5 @@ if "%branch%" NEQ "X" goto go
     git stash push
     git checkout --quiet %branch%
     git merge --quiet %lastBranch% -m "Come from %lastBranch%"
-    git stash pop --index 0
+    git stash pop
 
