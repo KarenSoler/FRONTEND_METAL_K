@@ -33,11 +33,10 @@ git status -s
     set /p trailer= ^> 
     if "%trailer%"=="X" goto valpush
     set trailerList=%trailerList%%trailerS%%trailer%%trailerE%
-    echo %trailerList%
     if "%trailer%" NEQ "X" goto trailer
 
 :valpush
-    git commit -m "%commit%" %trailerList%
+    git commit -q -m "%commit%" %trailerList%
 
     SET /p push= ^> Realizar push(Y/N):
 
