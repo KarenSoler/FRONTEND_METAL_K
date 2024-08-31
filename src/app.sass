@@ -1,22 +1,76 @@
 //Here can code global styles
-@use 'src/lib/styles/fonts' as fonts
-@use 'src/lib/styles/palete' as palete
+@use './lib/styles/palete' as palete
+@use './lib/styles/media' as media
+
+@import './lib/styles/fonts'
 
 
-body
-    margin: 0
-
-    padding: 0
-        
+:root
+    // Reset default styling
     *
         box-sizing: border-box
 
         margin: 0
 
         padding: 0
+    
+    // ? Main breack points for responsive
+    // font-size to define em
+    @include media.by-max-width(340px) 
+        font-size: 20px
+    
+    @include media.by-min-width(340px) 
+        font-size: 8px
 
+    @include media.by-min-width(460px) 
+        font-size: 10px
+    
+    @include media.by-min-width(600px) 
+        font-size: 8px
+    
+    @include media.by-min-width(768px) 
+        font-size: 8px
+    
+    @include media.by-min-width(992px) 
+        font-size: 8px
+    
+    @include media.by-min-width(1200px) 
+        font-size: 8px
+    
+
+body
+    width: 100vw
+    height: 100vh
+
+    margin: 0
+
+    padding: 0
+    
+    
+
+//Unstyling link
 a
     text-decoration: none
 
+//Set default text sizes
+h1
+    font-size: 2em
 
+h2
+    font-size: 1.75em
+    
+h3
+    font-size: 1.5em
+
+h4
+    font-size: 1.25em
+    font-weight: 700
+
+h5
+    font-size: 1em
+    font-weight: 700
+    font-style: italic
+
+p,span,input,label,select,option,textarea
+    font-size: 1em
 

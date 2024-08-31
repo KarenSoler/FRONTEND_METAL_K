@@ -1,0 +1,17 @@
+@mixin by-max-width($size)
+    @media screen and (max-width:$size)
+        @content
+
+@mixin by-min-width($size)
+    @media screen and (min-width:$size)
+        @content
+
+
+@mixin by-inner-widths($minSize,$maxSize)
+    @media screen and (min-width:$minSize)
+        @content
+    
+    @media screen and (max-width:$maxSize)
+        @content
+
+    
