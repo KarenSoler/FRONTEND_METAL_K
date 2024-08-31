@@ -2,16 +2,13 @@
 echo.
 
 :syncstyles
-    git checkout  --quiet u/styles
+    git checkout u/styles  --quiet
     git stash push
-    git merge  --quiet u/config
-    git commit -m "Sync config"
+    git merge u/config -m "Sync config"   --quiet
 
 :synccomponents
-    git checkout  --quiet u/components
+    git checkout u/components --quiet 
     git stash push
-    git merge u/config
-    git add .
-    git commit  --quiet -m "Sync config"
+    git merge u/config -m "Sync config"  --quiet
     git checkout u/config
     
