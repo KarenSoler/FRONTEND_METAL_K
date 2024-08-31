@@ -18,6 +18,8 @@ git merge -m "Sync config" --quiet u/config
 
 ::return
 git checkout u/config
+echo .
+echo Recuerda bajar los cambios del stash en cada rama 
 pause
 cls
     
