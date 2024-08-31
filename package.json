@@ -7,11 +7,12 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"push-styles":".\\.github\\tasks\\push-styles.bat",
-		"push-components":".\\.github\\tasks\\push-components",
-		"reset-commits":".\\.github\\tasks\\reset-commits.bat",
-		"push-config":".\\.github\\tasks\\push-config.bat",
-		"pull-components":".\\.github\\tasks\\push-config.bat"
+		"set-styles":".\\.github\\tasks\\set-styles.bat",
+		"set-components":".\\.github\\tasks\\set-components",
+		"reset-tree":".\\.github\\tasks\\reset-tree.bat",
+		"set-config":".\\.github\\tasks\\set-config.bat",
+		"get-util":".\\.github\\tasks\\get-utilities.bat",
+		"sync-config":".\\.github\\tasks\\sync-config.bat"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.0",

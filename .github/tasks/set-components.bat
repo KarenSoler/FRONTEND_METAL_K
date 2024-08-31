@@ -17,7 +17,19 @@ if "%confirm%"=="N" goto cancel
 :commit
     set /p commit=^>Nombre del commit:
     echo.
-    git commit -m "%commit%"
+
+    echo Realizar trailer(N para terminar):
+    goto: trailer
+
+:trailer
+    set /p trailer= ^> 
+    echo %trailer%
+    if "%trailer%"=="N" goto push
+    if "%trailer%" NEQ "N" goto trailer
+    set trailerList = %trailerList% --trailer "%trailer%"
+    git commit -m "%commit%" %trailerList%
+
+:valpush
     SET /p push= ^> Realizar push(Y/N):
 
     if "%push%"=="Y" goto push
