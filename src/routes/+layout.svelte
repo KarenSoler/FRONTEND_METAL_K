@@ -1,4 +1,5 @@
 <script>
+	import '../app.sass'
 </script>
 
 <div class="app">
