@@ -1,14 +1,21 @@
 @echo off
 echo.
 
-:syncstyles
-    git checkout u/styles  --quiet
-    git stash push
-    git merge u/config -m "Sync config"   --quiet
+::u/styles
+git checkout --quiet u/styles
+git stash push
+git merge -m "Sync config" --quiet u/config 
 
-:synccomponents
-    git checkout u/components --quiet 
-    git stash push
-    git merge u/config -m "Sync config"  --quiet
-    git checkout u/config
+::u/components
+git checkout --quiet u/styles
+git stash push
+git merge -m "Sync config" --quiet u/config 
+
+::u/master
+git checkout --quiet u/styles
+git stash push
+git merge -m "Sync config" --quiet u/config 
+
+::return
+git checkout u/config
     
