@@ -1,6 +1,5 @@
 @echo off
 echo.
-
 ::Files to cat
 git add .\.github\*
 git add .\package.json
@@ -8,6 +7,10 @@ git add .\svelte.config.js
 git add .\.env
 
 git status -s
+
+SET "trailerList= "
+set "trailerS=--trailer ^""
+set "trailerE=^" "
 
 :askcommit
     SET /p confirm= ^> Realizar commit(Y/N):
@@ -21,24 +24,17 @@ git status -s
     set /p commit=^>Nombre del commit:
     echo.
     echo Realizar trailer(X para terminar):
-    set trailerList = " "
     goto trailer
 
 :trailer
     set /p trailer= ^> 
-    set cosa = cosa^ 
-    set otraCosa = %cosa%%trailer%
-    echo %otraCosa%
-    @REM set trailerS = --trailer ^" 
-    @REM set trailerE = ^" 
-    @REM if "%trailer%"=="X" goto valpush
-    @REM set trailerList = !%trailerS%%trailer%%trailerE%!
-    @REM echo "%trailerList%"
-    @REM ::echo "%trailerList% --trailer ^"%trailer%^""
-    @REM if "%trailer%" NEQ "X" goto trailer
+    if "%trailer%"=="X" goto valpush
+    set trailerList=%trailerList%%trailerS%%trailer%%trailerE%
+    if "%trailer%" NEQ "X" goto trailer
 
 :valpush
     git commit -q -m "%commit%" %trailerList%
+
     SET /p push= ^> Realizar push(Y/N):
 
     if "%push%"=="Y" goto push
