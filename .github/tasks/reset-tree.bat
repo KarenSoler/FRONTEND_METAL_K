@@ -10,6 +10,6 @@ if "%push%"=="Y" goto push
 if "%push%"=="N" goto cancel
 
 :push
-git push origin HEAD --force
+    git push origin HEAD --force
 
 :cancel

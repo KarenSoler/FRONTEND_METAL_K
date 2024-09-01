@@ -38,61 +38,59 @@
     
         background: #303030
     
-    .metalK_logo
-        position: absolute
-        top: 1em
-        left: 2em
-    
-        display: flex
-        flex-direction: row
-        flex-wrap: wrap
-    
-        height: 4em
-    
-        font-family: Cabin
-    
-        img
-            height: 4em
-            width: 4em
+        .metalK_logo
+            position: absolute
+            top: 1em
+            left: 2em
         
-        .dashboard_title
-            height: max-content
-    
-            margin-left: 1em
-    
-            color: #E0E0E0
-            font-size: Cabin
-            
-        
-    .header_menu
-        position: absolute
-        top: 0
-        right: 0
-    
-        display: flex
-        flex-direction: row
-        flex
-        
-        a
             display: flex
-    
-            justify-content: center
-            align-items: center
-    
-            height: 6em
-            width: 6em
-    
-            padding: 1em
-    
-            background: #303030
-    
-            color: #FFF
-    
-            transition: background 1s ease-in-out  
+            flex-direction: row
+            flex-wrap: wrap
         
-            &:hover
-                background: #FFF
-    
-                color:#000
-    
+            height: 4em
+        
+            font-family: Cabin
+        
+            img
+                height: 4em
+                width: 4em
+            
+            .dashboard_title
+                height: max-content
+        
+                margin-left: 1em
+        
+                color: #E0E0E0
+                font-family: Cabin
+                
+            
+        .header_menu
+            position: absolute
+            top: 0
+            right: 0
+        
+            display: flex
+            flex-direction: row
+            
+            a
+                display: flex
+        
+                justify-content: center
+                align-items: center
+        
+                height: 6em
+                width: 6em
+        
+                padding: 1em
+        
+                background: #303030
+        
+                color: #FFF
+        
+                transition: background 1s ease-in-out
+            
+                &:hover
+                    background: #FFF
+        
+                    color:#000
     </style>
