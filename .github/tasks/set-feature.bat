@@ -1,11 +1,10 @@
 @echo off
 echo.
-::Files to cat
-git add .\.github\*
-git add .\package.json
-git add .\svelte.config.js
-git add .\.env
-git add .\.vscode
+
+::Files to catch changes
+git add .\src\lib\images\*
+git add .\src\lib\routes\*
+
 
 git status -s
 
