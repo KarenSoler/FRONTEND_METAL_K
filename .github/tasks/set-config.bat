@@ -10,8 +10,6 @@ git add .\.vscode
 git status -s
 
 SET "trailerList= "
-set "trailerS=--trailer ^""
-set "trailerE=^" "
 
 :askcommit
     SET /p confirm= ^> Realizar commit(Y/N):

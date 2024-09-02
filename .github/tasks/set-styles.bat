@@ -8,8 +8,6 @@ git add .\src\lib\fonts\*
 git status -s
 
 SET "trailerList= "
-set "trailerS=--trailer ^""
-set "trailerE=^" "
 
 :askcommit
     SET /p confirm= ^> Realizar commit(Y/N):
@@ -28,7 +26,8 @@ set "trailerE=^" "
 :trailer
     set /p trailer= ^> 
     if "%trailer%"=="X" goto valpush
-    set trailerList=%trailerList%%trailerS%%trailer%%trailerE%
+    set "trailerList=%trailerList% --trailer ^"%trailer%^""
+    echo %trailerList%
     if "%trailer%" NEQ "X" goto trailer
 
 :valpush
@@ -43,3 +42,4 @@ set "trailerE=^" "
     git push -q origin HEAD
 
 :cancel
+    cls

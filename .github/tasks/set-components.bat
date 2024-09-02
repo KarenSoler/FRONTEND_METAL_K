@@ -6,7 +6,6 @@ git add .\\src\\lib\\components\\*
 git add .\\src\\lib\\jsons\\* 
 
 git status -s
-
 SET "trailerList= "
 
 :askcommit
@@ -27,6 +26,7 @@ SET "trailerList= "
     set /p trailer= ^> 
     if "%trailer%"=="X" goto valpush
     set "trailerList=%trailerList% --trailer ^"%trailer%^""
+    echo %trailerList%
     if "%trailer%" NEQ "X" goto trailer
 
 :valpush
@@ -41,3 +41,4 @@ SET "trailerList= "
     git push -q origin HEAD
 
 :cancel
+    cls
