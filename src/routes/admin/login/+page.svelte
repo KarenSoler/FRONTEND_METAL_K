@@ -27,6 +27,7 @@ h1
 .form
     display: flex
 
+    flex-direction: column
     justify-content: center
     align-items: center
     background: #FFFFAA
@@ -39,16 +40,20 @@ $height: var(--height)
 $color: var(--color)
 
 .tester
-    display: inline-block
+
         
     width: $width
     height: $height
 
     border-color: $color
 
+    align-items:center
+
     border-width: 5px
     border-style: solid
 
     margin: 20px
+    display: flex
+    justify-content: center
 
 </style>
