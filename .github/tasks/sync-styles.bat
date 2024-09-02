@@ -3,7 +3,7 @@ echo.
 
 for /f %%i in ('git branch --show-current') do set lastBranch=%%i
 
-if "%lastBranch%"=="u/config" goto general
+if %lastBranch%=="u/styles" goto general
 
 SET /p confirm= ^> Sincronizar actual?(Y/N):
 
@@ -11,27 +11,22 @@ if "%confirm%"=="Y" goto current
 if "%confirm%"=="N" goto general
 
 :current
-git stash push
-git merge -m "Sync config" --quiet %lastBranch%
+for /f %%i in ('git branch --show-current') do set lastBranch=%%i
+echo %lastBranch%
 
 :general
-::u/styles
-git checkout --quiet u/styles
-git stash push
-git merge -m "Sync config" --quiet u/config 
-
 ::u/components
 git checkout --quiet u/components
 git stash push
-git merge -m "Sync config" --quiet u/config 
+git merge -m "Sync config" --quiet u/styles 
 
 ::u/master
 git checkout --quiet master
 git stash push
-git merge -m "Sync config" --quiet u/config 
+git merge -m "Sync config" --quiet u/styles
 
 ::return
-git checkout u/config
+git checkout %lastBranch%
 echo .
 echo Recuerda bajar los cambios del stash en cada rama 
 pause
