@@ -1,6 +1,6 @@
 {
 	"svelte-component":{
-		"prefix": "svelte-c-base",
+		"prefix": "component-base",
 		"body":[
 			"<script lang='ts'>",
 			"//Imports",
@@ -36,7 +36,7 @@
 		"description": "Take a SASS module from $lib/styles"
 	},
 	"svelte-page":{
-		"prefix": "svelte-p-base",
+		"prefix": "page-base",
 		"body":[
 			"<script lang='ts'>",
 			"//Imports",
