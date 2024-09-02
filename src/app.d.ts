@@ -3,6 +3,8 @@ declare global {
 	namespace App {
 	}
 
+	//TODO Components
+	// ? Header
 	interface HeaderModule{
 		name:string
 		route:string

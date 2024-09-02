@@ -20,18 +20,19 @@
             <span>Admin dashboard</span>
         </div>
     </div>
+    <!-- Conditional menu printing -->
     {#if modules.length != 0}
-        <div class='menu'>
+        <nav class='menu'>
                 {#each modules as module}
-                    <!-- ts-ignore -->
                     <a href={module.route}>
                         <span>
                             {module.name}
                         </span>
                     </a>
                 {/each}
-        </div>
+        </nav>
     {/if}
+
 </header>
     
 <style lang='sass'>
@@ -103,6 +104,7 @@ header
     
                 color:#000
 
+    //Responsive for mobile
     @include media.by-max-width(460px)
         display: flex
         flex-direction: column
