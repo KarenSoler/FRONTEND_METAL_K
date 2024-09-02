@@ -29,6 +29,7 @@
     }
     //Validations centralizer
     function validater(value:string){
+        console.log(value)
         while(true){
             if(!requiredValidation(value)) break
             if(!regexValidation(value)) break 
@@ -39,27 +40,26 @@
     
     //Validations
     function regexValidation(value:string){
-            console.log('🤖')
-        // if(regex){
-        //     let result:boolean|undefined
-        //     if(typeof regex?.pattern == 'string'){
-        //         let rx = new RegExp(regex?.pattern)
-        //         result = rx.test(value)
-        //     }
-        //     else{
-        //         result = regex?.pattern.test(value)
-        //     }
-        //     if(result){
-        //         error =undefined
-        //     }
-        //     else{
-        //         error= {
-        //             message:regex?.message,
-        //             type:'regex'
-        //         }
-        //     }
-        //     return result
-        // }
+        if(regex){
+            let result:boolean|undefined
+            if(typeof regex?.pattern == 'string'){
+                let rx = new RegExp(regex?.pattern)
+                result = rx.test(value)
+            }
+            else{
+                result = regex?.pattern.test(value)
+            }
+            if(result){
+                error =undefined
+            }
+            else{
+                error= {
+                    message:regex?.message,
+                    type:'regex'
+                }
+            }
+            return result
+        }
         return true
     }
 
@@ -88,7 +88,7 @@
     function logicValidation(value:string){
         if(logic){ 
             let result = logic(value)
-            if(result){
+            if(!result){
                 error = undefined
                 return true
             }
