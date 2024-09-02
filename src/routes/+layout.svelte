@@ -1,12 +1,9 @@
-<script>
+<script lang='ts'>
 	import '../app.sass'
 </script>
 
-<div class="app">
-	<main>
-		<slot />
-	</main>
-</div>
+<!-- TODO:In case of error in build, add <div class='app'> -->
+<slot />
 
 <style lang="sass">
 	@import src\app.sass
