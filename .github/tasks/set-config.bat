@@ -6,6 +6,7 @@ git add .\.github\*
 git add .\package.json
 git add .\svelte.config.js
 git add .\.env
+git add .\.vscode
 
 git status -s
 
@@ -48,3 +49,4 @@ git status -s
     git push -q origin HEAD
 
 :cancel
+    cls
