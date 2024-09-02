@@ -2,10 +2,12 @@
 echo.
 
 ::Files to catch changes
-git add .\\src\\lib\\components\\* 
-git add .\\src\\lib\\jsons\\* 
+git add .\src\lib\components\* 
+git add .\src\lib\jsons\* 
+git add .\src\app.d.ts
 
 git status -s
+
 SET "trailerList= "
 
 :askcommit
@@ -24,18 +26,20 @@ SET "trailerList= "
 
 :trailer
     set /p trailer= ^> 
-    if "%trailer%"=="X" goto valpush
+    if "%trailer%"=="X" goto mkcommit
     set "trailerList=%trailerList% --trailer ^"%trailer%^""
-    echo %trailerList%
     if "%trailer%" NEQ "X" goto trailer
 
-:valpush
+:mkcommit
     git commit -q -m "%commit%" %trailerList%
 
+:valpush
     SET /p push= ^> Realizar push(Y/N):
 
     if "%push%"=="Y" goto push
     if "%push%"=="N" goto cancel
+    if "%confirm%" NEQ "N" if "%confirm%" NEQ "N" echo "Opcion inesperada" && goto askcommit
+
 
 :push
     git push -q origin HEAD

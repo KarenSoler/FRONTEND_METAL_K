@@ -7,7 +7,7 @@ git fetch -a
 echo .
 SET /p branch= ^> Nombre de rama objetivo?:
 
-SET /p confirm= ^> Actualizar components?(Y/N):
+SET /p confirm= ^> Actualizar utilities?(Y/N):
 
 if "%confirm%"=="Y" goto pull
 if "%confirm%"=="N" goto cancel

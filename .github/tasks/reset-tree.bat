@@ -8,19 +8,15 @@ if "%num%"== "3" goto backnum
 if "%num%"== "4" goto backnum 
 if "%num%"== "5" goto backnum 
 git reset --mixed %num%
-
-
-:valpush
-SET /p push= ^> Eliminar de origen(Y/N):
-if "%push%"=="Y" goto push
-if "%push%"=="N" goto cancel
-
+goto push
 
 :backnum
     git reset --mixed HEAD~%num%
-    goto valpush
+    goto push
 
 :push
+    echo Enter para pushear
+    pause
     git push origin HEAD --force
 
 :cancel
