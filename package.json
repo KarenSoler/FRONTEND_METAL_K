@@ -13,7 +13,8 @@
 		"set-feature":".\\.github\\tasks\\set-feature.bat",
 		"reset-tree":".\\.github\\tasks\\reset-tree.bat",
 		"get-util":".\\.github\\tasks\\get-utilities.bat",
-		"sync-config":".\\.github\\tasks\\sync-config.bat"
+		"sync-config":".\\.github\\tasks\\sync-config.bat",
+		"sync-styles":".\\.github\\tasks\\sync-styles.bat"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.0",

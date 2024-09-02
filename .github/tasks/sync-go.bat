@@ -7,7 +7,6 @@ if "%branch%" NEQ "X" goto go
 
 :go
     for /f %%i in ('git branch --show-current') do set lastBranch=%%i
-    echo %lastBranch%
     git add .
     git stash push -q
     git checkout --quiet %branch%
