@@ -2,9 +2,9 @@
 echo.
 
 ::Files to catch changes
-git add .\src\lib\components\* 
-git add .\src\lib\jsons\* 
-git add .\src\app.d.ts
+git add .\src\lib\images\*
+git add .\src\lib\routes\*
+
 
 git status -s
 
@@ -34,8 +34,6 @@ SET "trailerList= "
     git commit -q -m "%commit%" %trailerList%
 
 :valpush
-    git commit -q -m "%commit%" %trailerList%
-
     SET /p push= ^> Realizar push(Y/N):
 
     if "%push%"=="Y" goto push
