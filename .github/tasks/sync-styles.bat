@@ -1,6 +1,9 @@
 @echo off
 echo.
 
+for /f %%i in ('git branch --show-current') do set lastBranch=%%i
+
+if %lastBranch%=="u/styles" goto general
 
 SET /p confirm= ^> Sincronizar actual?(Y/N):
 

@@ -1,6 +1,20 @@
 @echo off
 echo.
 
+for /f %%i in ('git branch --show-current') do set lastBranch=%%i
+
+if "%lastBranch%"=="u/config" goto general
+
+SET /p confirm= ^> Sincronizar actual?(Y/N):
+
+if "%confirm%"=="Y" goto current
+if "%confirm%"=="N" goto general
+
+:current
+git stash push
+git merge -m "Sync config" --quiet %lastBranch%
+
+:general
 ::u/styles
 git checkout --quiet u/styles
 git stash push
