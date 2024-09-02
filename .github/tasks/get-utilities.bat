@@ -23,5 +23,6 @@ if "%confirm%"=="N" goto cancel
     git checkout %branch% -q
     git merge u/styles
     git merge u/components
+    git merge u/config
 
 :cancel
