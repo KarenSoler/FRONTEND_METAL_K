@@ -2,6 +2,11 @@
 declare global {
 	namespace App {
 	}
+
+	interface HeaderModule{
+		name:string
+		route:string
+	}
 }
 
 export {};
