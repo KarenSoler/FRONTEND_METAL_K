@@ -1,6 +1,6 @@
 {
 	"svelte-component":{
-		"prefix": "svelte-base",
+		"prefix": "svelte-c-base",
 		"body":[
 			"<script lang='ts'>",
 			"//Imports",
@@ -34,5 +34,34 @@
 			"@import src/lib/styles/$1"
 		],
 		"description": "Take a SASS module from $lib/styles"
-	}
+	},
+	"svelte-page":{
+		"prefix": "svelte-p-base",
+		"body":[
+			"<script lang='ts'>",
+			"//Imports",
+			"",
+			"//States",
+			"",
+			"//Data catching",
+			"",
+			"//Functions",
+			"",
+			"//Rective",
+			"",
+			"</script>",
+			"",
+			"$html_here",
+			"",
+			"<style lang='sass'>",
+			"//Imports",
+			"",
+			"//Variables",
+			"",
+			"//Styles",
+			"",
+			"</style>"
+		],
+		"description": "Svelte Page Base Structure"
+	},
 }
