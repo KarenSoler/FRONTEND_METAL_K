@@ -12,7 +12,7 @@ if "%confirm%"=="N" goto general
 
 :current
 git stash push
-git merge -m "Sync config" --quiet %lastBranch%
+git merge -m "Sync config" --quiet u/config
 
 :general
 ::u/styles
@@ -21,7 +21,7 @@ git stash push
 git merge -m "Sync config" --quiet u/config 
 
 ::u/components
-git checkout --quiet u/components
+git checkout --quiet u/logic
 git stash push
 git merge -m "Sync config" --quiet u/config 
 

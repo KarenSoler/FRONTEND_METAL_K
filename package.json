@@ -11,6 +11,7 @@
 		"set-components":".\\.github\\tasks\\set-components",
 		"set-config":".\\.github\\tasks\\set-config.bat",
 		"set-feature":".\\.github\\tasks\\set-feature.bat",
+		"set-logic":".\\.github\\tasks\\set-logic.bat",
 		"reset-tree":".\\.github\\tasks\\reset-tree.bat",
 		"get-util":".\\.github\\tasks\\get-utilities.bat",
 		"sync-config":".\\.github\\tasks\\sync-config.bat",
