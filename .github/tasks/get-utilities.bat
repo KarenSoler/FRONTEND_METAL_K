@@ -5,9 +5,9 @@ echo.
 git fetch -a
 
 echo .
-SET /p branch= ^> Nombre de rama objetivo?:
+for /f %%i in ('git branch --show-current') do set branch=%%i
 
-SET /p confirm= ^> Actualizar utilities?(Y/N):
+SET /p confirm= ^> Actualizar los recursos paralelos en esta rama?(Y/N):
 
 if "%confirm%"=="Y" goto pull
 if "%confirm%"=="N" goto cancel
