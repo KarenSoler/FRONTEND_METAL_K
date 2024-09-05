@@ -16,7 +16,7 @@
 		"get-util":".\\.github\\tasks\\get-utilities.bat",
 		"sync-config":".\\.github\\tasks\\sync-config.bat",
 		"sync-styles":".\\.github\\tasks\\sync-styles.bat",
-		"add-components":".\\.github\\tasks\\add-components.bat"
+		"add-component":".\\.github\\tasks\\add-component.bat"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.0",
