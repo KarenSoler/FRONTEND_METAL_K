@@ -34,16 +34,6 @@ SET "trailerList= "
 
 :mkcommit
     git commit -q -m "%commit%" %trailerList%
-
-:valpush
-    SET /p push= ^> Realizar push(Y/N):
-
-    if "%push%"=="Y" goto push
-    if "%push%"=="N" goto cancel
-    if "%confirm%" NEQ "N" if "%confirm%" NEQ "N" echo "Opcion inesperada" && goto askcommit
-
-
-:push
     git push -q origin HEAD
 
 :cancel
