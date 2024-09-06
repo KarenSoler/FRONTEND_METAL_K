@@ -126,11 +126,15 @@
         {#if label}
                 <label class="label" for={id}>
                     {label}
-                    {required && "*"}
+                    {#if (required)}
+                        <span>*</span>
+                    {/if}
                 </label>
         {/if}
         
-        {(required && !label)?"*":""}
+        {#if (required && !label)}
+            <span>"*"</span>
+        {/if}
         <input 
             type="text" 
             {placeholder} 
@@ -148,27 +152,42 @@
     </div>
 
 <style lang='sass'>
-.error
-    color: red
-    font: 1em Nunito
+    .error
+        color: red
+        font: 1em Nunito
 
-label
-    color: black
-    font: 1em Nunito
+        span
+            color: red
 
-input
-    width: 100%
-    padding: 10px
-    margin-bottom: 15px
-    border: 1px solid #ccc
-    border-radius: 4px
-    transition: border-color 0.3s
-    font: 1em Nunito
+    .input
+        
+        width: 100%
 
-    .input:hover
-        border-color: #007BFF
-        outline: none
+        label
+            color: black
+            font: 1em Nunito
 
+        input
+
+            margin-bottom: 5px
+
+            padding: 10px
+            
+            border: 1px solid #ccc
+            border-radius: 4px
+
+            font: 1em Nunito
+            
+            transition: border-color 0.5s ease-in-out
+
+            &:hover
+                border-color: #007BFF
+                outline: none
+
+            &:active
+                border-color: #007BFF
+                outline: none
+                
 
 
 </style>
