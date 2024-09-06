@@ -152,11 +152,11 @@
     color: red
     font: 1em Nunito
 
-.label
+label
     color: black
     font: 1em Nunito
 
-.input
+input
     width: 100%
     padding: 10px
     margin-bottom: 15px
