@@ -124,7 +124,7 @@
 <!-- ? Simple text input -->
     <div class={external} class:input={true} class:error={error}>
         {#if label}
-                <label for={id}>
+                <label class="label" for={id}>
                     {label}
                     {required && "*"}
                 </label>
@@ -148,6 +148,27 @@
     </div>
 
 <style lang='sass'>
-    .error
-        color: red
+.error
+    color: red
+    font: 1em Nunito
+
+.label
+    color: black
+    font: 1em Nunito
+
+.input
+    width: 100%
+    padding: 10px
+    margin-bottom: 15px
+    border: 1px solid #ccc
+    border-radius: 4px
+    transition: border-color 0.3s
+    font: 1em Nunito
+
+    .input:hover
+        border-color: #007BFF
+        outline: none
+
+
+
 </style>
