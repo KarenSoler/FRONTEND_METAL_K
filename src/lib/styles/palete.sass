@@ -2,25 +2,186 @@
 
 :root
     //Same color om both themes
-    --tittle: #6BA9E0   
 
-    //Header
-    --header: #1f201f
+    //Titulos
+    --general-tittle: #6BA9E0   
+
+    //Sub titulo - header
+
+    --sub-header: #f3f2f2
+
+    
 
 @media (prefers-color-scheme: light)
     :root
+        
+        //Header
+        --header: #3f3f3f
+
         //Light theme colors
-        --general-bg:#f0faf7
+
+        --general-bg:#e7ebe1
+
+        //Texto general
+
+        --text: #3a3a3a
+
+        //Titulos
+
+        --tittle: #292929
+
+        //Container (y formularios)
+
+        --container: #edf0e8
+
+        //borde del container
+
+        --border-container: #c7c7c7f6
+
+        //input
         
+        --input: #eff3e9
+
+        //input en hover
+
+        --input-hover: #f2f7eb
+            
+        //border del input
+
+        --input-border: #b6b6b6
+
+        //border-input-hover
         
+        --input-border-hover: #7cb9ee
+
+        //botón
+
+        --button: #6fafe7
+
+
+        //boton habilitado
+
+        --button-hover: #81baec
+
+        //boton deshabilitado
+
+        --button-disabled: #5e92c0b9
+
+
+        //borde del botón
+
+        --button-border: #96a9b1
+
+        //color tag
+
+        --tag: #818d9c
+
+        //color opcion
+        
+        --option: #bdbdbd
+
+        //color opcion borrar
+
+        --delete-option: #F15656
+
+        //icon
+        --icon: #efefef
+       
+
 
 @media (prefers-color-scheme: dark)
     :root
+        
+        //Header
+        --header: #2b2c2b
+
+
         //Dark theme colors 
-        --general-bg:#3D3D3D
+        --general-bg:#353535
+
+        //Texto general
+
+        --text: #f3f2f2
+
+        //Titulos
+
+        --tittle: #FAFAFA
+
+        //Container (y formularios)
+
+        --container: #494949
+        
+        //borde del container
+
+        --border-container: #303030
+
+        //input
+        
+        --input: #535353
+
+        //input en hover
+
+        --input-hover: #5f5f5f
+            
+        //border del input
+
+        --input-border: #3f3f3f
+
+        //border-input-hover
+        
+        --input-border-hover: #69abe4
+
+        //boton activo
+
+        --button: #649ccc
+
+        //boton habilitado
+
+        --button-hover: #71a9db
+        
+        //boton deshabilitado
+
+        --button-disabled: #698ca077
+
+        //borde del botón
+
+        --button-border: #48555e
+        
+        //color tag
+        
+        --tag: #6B727A
+
+        //color opcion
+        
+        --option: #c2c2c2
+
+        //color opcion borrar
+
+        --delete-option: #F15656
+
+        //icon
+        --icon: #efefef
         
 
-
 // ? Asing to a variable each color
-$example:var(--example)
+$general-tittle :var(--general-tittle)
+$header: var(--header)
+$sub-header: var(--sub-header)
+$general-bg:var(--general-bg)
+$tittle: var(--tittle)
+$text: var(--text)
+$container: var(--container)
+$border-container: var(--border-container)
+$input: var(--input)
+$input-hover: var(--input-hover)
+$input-border: var(--input-border)
+$input-border-hover: var(--input-border-hover)
+$button: var(--button)
+$button-hover: var(--button-hover)
+$button-disabled: var(--button-disabled)
+$button-border: var(--button-border)
+$tag: var(--tag)
+$option: var(--option)
+$delete-option: var(--delete-option)
+$icon: var(--icon)
         

@@ -29,14 +29,14 @@
     </header>
     
     <style lang='sass'>
-    @import 'src/app.sass'
-    
+    @use 'src/lib/styles/palete.sass' as palete
+
     header
         position: relative
     
         min-height: 6em
     
-        background: #303030
+        background: palete.$header
     
         .metalK_logo
             position: absolute
@@ -71,6 +71,8 @@
         
             display: flex
             flex-direction: row
+
+          
             
             a
                 display: flex
@@ -83,7 +85,7 @@
         
                 padding: 1em
         
-                background: #303030
+                background: palete.$header
         
                 color: #FFF
         
@@ -93,4 +95,7 @@
                     background: #FFF
         
                     color:#000
+
+    span
+        color: palete.$sub-header
     </style>
