@@ -2,7 +2,7 @@
     let disabled:boolean = true
     let formaction:string = ""
 
-    
+    export {disabled,formaction}
 </script>
 
 <button type="submit" {formaction}>
