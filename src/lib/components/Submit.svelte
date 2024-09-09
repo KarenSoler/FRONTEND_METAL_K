@@ -14,6 +14,8 @@
 </button>
 
 <style lang='sass'>
+    @use 'src/lib/styles/palete.sass' as palete
+
     button
         width: 50%
         height: 40px
@@ -21,15 +23,13 @@
 
         border-radius: 10px
 
-        border: none
-        background: #6D89D6
-
-        color: #ffff
+        border: palete.$button-border
+        background: palete.$button
 
         transition: background 0.5s ease-in-out
 
         &:hover
-            background: #0189FF
+            background: palete.$button-hover
                 
 </style>
 
