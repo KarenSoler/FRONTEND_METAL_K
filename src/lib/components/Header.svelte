@@ -42,6 +42,7 @@
 
 header
     position: relative
+    z-index: 10
 
     min-height: 6em
     height: auto
@@ -78,6 +79,7 @@ header
         position: absolute
         top: 0
         right: 0
+
     
         display: flex
         flex-direction: row
@@ -110,12 +112,12 @@ header
         display: flex
         flex-direction: column
 
-        min-height: 8em
+        padding-top:0.5em
 
         .logo
             position: relative
-            top: 0.5em
             left: 0
+            top: 0
 
             display: flex
             justify-content: left
@@ -158,6 +160,7 @@ header
 
             a
                 height: 3em
+
     span
         color: palete.$sub-header
 </style>
