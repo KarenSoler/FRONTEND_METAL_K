@@ -37,7 +37,8 @@
     
 <style lang='sass'>
 @use '../styles/media' as media
-@import 'src/app.sass'
+@use '../styles/palete' as palete
+
 
 header
     position: relative
@@ -45,7 +46,7 @@ header
     min-height: 6em
     height: auto
 
-    background: #303030
+    background: palete.$header
 
     .logo
         position: absolute
@@ -59,7 +60,7 @@ header
         height: 4em
     
         font-family: Cabin
-    
+
         img
             height: 4em
             width: 4em
@@ -153,7 +154,10 @@ header
 
             display: flex
             justify-content: center
+            flex-direction: row
 
             a
                 height: 3em
+    span
+        color: palete.$sub-header
 </style>
