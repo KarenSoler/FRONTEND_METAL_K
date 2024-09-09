@@ -11,7 +11,7 @@
 
 <main class="main">
     <form class="form-container">
-        <h3>Ingrese sus datos</h3>
+        <h1>Ingrese sus datos</h1>
         <Field 
             name="phone" 
             label="Número de teléfono" 
@@ -34,6 +34,7 @@
 
 <style lang='sass' global>
     @use 'src/lib/styles/media' as media
+    @use 'src/lib/styles/palete' as palete
 
 
     .main
@@ -48,16 +49,11 @@
         height: calc( 100vh - 6em)
 
         font-family: Nunito
-        background-color: #f4f4f4
-        color: #333
 
         @include media.by-max-width(460px)
             top: 7em
             
             height: calc( 100vh - 7em)
-
-    h3
-        color: #6D89D6
 
     .form-container
         display: flex
@@ -74,8 +70,7 @@
 
         padding: 2em
 
-        background: #fefefe
-
+        background: palete.$container
         border-width: 1px
         border-radius: 1em
         border-color: #a0a0a050
