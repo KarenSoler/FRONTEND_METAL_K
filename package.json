@@ -7,19 +7,16 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-<<<<<<< HEAD
-		"push-styles": ".\\.github\\pushes\\push-styles.bat",
-		"push-components": ".\\.github\\pushes\\push-components",
-		"reset-commits": ".\\.github\\pushes\\reset-commits.bat",
-		"push-config": ".\\.github\\pushes\\push-config.bat"
-=======
-		"set-styles":".\\.github\\tasks\\set-styles.bat",
-		"set-components":".\\.github\\tasks\\set-components",
-		"reset-tree":".\\.github\\tasks\\reset-tree.bat",
-		"set-config":".\\.github\\tasks\\set-config.bat",
-		"get-util":".\\.github\\tasks\\get-utilities.bat",
-		"sync-config":".\\.github\\tasks\\sync-config.bat"
->>>>>>> 429bbe6c300058c9f9341b55b49f5987c7dd10cd
+		"set-styles": ".\\.github\\tasks\\set-styles.bat",
+		"set-components": ".\\.github\\tasks\\set-components",
+		"set-config": ".\\.github\\tasks\\set-config.bat",
+		"set-feature": ".\\.github\\tasks\\set-feature.bat",
+		"set-logic": ".\\.github\\tasks\\set-logic.bat",
+		"reset-tree": ".\\.github\\tasks\\reset-tree.bat",
+		"get-util": ".\\.github\\tasks\\get-utilities.bat",
+		"sync-config": ".\\.github\\tasks\\sync-config.bat",
+		"sync-styles": ".\\.github\\tasks\\sync-styles.bat",
+		"add-component": ".\\.github\\tasks\\add-component.bat"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.0",
@@ -40,6 +37,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-spa-router": "^4.0.1"
+		"frontmetalk": "file:"
 	}
 }
