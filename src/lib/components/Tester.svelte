@@ -3,7 +3,7 @@
     export {external as class}
 </script>
 
-<div class:tester={true} class={external}>
+<div class={external} class:tester={true}>
     <slot/>
 </div>
 
