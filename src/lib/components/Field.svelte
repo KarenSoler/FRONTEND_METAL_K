@@ -152,6 +152,7 @@
     </div>
 
 <style lang='sass'>
+    @use 'src/lib/styles/palete.sass' as palete
     .error
         color: red
         font: 1em Nunito
@@ -164,29 +165,41 @@
         width: 100%
 
         label
-            color: black
+            color: palete.$tittle
             font: 1em Nunito
 
         input
 
             margin-bottom: 5px
+            margin-top: 15px
 
             padding: 10px
+
+            background: palete.$input
             
-            border: 1px solid #ccc
+            border: 1px solid palete.$input-border
             border-radius: 4px
 
             font: 1em Nunito
             
-            transition: border-color 0.5s ease-in-out
+            transition: border-color 0.3s ease-in-out
 
             &:hover
-                border-color: #007BFF
+                border-color: palete.$input-border-hover
+                background: palete.$input-hover
                 outline: none
 
+                transition: 1.5s
+
             &:active
-                border-color: #007BFF
+                border-color: palete.$input-border-hover
+                background: palete.$input-hover
                 outline: none
+
+                transition: 1.5s
+
+            &::placeholder
+                color: palete.$placeholder
                 
 
 
