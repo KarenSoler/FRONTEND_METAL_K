@@ -72,7 +72,7 @@
         background: palete.$container
         border-width: 1px
         border-radius: 1em
-        border-color: #a0a0a050
+        border-color: palete.$border-container
         border-style: solid
 
         box-shadow: #a0a0a050 0px 0px 25px 5px
