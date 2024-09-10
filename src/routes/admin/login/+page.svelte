@@ -39,7 +39,7 @@
 
     .main
         position: absolute
-        top: 7em
+        top: 6em
 
         display: flex
         justify-content: center
@@ -49,7 +49,7 @@
         height: calc( 100vh - 6em)
 
         @include media.by-max-width(460px)
-            top: 11em
+            top: 7em
             
             height: calc( 100vh - 7em)
             
