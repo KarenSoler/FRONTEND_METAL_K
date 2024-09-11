@@ -1,0 +1,91 @@
+<script lang='ts'>
+    import Header from "@components/Header.svelte";
+    import Field from "@components/Field.svelte";
+    import Submit from "@components/Submit.svelte";
+    import Modal from "@components/Modal.svelte"; 
+
+
+    let showModal = false; // Estado para controlar si se muestra el modal
+    let modalText = '';    // Texto del modal
+
+    const handleButtonClick = () => {
+        modalText = 'lorem ipsun o lo que sea'; // Mensaje del modal
+        showModal = true; // Mostrar modal
+    };
+
+</script>
+
+
+<header>
+    <Header/>
+</header>
+
+<main class="main">
+    <form class="form-container">
+        <h1>¿Olvidaste tu contraseña?</h1>
+
+        <p>Escribe aquí tu número de telefono asociado a tu cuenta para recordartelo</p>
+        <Field 
+            name="re-pass" 
+            label="Número de teléfono" 
+            placeholder="Ingrese su número de teléfono" 
+            regex={{ pattern: /^[0-9]+$/, message: "Solo se permiten números" }} 
+            required="Este campo es obligatorio" 
+            logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
+        />
+
+        <Submit on:click={handleButtonClick}>Enviar</Submit>
+    </form>
+
+    {#if showModal}
+    <Modal bind:text={modalText} on:close={() => showModal = false} />
+    {/if}
+
+</main>
+
+<style lang='sass' global>
+    @use 'src/lib/styles/media' as media
+    @use 'src/lib/styles/palete' as palete
+
+
+    .main
+        position: absolute
+        top: 6em
+
+        display: flex
+        justify-content: center
+        align-items: center
+
+        width: 100vw
+        height: calc( 100vh - 6em)
+
+        font-family: Nunito
+
+        @include media.by-max-width(460px)
+            top: 7em
+            
+            height: calc( 100vh - 7em)
+
+    .form-container
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+
+        width: 50%
+        max-width: 30em
+        min-width: 20em
+        
+        margin-bottom: 40px
+        gap: 20px
+
+        padding: 2em
+
+        background: palete.$container
+        border-width: 1px
+        border-radius: 1em
+        border-color: #a0a0a050
+        border-style: solid
+
+        box-shadow: #a0a0a050 0px 0px 25px 5px
+</style>
