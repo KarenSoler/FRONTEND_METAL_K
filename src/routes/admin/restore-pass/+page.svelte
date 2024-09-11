@@ -5,13 +5,13 @@
     import Modal from "@components/Modal.svelte"; 
 
 
-    let showModal = false; // Estado para controlar si se muestra el modal
-    let modalText = '';    // Texto del modal
+    let textModal = 'Tu solicitud ha sido enviada'; // Texto del modal
+    let triggerModal = false; // Estado para controlar si el botón fue presionado
 
-    const handleButtonClick = () => {
-        modalText = 'lorem ipsun o lo que sea'; // Mensaje del modal
-        showModal = true; // Mostrar modal
-    };
+    // Función para manejar el clic en el botón de enviar
+    function handleButtonClick() {
+        triggerModal = true;  // Se envía como señal para abrir el modal
+    }
 
 </script>
 
@@ -34,12 +34,12 @@
             logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
         />
 
-        <Submit on:click={handleButtonClick}>Enviar</Submit>
+        <Submit>Enviar</Submit>
+        <button type="button" on:click={handleButtonClick}>Enviar</button>
     </form>
 
-    {#if showModal}
-    <Modal bind:text={modalText} on:close={() => showModal = false} />
-    {/if}
+    <!-- Pasar la señal y el texto al modal -->
+    <Modal {textModal} {triggerModal}/>
 
 </main>
 

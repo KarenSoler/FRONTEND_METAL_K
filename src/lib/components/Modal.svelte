@@ -1,16 +1,26 @@
 <script lang='ts'>
-    export let text = 'Texto';
-    
-    export let close: () => void = () => {};
+    export let textModal = 'Texto';  // Texto personalizado para el modal
+    export let triggerModal = false; // Señal para abrir el modal
 
-    const closeModal = () => { close();} 
+    let showModal = false; // Estado interno para mostrar el modal
+
+    // Función para abrir el modal cuando se recibe la señal
+    $: if (triggerModal) {
+        showModal = true;
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+        showModal = false; // Cerrar el modal
+    }
 </script>
 
-<div class="contenedor">
-    <p>{text}</p> 
-    <button class="modal-button" on:click={closeModal}>Cerrar</button>
-</div>
-
+{#if showModal}
+    <div class="contenedor">
+        <p>{textModal}</p> 
+        <button class="modal-button" on:click={closeModal}>Cerrar</button>
+    </div>
+{/if}
 <style lang='sass'>
 
 @use 'src/lib/styles/palete.sass' as palete
