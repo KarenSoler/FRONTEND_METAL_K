@@ -7,26 +7,32 @@
 
 :root
     // Reset default styling
-    *
-        box-sizing: border-box
+    body
+        *
+            display: inline-block
 
-        margin: 0
+            box-sizing: border-box
 
-        padding: 0
+            margin: 0
+
+            padding: 0
+
+            script, style
+                display: none
     
     // ? Main breack points for responsive
     // font-size to define em
     @include media.by-max-width(460px) 
-        font-size: 14px
+        font-size: 16px
 
     @include media.by-min-width(460px) 
         font-size: 16px
     
     @include media.by-min-width(600px) 
-        font-size: 17px
+        font-size: 18px
     
     @include media.by-min-width(992px) 
-        font-size: 18px
+        font-size: 20px
     
 body
     width: 100vw
@@ -37,6 +43,8 @@ body
     margin: 0
 
     padding: 0
+
+    overflow: hidden
 
 //Unstyling link
 a
