@@ -36,8 +36,8 @@
 </header>
 	
 <style lang='sass'>
-@use '../styles/media' as media
-@use '../styles/palete' as palete
+@use '../../styles/media' as media
+@use '../../styles/palete' as palete
 
 
 header

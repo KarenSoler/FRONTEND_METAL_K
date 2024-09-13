@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import Header from "@components/Header.svelte";
+    import Header from "@components/admin/Header-admin.svelte";
     import Field from "@components/Field.svelte";
     import Submit from "@components/Submit.svelte";
     import Modal from "@components/Modal.svelte"; 

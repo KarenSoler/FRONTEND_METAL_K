@@ -1,6 +1,6 @@
 <script lang='ts'>
     import { writable } from 'svelte/store';
-    import image_list from "../../routes/test/image-admin.json";
+    import image_list from "../../../routes/test/image-admin.json";
 	import editIcon from '$lib/images/edit-icon.svg';
     import deleteIcon from '$lib/images/delete-icon.svg';
 
@@ -38,8 +38,8 @@
 
 
 <style lang='sass'>
-@use '../styles/media' as media
-@use 'src/lib/styles/palete.sass' as palete
+@use '../../styles/media' as media
+@use '../../styles/palete' as palete
 
 
 .image-container
