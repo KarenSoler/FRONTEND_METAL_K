@@ -35,6 +35,7 @@
 
 </header>
     
+<<<<<<< HEAD
 <style lang='sass'>
 @use '../styles/media' as media
 @use '../styles/palete' as palete
@@ -57,12 +58,33 @@ header
         display: flex
         flex-direction: row
         flex-wrap: wrap
+=======
+    <style lang='sass'>
+    @use 'src/lib/styles/palete.sass' as palete
+
+    header
+        position: relative
+>>>>>>> u/styles
     
         height: 4em
     
+<<<<<<< HEAD
         font-family: Cabin
 
         img
+=======
+        background: palete.$header
+    
+        .metalK_logo
+            position: absolute
+            top: 1em
+            left: 2em
+        
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+        
+>>>>>>> u/styles
             height: 4em
             width: 4em
         
@@ -158,9 +180,39 @@ header
             justify-content: center
             flex-direction: row
 
+<<<<<<< HEAD
             a
                 height: 3em
 
     span
         color: palete.$sub-header
 </style>
+=======
+          
+            
+            a
+                display: flex
+        
+                justify-content: center
+                align-items: center
+        
+                height: 6em
+                width: 6em
+        
+                padding: 1em
+        
+                background: palete.$header
+        
+                color: #FFF
+        
+                transition: background 1s ease-in-out
+            
+                &:hover
+                    background: #FFF
+        
+                    color:#000
+
+    span
+        color: palete.$sub-header
+    </style>
+>>>>>>> u/styles

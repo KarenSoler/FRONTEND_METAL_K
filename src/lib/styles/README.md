@@ -19,7 +19,10 @@
 | Hover Input      | `--input-hover`              | #f2f7eb      | Fondo del campo de entrada al pasar el mouse |
 | Borde Input      | `--input-border`             | #b6b6b6      | Borde del campo de entrada       |
 | Hover Borde Input| `--input-border-hover`       | #7cb9ee      | Borde del campo de entrada al pasar el mouse |
+<<<<<<< HEAD
 | Placeholder      |  `--placeholder`             | #7d7d7d      | Texto dentro del Input           | 
+=======
+>>>>>>> u/styles
 | Botón            | `--button`                   | #6fafe7      | Fondo del botón                  |
 | Hover Botón      | `--button-hover`             | #81baec      | Fondo del botón al pasar el mouse |
 | Botón Deshabilitado | `--button-disabled`       | #5e92c0b9    | Fondo del botón deshabilitado    |
@@ -43,7 +46,10 @@
 | Hover Input      | `--input-hover`              | #5f5f5f      | Fondo del campo de entrada al pasar el mouse |
 | Borde Input      | `--input-border`             | #3f3f3f      | Borde del campo de entrada       |
 | Hover Borde Input| `--input-border-hover`       | #69abe4      | Borde del campo de entrada al pasar el mouse |
+<<<<<<< HEAD
 | Placeholder      |  `--placeholder`             | #bdbdbd      | Texto dentro del Input           | 
+=======
+>>>>>>> u/styles
 | Botón            | `--button`                   | #649ccc      | Fondo del botón                  |
 | Hover Botón      | `--button-hover`             | #71a9db      | Fondo del botón al pasar el mouse |
 | Botón Deshabilitado | `--button-disabled`       | #698ca077    | Fondo del botón deshabilitado    |
