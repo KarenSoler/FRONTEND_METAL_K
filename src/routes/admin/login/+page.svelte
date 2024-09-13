@@ -48,12 +48,11 @@
         width: 100vw
         height: calc( 100vh - 6em)
 
-        font-family: Nunito
-
         @include media.by-max-width(460px)
             top: 7em
             
             height: calc( 100vh - 7em)
+            
 
     .form-container
         display: flex
