@@ -162,11 +162,6 @@
 
 <style lang='sass'>
     @use 'src/lib/styles/palete.sass' as palete
-
-    $width: var(--width)
-    $height: var(--height)
-    $color: var(--color)
-    
     .error
         color: red
         font: 1em Nunito
