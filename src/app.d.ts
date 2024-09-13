@@ -9,6 +9,12 @@ declare global {
 		name:string
 		route:string
 	}
+
+	interface ImageModule{
+		id: number
+		img: string
+		tittle: string
+	}
 }
 
 export {};

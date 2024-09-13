@@ -1,7 +1,18 @@
 <script lang='ts'>
-    import Header from "@components/Header.svelte";
+    import Header from "@components/admin/Header-admin.svelte";
     import Field from "@components/Field.svelte";
     import Submit from "@components/Submit.svelte";
+    import Modal from "@components/Modal.svelte"; 
+
+
+    let textModal = 'Tu solicitud ha sido enviada'; // Texto del modal
+    let triggerModal = false; // Estado para controlar si el botón fue presionado
+
+    // Función para manejar el clic en el botón de enviar
+    function handleButtonClick() {
+        triggerModal = true;  // Se envía como señal para abrir el modal
+    }
+
 </script>
 
 
@@ -24,7 +35,11 @@
         />
 
         <Submit>Enviar</Submit>
+        <button type="button" on:click={handleButtonClick}>Enviar</button>
     </form>
+
+    <!-- Pasar la señal y el texto al modal -->
+    <Modal {textModal} {triggerModal}/>
 
 </main>
 

@@ -17,7 +17,9 @@ const config = {
 			base: process.argv.includes('dev') ? '' : process.env.VITE_BASE_URL
 		},
 		alias:{//Fast Routes Access 
-			'@components/*':'src/lib/components/*'
+			'@components/*':'src/lib/components/*',
+			'@admin-components/*':'src/lib/components/admin/*',
+			'@user-components/*':'src/lib/components/user/*'
 		},
 		env:{
 			privatePrefix:'PVE_',
