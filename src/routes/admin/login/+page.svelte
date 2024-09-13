@@ -27,6 +27,7 @@
             placeholder="Ingrese la contraseña" 
             required="Este campo es obligatorio" 
         />
+        <a >¿Ha olvidado su contraseña?</a>
         <Submit>Enviar</Submit>
     </form>
 
@@ -58,6 +59,7 @@
         display: flex
         justify-content: center
         align-items: center
+        flex-direction: column
         flex-wrap: wrap
 
         width: 50%

@@ -27,6 +27,14 @@
         //@ts-ignore
         value.set(input.value)
     }
+
+    //Catching first click
+    
+
+    function firstClickHandler(){
+        touched=(!touched)?(true):(true)
+    }
+
     //Validations centralizer
     function validater(value:string){
         console.log(value)
@@ -106,7 +114,7 @@
     //Setting id
     $:if(!id) id = name
 
-    $: validater($value)
+    $: if(touched) validater($value)
 
 //Props
     export{
@@ -143,6 +151,7 @@
             {name}
             value = {$value}
             on:input={update}
+            on:blur={firstClickHandler}
         />
         {#if error?.message}
             <span>
@@ -153,11 +162,6 @@
 
 <style lang='sass'>
     @use 'src/lib/styles/palete.sass' as palete
-
-    $width: var(--width)
-    $height: var(--height)
-    $color: var(--color)
-    
     .error
         color: red
         font: 1em Nunito
@@ -205,7 +209,4 @@
 
             &::placeholder
                 color: palete.$placeholder
-                
-
-
 </style>
