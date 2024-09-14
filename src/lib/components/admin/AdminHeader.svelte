@@ -37,7 +37,7 @@
 	
 <style lang='sass'>
 @use 'src/lib/styles/media' as media
-@use 'src/lib/styles/admi-palete' as palete
+@use 'src/lib/styles/admin/palete' as palete
 
 
 header
@@ -77,6 +77,10 @@ header
 	
 			color: palete.$contrast-ol
 			font-family: Cabin
+
+			h1
+				font-size: 2.2em
+				color: palete.$hight-primary
 			
 		
 	.menu

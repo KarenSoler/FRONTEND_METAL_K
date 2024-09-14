@@ -27,12 +27,12 @@
 
 <style lang='sass' global>
     @use 'src/lib/styles/media' as media
-    @use 'src/lib/styles/palete' as palete
+    @use 'src/lib/styles/admin/palete' as palete
+    @use 'src/lib/styles/admin/elements' as elements
 
 
     main
-        position: absolute
-        top: 6em
+        position: relative
 
         display: flex
         justify-content: center
@@ -42,31 +42,31 @@
         height: calc( 100vh - 6em)
 
         @include media.by-max-width(460px)
-            top: 7em
             height: calc( 100vh - 7em)
             
 
-    .form-container
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-direction: column
-        flex-wrap: wrap
+        .form-container
+            @include elements.section()
 
-        width: 50%
-        max-width: 30em
-        min-width: 20em
-        
-        margin-bottom: 40px
-        gap: 20px
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            flex-wrap: wrap
 
-        padding: 2em
+            width: 50%
+            max-width: 30em
+            min-width: 20em
+            
+            margin-bottom: 40px
+            gap: 20px
 
-        background: palete.$container
-        border-width: 1px
-        border-radius: 1em
-        border-color: palete.$border-container
-        border-style: solid
+            padding: 2em
 
-        box-shadow: #a0a0a050 0px 0px 25px 5px
+            input 
+                color: palete.$text
+
+            a
+                @include elements.text-link()
+
 </style>

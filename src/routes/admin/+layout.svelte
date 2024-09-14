@@ -15,6 +15,7 @@ import AdminHeader from '@admin-components/AdminHeader.svelte'
 <slot/>
 
 <style lang='sass'>
+@use 'src/lib/styles/admin/palete.sass' as palete
 //Imports
 
 //Variables
