@@ -1,15 +1,8 @@
 <script lang='ts'>
-    import Header from "@components/Header.svelte";
     import Field from "@components/Field.svelte";
     import Submit from "@components/Submit.svelte";
 </script>
-
-
-<header>
-    <Header/>
-</header>
-
-<main class="main">
+<main>
     <form class="form-container">
         <h1>Ingrese sus datos</h1>
         <Field 
@@ -30,7 +23,6 @@
         <a >¿Ha olvidado su contraseña?</a>
         <Submit>Enviar</Submit>
     </form>
-
 </main>
 
 <style lang='sass' global>
@@ -38,7 +30,7 @@
     @use 'src/lib/styles/palete' as palete
 
 
-    .main
+    main
         position: absolute
         top: 6em
 
@@ -51,7 +43,6 @@
 
         @include media.by-max-width(460px)
             top: 7em
-            
             height: calc( 100vh - 7em)
             
 
