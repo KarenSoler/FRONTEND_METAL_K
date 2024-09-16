@@ -1,15 +1,8 @@
 <script lang='ts'>
-    //Imports
     
-    //States
     
-    //Functions
     
-    //Rective
-    
-    //Props
-    
-    </script>
+</script>
     
     html_here
     

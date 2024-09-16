@@ -27,7 +27,7 @@
             placeholder="Ingrese la contraseña" 
             required="Este campo es obligatorio" 
         />
-        <a >¿Ha olvidado su contraseña?</a>
+        <p>¿Ha olvidado su contraseña?</p>
         <Submit>Enviar</Submit>
     </form>
 

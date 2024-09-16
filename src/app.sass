@@ -7,18 +7,30 @@
 
 :root
     // Reset default styling
-    body
-        *
-            display: inline-block
+    *
+        box-sizing: border-box
 
-            box-sizing: border-box
+        margin: 0
 
-            margin: 0
+        padding: 0
 
-            padding: 0
+        script, style
+            display: none
+        
+    
+   
 
-            script, style
-                display: none
+        /* Track */
+        &::-webkit-scrollbar-track 
+            box-shadow: inset 0 0 5px #141414
+            border-radius: 10px
+        
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb 
+            background: #6e6e6e
+            border-radius: 10px
+
     
     // ? Main breack points for responsive
     // font-size to define em
@@ -38,7 +50,7 @@ body
 
     padding: 0
 
-    overflow: hidden
+    overflow-x: hidden
 
 //Unstyling link
 a
@@ -70,6 +82,5 @@ h5
 
 p,span,input,label,select,option,textarea,button,a
     font: 1em Quicksand
-    color: palete.$text
 
 
