@@ -22,27 +22,23 @@
 
 <style lang='sass' global>
 @use 'src/lib/styles/palete' as palete
+@use 'src/lib/styles/admin/elements' as elements
 
 .form-container
+    @include elements.section()
+    @include elements.center-form()
+
     display: flex
     justify-content: center
     align-items: center
     flex-wrap: wrap
+    gap: 20px
 
     width: 50%
     max-width: 30em
     min-width: 20em
     
     margin-bottom: 40px
-    gap: 20px
 
     padding: 2em
-
-    background: palete.$container
-    border-width: 1px
-    border-radius: 1em
-    border-color: #a0a0a050
-    border-style: solid
-
-    box-shadow: #a0a0a050 0px 0px 25px 5px
 </style>

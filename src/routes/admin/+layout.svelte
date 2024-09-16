@@ -14,7 +14,6 @@ import AdminHeader from '@admin-components/AdminHeader.svelte'
 <AdminHeader/>
 <main>
     <slot/>
-
 </main>
 
 <style lang='sass'>
@@ -30,7 +29,7 @@ main
     top: 6em
 
     display: flex
-    justify-content: center
+    justify-content: start
     align-items: center
 
     width: 100vw

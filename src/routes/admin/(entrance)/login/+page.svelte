@@ -31,6 +31,7 @@
 
 .form-container
     @include elements.section()
+    @include elements.center-form()
 
     display: flex
     justify-content: center
