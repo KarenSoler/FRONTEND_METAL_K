@@ -41,7 +41,9 @@
 
 
 header
-	position: relative
+	position: sticky
+	top:0
+	right: 0
 	z-index: 10
 
 	width: 100vw
@@ -103,7 +105,6 @@ header
 			height: 6em
 			width: 6em
 	
-			padding: 1em
 	
 			background: palete.$main-ol
 	
@@ -128,6 +129,7 @@ header
 	@include media.by-max-width(460px)
 		display: flex
 		flex-direction: column
+		align-items: center
 
 		padding-top:0.5em
 
@@ -175,7 +177,14 @@ header
 			justify-content: center
 			flex-direction: row
 
+			width: fit-content
+			height: min-content
+
 			a
-				height: 3em
+				height: min-content
+
+				padding: 0.5em 1em
+
+				font-size: 0.8em
 
 </style>

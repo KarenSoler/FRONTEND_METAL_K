@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="71.982224mm"
+   height="70.065865mm"
+   viewBox="0 0 71.982224 70.065864"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="metalK_logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   sodipodi:docname="metalK_logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="-52.500153"
+       originy="-144.99992"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-52.500154,-144.99993)">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:7.64121;stroke-linecap:round;stroke-linejoin:round"
+       d="m 59.34239,144.99999 v 70 l -6.842236,-1.9e-4 v -69.99987 z"
+       id="path1"
+       inkscape:export-filename="metalK_logo_w.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:7.99999;stroke-linecap:round;stroke-linejoin:round"
+       d="m 60.000001,144.99999 17.500178,-6e-5 v 16.80105 L 97.825551,145.2702 h 13.315989 l -29.370305,24.72979 v 9.98696 l 42.686285,35.01285 -16.76021,1.9e-4 -30.073374,-25 -0.123757,24.99981 -17.500178,1.9e-4 z"
+       id="path2" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:7.99999;stroke-linecap:round;stroke-linejoin:round"
+       d="m 82.608237,179.33595 0.093,-9.33596 29.742303,-24.72979 12.03884,-0.27027 z"
+       id="path3"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:7.65807;stroke-linecap:round;stroke-linejoin:round"
+       d="m 112.34886,157.55956 12.13352,-9.95243 v 64.74083 l -12.03884,-9.67365 z"
+       id="path4"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:8.00001;stroke-linecap:round;stroke-linejoin:round"
+       d="m 97.800696,190.76866 13.340914,10.78965 0.0996,-43.25475 L 98.000003,169 Z"
+       id="path5" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:7.99999;stroke-linecap:round;stroke-linejoin:round"
+       d="m 78.390504,191.37903 0.08948,7.64973 19.345564,15.97104 9.016872,0.066 z"
+       id="path6"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

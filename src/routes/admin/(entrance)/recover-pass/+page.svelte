@@ -1,10 +1,13 @@
 <script lang='ts'>
     import Field from "@components/Field.svelte";
     import Submit from "@components/admin/Submit.svelte";
+
 </script>
 
 <form class="form-container">
-    <h1>Ingrese sus datos</h1>
+    <h1>¿Olvidaste tu contraseña?</h1>
+
+    <p>Escribe aquí tu número de telefono asociado a tu cuenta para recordartelo</p>
     <Field 
         name="phone" 
         label="Número de teléfono" 
@@ -14,28 +17,16 @@
         logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
     />
 
-    <Field 
-        name="password" 
-        label="Contraseña" 
-        placeholder="Ingrese la contraseña" 
-        required="Este campo es obligatorio" 
-    />
-    <a href="/admin/recover-pass">¿Ha olvidado su contraseña?</a>
     <Submit>Enviar</Submit>
 </form>
 
 <style lang='sass' global>
-@use 'src/lib/styles/media' as media
-@use 'src/lib/styles/admin/palete' as palete
-@use 'src/lib/styles/admin/elements' as elements
+@use 'src/lib/styles/palete' as palete
 
 .form-container
-    @include elements.section()
-
     display: flex
     justify-content: center
     align-items: center
-    flex-direction: column
     flex-wrap: wrap
 
     width: 50%
@@ -47,10 +38,11 @@
 
     padding: 2em
 
-    input 
-        color: palete.$text
+    background: palete.$container
+    border-width: 1px
+    border-radius: 1em
+    border-color: #a0a0a050
+    border-style: solid
 
-    a
-        @include elements.text-link()
-
+    box-shadow: #a0a0a050 0px 0px 25px 5px
 </style>

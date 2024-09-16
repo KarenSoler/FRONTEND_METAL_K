@@ -1,0 +1,15 @@
+@keyframes wave-click 
+    0%
+        background: green
+    100%
+        background: red   
+
+
+@mixin wave-click()
+    animation-name: wave-click
+    animation-duration: 2s
+    animation-composition: replace
+    
+    &:hover
+        animation-direction: normal
+    

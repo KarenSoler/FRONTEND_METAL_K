@@ -1,4 +1,6 @@
 @use 'src/lib/styles/admin/palete' as palete
+@use 'src/lib/styles/media' as media
+@use 'sass:math'
 
 @mixin section()
     background: palete.$section-bg
@@ -30,6 +32,8 @@
 @mixin form-button()
     background: palete.$touch-able
 
+    border: unset
+
     cursor: pointer 
 
     transition: background 1s ease-in-out
@@ -42,5 +46,7 @@
     &:active
         background: palete.$touch-active
 
+@mixin dinamic-grid()
+    @include media.by-min-width(45)
 
 
