@@ -51,12 +51,14 @@ header
 	
 	margin-left: 1em
         
-	color: #E0E0E0
+	color: palete.$u-sub-header
 	font-family: Cabin
 
 h1
 	margin: 0
 	text-align: center
-	color: #f3f2f2
+	color: palete.$u-sub-header
+	padding-top: 35px
+
 
 </style>

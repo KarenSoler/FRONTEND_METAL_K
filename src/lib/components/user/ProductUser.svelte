@@ -19,17 +19,8 @@
             <figure class="image-item">
                 <img class="image-product" src={image.img} alt={image.tittle}>
             </figure>
-    
-            <!-- Opción de editar -->
-            <div class="circle edit">
-                <img class="icon edit" src={editIcon} alt="edit">
-            </div>
-            <!-- Opción de eliminar -->
-            <div class="circle delete">
-                <img class="icon delete" src={deleteIcon} alt="delete">
-            </div>
         </div>
-    {/each}
+        {/each}
         
     </div>
 {/if}
@@ -44,44 +35,22 @@
 
 .image-container
     position: relative
-    width: 15em
-    height: 15em
+    width: 12em
+    height: 13em
     display: inline-block
 
 figure
-    width: 15em
-    height: 15em
-    padding: 20px
+    width: 13em
+    height: 13em
 
 .image-product
-    border-radius: 15px
-    width: 100%
-    height: 100%
-    border: 2px solid palete.$border-container
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)
+    border-radius: 8px
+    width: 75%
+    height: 75%
+    border: 0.3px solid palete.$border-container
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7)
 
-.circle
-    position: absolute
-    border-radius: 50%
-    width: 45px
-    height: 45px
-    display: flex
-    align-items: center
-    justify-content: center
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)
 
-    &.edit
-        background: palete.$option
-        top: 7px
-        left: 54% 
 
-    &.delete
-        background: palete.$delete-option
-        top: 7px
-        left: 73%
-
-.icon
-    width: 50%
-    height: 50%
 
 </style>
