@@ -1,0 +1,269 @@
+
+//TODO: -----USER-----
+
+
+:root
+    //* Same color on both themes
+
+    //*Titulos
+    --u-general-title: #4294db   
+
+    //*Background de Header
+    --u-header: #23538F
+
+    //Titulo - header
+
+    --sub-header: #f3f2f2
+    
+    --u-form-icon: #447fc7
+    
+
+
+@media (prefers-color-scheme: light)
+    :root
+        
+
+        //*Light theme colors
+
+        --u-general-bg:#e7ebe1
+
+        //*Texto general
+
+        --u-text: #3a3a3a
+
+        //*Titulos
+
+        --u-title: #292929
+
+        //*Container (y formularios)
+
+        --u-container: #edf0e8
+
+        //*borde del container
+
+        --u-border-container: #c7c7c7f6
+
+        //*input
+        
+        --u-input: #eff3e9
+
+        //*input en hover
+
+        --u-input-hover: #f2f7eb
+            
+        //*border del input
+
+        --u-input-border: #a9a9a9
+
+        //*border-input-hover
+        
+        --u-input-border-hover: #7cb9ee
+
+        //*placeholder
+
+        --u-placeholder: #7d7d7d
+
+        //*botón
+
+        --u-button: #4f9cdf
+
+
+        //*boton habilitado
+
+        --u-button-hover: #6fafe7
+
+        //*boton deshabilitado
+
+        --u-button-disabled: #5e92c0b9
+
+
+        //*borde del botón
+
+        --u-button-border: #96a9b1
+
+        //*color tag
+
+        --u-tag: #818d9c
+
+        //*color tag en hover
+
+        --u-tag-hover: #99a2ad
+
+        //*color del tag cuando ha sido seleccionado
+
+        --u-tag-select: #3F77AC
+
+
+        //*color opcion
+        
+        --u-option: #bdbdbd
+
+        //*icon
+        --u-icon: #efefef
+
+
+
+
+
+
+        //*Contenedor de productos
+
+        --u-products-bg: #a7bac79d
+        //*Contenedor de filtros
+
+        --u-filter-option: #dae0e6e1
+
+
+
+    
+        
+
+    //*--Estilos de la personalización--
+
+        //*Contenedor de la Tarjeta colapsable
+        --u-collapsible-container: #F2F6FF
+
+        //*Tarjeta colapsable
+        --u-collapsible-card: #DBE5FF
+
+        //*los iconos en el formulario
+        --u-form-icon: #447fc7
+
+
+       
+
+
+@media (prefers-color-scheme: dark)
+    :root
+        
+        //*Header
+        --u-header: #366aa8
+
+
+        //*Dark theme colors 
+        --general-bg:#353535
+
+        //*Texto general
+
+        --u-text: #f3f2f2
+
+        //*Titulos
+
+        --u-title: #FAFAFA
+
+        //*Container (y formularios)
+
+        --u-container: #494949
+        
+        //*borde del container
+
+        --u-border-container: #303030
+
+        //*input
+        
+        --u-input: #535353
+
+        //*input en hover
+
+        --u-input-hover: #5f5f5f
+            
+        //*border del input
+
+        --u-input-border: #3f3f3f
+
+        //*border-input-hover
+        
+        --u-input-border-hover: #69abe4
+
+        //*placeholder
+
+        --u-placeholder: #bdbdbd
+
+        //*boton activo
+
+        --u-button: #649ccc
+
+        //*boton habilitado
+
+        --u-button-hover: #71a9db
+        
+        //*boton deshabilitado
+
+        --u-button-disabled: #698ca077
+
+        //*borde del botón
+
+        --u-button-border: #48555e
+        
+        //*color tag
+        
+        --u-tag: #798088
+
+        //*color tag
+
+        --u-tag-hover: #909ba8
+
+        //*color del tag cuando ha sido seleccionado
+
+        --u-tag-select: #3F77AC
+
+        //*color opcion
+        
+        --u-option: #c2c2c2
+
+        //*icon
+        --u-icon: #efefef
+
+        
+
+
+        //*Contenedor de productos
+
+        --u-products-bg: #cfe1eea6
+
+        //*Contenedor de filtros
+
+        --u-filter-option: #bec6ccea
+
+
+
+    
+        //*--Estilos de la personalización--
+
+        //*Contenedor de la Tarjeta colapsable
+        --u-collapsible-container: #787f91
+
+        //*Tarjeta colapsable
+        --u-collapsible-card: #8791aa
+
+        //*los iconos en el formulario
+        --u-form-icon: #447fc7
+        
+
+        
+
+// ? Asing to a variable each color
+$u-general-title :var(--u-general-title)
+$u-header: var(--u-header)
+$u-sub-header: var(--u-sub-header)
+$u-general-bg:var(--u-general-bg)
+$u-title: var(--u-tittle)
+$u-text: var(--u-text)
+$u-container: var(--u-container)
+$u-border-container: var(--u-border-container)
+$u-input: var(--u-input)
+$u-input-hover: var(--u-input-hover)
+$u-input-border: var(--u-input-border)
+$u-input-border-hover: var(--u-input-border-hover)
+$u-placeholder: var(--u-placeholder)
+$u-button: var(--u-button)
+$u-button-hover: var(--u-button-hover)
+$u-button-disabled: var(--u-button-disabled)
+$u-button-border: var(--u-button-border)
+$u-tag: var(--u-tag)
+$u-option: var(--u-option)
+$u-delete-option: var(--u-delete-option)
+$u-form-icon: var(--u-form-icon)
+$u-modal-bg: var(--u-modal-bg)
+$u-products-bg: var(--u-products-bg)
+$u-filter-option: var(--u-filter-option)

@@ -12,8 +12,16 @@ declare global {
 
 	interface ImageModule{
 		id: number
-		img: string
-		tittle: string
+		route: string[] | string,
+		category: string,
+		price: double,
+		time: number,
+		tags: sting
+	}
+
+	interface CategoryModule{
+		id: number
+		name: string
 	}
 }
 

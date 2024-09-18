@@ -9,7 +9,7 @@
     
     //Props
     
-    </script>
+</script>
     
     html_here
     
