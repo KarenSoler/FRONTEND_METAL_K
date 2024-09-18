@@ -1,8 +1,8 @@
 <script lang='ts'>
     import { writable } from 'svelte/store';
     import image_list from "../../../lib/jsons/imageUser.json";
-    import { files } from '$service-worker';
 
+    let focus = false
     let images:Array<ImageModule> = image_list.images.map((image)=> {
         return image;  // Cierra correctamente la función de retorno
     })
@@ -18,10 +18,9 @@
     }
 
 
-    let focus = false
 </script>
 
-<!-- Tarjeta/Imagen de producto -->
+<!-- Tarjeta/Imagen de producto --><div>
 {#if images.length != 0}
         {#each images as image}
         <!-- <div class="image-space-container"> -->
@@ -49,7 +48,7 @@
         <!-- </div> -->
         {/each}
 {/if}
-
+</div>
 
 
 <style lang='sass'>
@@ -106,7 +105,7 @@ figure
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7)
     z-index: 10
 
-    &.expanded
+    & .expanded
         shadow:none
 
     
