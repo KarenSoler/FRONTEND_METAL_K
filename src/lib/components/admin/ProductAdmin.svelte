@@ -8,9 +8,9 @@
 
 <!-- Targeta/Imagen de producto -->
 <div class="image-container">
-    <figure class="image-item">
+    <picture class="image-item">
         <img class="image-product" src={'https://th.bing.com/th/id/OIP.TONvJ9GlXR_HE9J7gyh6ugHaFj?rs=1&pid=ImgDetMain'} alt={'a'}>
-    </figure>
+    </picture>
     <div class='product-options'>
         <!-- Opción de editar -->
         <div class="circle edit">
@@ -40,7 +40,7 @@
 
     overflow: visible
 
-    figure
+    picture
         width: 100%
         height: 100%
         padding: 1em

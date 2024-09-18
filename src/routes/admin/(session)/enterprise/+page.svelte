@@ -14,13 +14,13 @@
 </script>
 
 <form class='enterprise-form'>
-    <ImageSelector/>
-
+    <ImageSelector unique/>
 </form>
 
 <style lang='sass'>
 //Imports
 @use 'src/lib/styles/admin/elements' as elements
+@use 'src/lib/styles/media' as media
 //Variables
 
 //Styles
@@ -29,7 +29,12 @@
     @include elements.center-form()
 
     display: grid
-    grid-template-columns: 10em
+    grid-template-columns:  16em 4em
+
+    width: 80%
+    height: 90%
+
+    padding: 2em
 
 
 </style>

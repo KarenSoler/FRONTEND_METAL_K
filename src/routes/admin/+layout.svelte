@@ -38,8 +38,8 @@ main
     font-family: Nunito
 
     @include media.by-max-width(460px)
-        top: 7em
+        top: 9em
         
-        height: calc( 100vh - 7em)
+        height: calc( 100vh - 10em)
 
 </style>
