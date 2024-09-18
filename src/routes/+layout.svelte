@@ -6,5 +6,5 @@
 <slot />
 
 <style lang="sass">
-	@import src\app.sass
+@import src\app.sass
 </style>

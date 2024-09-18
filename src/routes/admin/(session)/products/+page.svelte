@@ -15,7 +15,7 @@
 <!-- <Modal>
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem cum animi nostrum dignissimos alias exercitationem, excepturi nobis quae, delectus dolorum provident. Natus ut illum eum dolore optio magni eos ullam!
 </Modal> -->
-<h1>Productos</h1>
+<h1 class="product-title">Productos</h1>
 <div class='product-grid'>
     <ProductAdmin/>
     <ProductAdmin/>
@@ -54,7 +54,7 @@
 </div>
     
     
-<style lang='sass'>
+<style lang='sass' global>
 //Imports 
 @use 'src/lib/styles/admin/palete' as palete
 @use 'src/lib/styles/admin/elements' as elements
@@ -64,20 +64,20 @@
 $columns: math.floor(math.div(100vw,5px))
 
 //Styles
-// main
-//     position: relative
+main
+    position: relative
 
-//     display: flex
-//     flex-direction: column
-//     align-items: center
-//     justify-content: start
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: start
 
-//     width: 100vw
-//     height: auto
+    width: 100vw
+    height: auto
 
-//     background: palete.$general-bg
+    background: palete.$general-bg
 
-h1
+.product-title
     width: 100%
     height: 2em
     

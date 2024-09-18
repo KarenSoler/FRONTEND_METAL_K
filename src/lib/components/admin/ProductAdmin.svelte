@@ -55,8 +55,8 @@
 
     .product-options
         position: absolute
-        top:0
-        right: 0em
+        top: 0
+        right: 0
 
         display: flex
         gap: 0.2em

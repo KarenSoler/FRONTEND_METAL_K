@@ -10,18 +10,45 @@ declare global {
 		route:string
 	}
 
-	interface ImageModule{
+	interface Product{
 		id: number
-		route: string[] | string,
-		category: string,
+		images: string[],
+		category: int,
 		price: double,
 		time: number,
-		tags: sting
+		tags: int[]
 	}
 
-	interface CategoryModule{
-		id: number
-		name: string
+	interface Tags{
+		id: int 
+		titel: string
+		description: string
+		group: int
+	}
+
+	interface TagsGroups{
+		id:int
+		title: string
+		description: string
+		icon: string
+		tags: Tags[]
+	}
+
+	interface Category{
+		id:int
+		name:string
+		description: string
+		icon: string
+	}
+
+	interface Solicitude{
+		id?:int
+		date: string
+		planes?: Blob[]
+		technicalVisit: boolean
+		address: string
+		longitude: string
+		latitude: string
 	}
 }
 
