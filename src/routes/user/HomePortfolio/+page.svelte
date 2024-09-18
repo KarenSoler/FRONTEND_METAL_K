@@ -35,9 +35,9 @@
             <button type="button" class="category-option"><h2>Todos los productos ⯯</h2></button>
         </div>
         <div class="product-container">
-            <figure class="product-image">
+            <!-- <figure class="product-image">  -->
                 <ProductAdmin/>
-            </figure>
+          <!-- </figure>  -->
         </div>
     </div>
     
@@ -159,6 +159,7 @@ main
 .product-container
     background: palete.$u-products-bg
     display: grid
+    grid-template-columns: repeat(4, 10em)
     grid-gap: 20px
     width: 85vw
     margin: 0 auto //para que este centrado
@@ -168,9 +169,8 @@ main
     padding: 60px 60px 60px 10vw
     z-index:1
 
-.product-image
-    padding: 20px
-    justify-content: center
+   
+
     
   
 </style>

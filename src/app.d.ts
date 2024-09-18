@@ -12,7 +12,7 @@ declare global {
 
 	interface ImageModule{
 		id: number
-		route: string,
+		route: string[] | string,
 		category: string,
 		price: double,
 		time: number,
