@@ -32,7 +32,7 @@
         </div>
 
         <div class="filter-option">
-            <h2>Todos los productos ⯯</h2>
+            <button type="button" class="category-option"><h2>Todos los productos ⯯</h2></button>
         </div>
         <div class="product-container">
             <figure class="product-image">
@@ -142,10 +142,19 @@ main
     box-shadow: rgba(10, 10, 10, 0.5) 0px 15px 20px 0px  
     z-index:10
 
-    h2
-        color: palete.$u-header
-        text-align: center
+    .category-option
+        background: none
+        border: none
+        display: block
+        margin: 0 auto
+
+        &:hover
+            cursor: pointer
         
+        h2
+            color: palete.$u-header
+            text-align: center
+            
 
 .product-container
     background: palete.$u-products-bg
