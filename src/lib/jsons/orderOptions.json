@@ -1,20 +1,175 @@
 {
-    "categories":{
-        "portones":{
-            "grouptags":{
-                "1":["1","2"]
+    "categories":[
+            {
+                "name":"portones",
+                "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "sections":{
+                    "1":[1,3,4],
+                    "2":[5,6,7],
+                    "5":[13,14,15]
+                },
+                "icon":""
+            },
+            {
+                "name":"ventanas",
+                "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "sections":{
+                    "1":[1,2,3,4],
+                    "3":[8,9],
+                    "5":[13,14,16],
+                    "6":[17,18,19]
+                },
+                "icon":""
+            },
+            {
+                "name":"materas",
+                "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "sections":{
+                    "1":[1,2,3,4],
+                    "4":[10,11,12],
+                    "6":[17,18,19,20]
+                },
+                "icon":""
             }
-        },
-        "vantanas":{
-
-        },
-        "materas":{
-
-        }
-    },
+    ],
     "tags":[
         {
-            "pintura"
+            "id":1,
+            "title":"Compresor",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":2,
+            "title":"Electrostatica",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":3,
+            "title":"Aerosol",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":4,
+            "title":"Brocha",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":5,
+            "title":"Generica",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":6,
+            "title":"Seguridad",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":7,
+            "title":"Pasador",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":8,
+            "title":"Martillado",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":9,
+            "title":"Liso",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":10,
+            "title":"Libre",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":11,
+            "title":"Movil",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":12,
+            "title":"Vertical",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":13,
+            "title":"Corrediza",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":14,
+            "title":"Enbisagrada",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":15,
+            "title":"Piboteada",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":16,
+            "title":"Inclinada",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":17,
+            "title":"Circular",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":18,
+            "title":"Rectangular",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":19,
+            "title":"De encaje",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "id":20,
+            "title":"Otro",
+            "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+    ],
+    "tagGroups":[
+        {
+            "id":1,
+            "title":"Pintura",
+            "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "icon":""
+        },
+        {
+            "id":2,
+            "title":"Cerradura",
+            "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "icon":""
+        },
+        {
+            "id":3,
+            "title":"Vidrio",
+            "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "icon":""
+        },
+        {
+            "id":4,
+            "title":"Instalacion",
+            "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "icon":""
+        },
+        {
+            "id":5,
+            "title":"Apertura",
+            "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "icon":""
+        },
+        {
+            "id":6,
+            "title":"Forma",
+            "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "icon":""
         }
     ]
 }

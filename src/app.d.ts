@@ -23,7 +23,6 @@ declare global {
 		id: int 
 		titel: string
 		description: string
-		group: int
 	}
 
 	interface TagsGroups{
