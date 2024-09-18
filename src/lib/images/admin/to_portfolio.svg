@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="73.000244mm"
+   height="77.994789mm"
+   viewBox="0 0 73.000244 77.994789"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="-192.75496"
+       originy="-306.14922"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-50.999749,-81.001981)">
+    <path
+       id="path1"
+       style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:round;stroke-dasharray:none"
+       transform="rotate(45)"
+       d="m 183.49181,21.21294 c 0,14.156179 -8.52748,26.918449 -21.60608,32.335784 C 148.80713,58.96606 133.753,55.971608 123.74307,45.961677 113.73314,35.951748 110.73869,20.897624 116.15602,7.8190196 121.57336,-5.2595861 134.33563,-13.787063 148.49181,-13.78706"
+       sodipodi:nodetypes="csssc" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:7.99999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 80,119.99999 h 25 15 L 105,105"
+       id="path2" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:7.99999;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 120,119.99999 105,135"
+       id="path3" />
+  </g>
+</svg>

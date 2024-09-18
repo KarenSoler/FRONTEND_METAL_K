@@ -36,18 +36,21 @@
 </header>
 	
 <style lang='sass'>
-@use '../../styles/media' as media
-@use '../../styles/palete' as palete
+@use 'src/lib/styles/media' as media
+@use 'src/lib/styles/admin/palete' as palete
 
 
 header
-	position: relative
+	position: sticky
+	top:0
+	right: 0
 	z-index: 10
 
+	width: 100vw
 	min-height: 6em
 	height: auto
 
-	background: palete.$header
+	background: palete.$main-ol
 
 	.logo
 		position: absolute
@@ -67,23 +70,32 @@ header
 			width: 4em
 		
 		.dashboard_title
+			display: flex
+			flex-direction: column
+
 			height: max-content
 	
 			margin-left: 1em
 	
-			color: #E0E0E0
+			color: palete.$contrast-ol
 			font-family: Cabin
+
+			h1
+				font-size: 2.2em
+				color: palete.$hight-primary
 			
 		
 	.menu
 		position: absolute
 		top: 0
 		right: 0
-
 	
 		display: flex
 		flex-direction: row
-		
+
+		gap: 0.1em
+
+		background: linear-gradient(palete.$main-ol 10%,palete.$secondary-ol 50%,palete.$main-ol 90%)
 		a
 			display: flex
 	
@@ -93,24 +105,31 @@ header
 			height: 6em
 			width: 6em
 	
-			padding: 1em
 	
-			background: #303030
+			background: palete.$main-ol
 	
-			color: #FFF
+			color: palete.$contrast-ol
 			font-family: Nunito
 	
 			transition: background 1s ease-in-out, color 1s ease-in-out
 		
 			&:hover
-				background: #FFF
-	
-				color:#000
+				background: palete.$hover-ol
+
+				color: palete.$contrast-ol
+
+				transition: background 0.5s ease-in-out, color 0.5s ease-in-out
+			
+			&:active 
+				background: palete.$active-ol
+				
+				color: palete.$uncontrast-ol
 
 	//Responsive for mobile
 	@include media.by-max-width(460px)
 		display: flex
 		flex-direction: column
+		align-items: center
 
 		padding-top:0.5em
 
@@ -158,9 +177,14 @@ header
 			justify-content: center
 			flex-direction: row
 
-			a
-				height: 3em
+			width: fit-content
+			height: min-content
 
-	span
-		color: palete.$sub-header
+			a
+				height: min-content
+
+				padding: 0.5em 1em
+
+				font-size: 0.8em
+
 </style>

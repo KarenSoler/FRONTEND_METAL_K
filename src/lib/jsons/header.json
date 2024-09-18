@@ -1,4 +1,13 @@
 {
     "modules":[
+        {
+            "name":"/",
+            "route":""
+        },
+        
+        {
+            "name":"aa",
+            "route":""
+        }
     ]
 }

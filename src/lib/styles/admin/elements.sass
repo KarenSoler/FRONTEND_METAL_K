@@ -1,0 +1,59 @@
+@use 'src/lib/styles/admin/palete' as palete
+@use 'src/lib/styles/media' as media
+@use 'sass:math'
+
+@mixin section()
+    background: palete.$section-bg
+
+    border-color: palete.$section-border
+    border-width: 2px
+    //border-style: solid
+    border-radius: 1em
+
+    box-shadow: palete.$section-border 0 0 10px 3px
+
+@mixin text-link()
+    color: palete.$touch-able
+    text-decoration: underline
+    text-decoration-color: #FFF0
+
+    cursor: pointer 
+    transition: color 1s ease-in-out, text-decoration-color 0.5s ease-in-out
+
+    &:hover
+        color: palete.$touch-hover
+        text-decoration-color: palete.$touch-able
+
+        transition: color 1s ease-in-out,text-decoration-color 0.5s ease-in-out
+
+    &:active
+        color: palete.$touch-active
+
+@mixin form-button()
+    background: palete.$touch-able
+
+    border: unset
+
+    cursor: pointer 
+
+    transition: background 1s ease-in-out
+
+    &:hover
+        background: palete.$touch-hover
+
+        transition: background 1s ease-in-out
+
+    &:active
+        background: palete.$touch-active
+
+@mixin dinamic-grid()
+    @include media.by-min-width(45)
+
+@mixin center-form()
+    position: absolute
+    top: 50%
+    right: 50%
+
+    transform: translate(50%,-50%)
+    
+

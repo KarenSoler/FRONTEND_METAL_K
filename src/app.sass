@@ -7,21 +7,46 @@
 
 :root
     // Reset default styling
-    body
-        *
-            display: inline-block
+    *
+        box-sizing: border-box
 
-            box-sizing: border-box
+        margin: 0
 
-            margin: 0
+        padding: 0
 
-            padding: 0
+        script, style
+            display: none
+        
+    
+        
+        &::-webkit-scrollbar 
+            position: absolute
+            left: 50px
 
-            script, style
-                display: none
+            width: 4px
+
+            background: #6e6e6e
+            border-radius: 100%
+        
+
+        /* Track */
+        &::-webkit-scrollbar-track 
+            box-shadow: inset 0 0 5px #141414
+            border-radius: 10px
+        
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb 
+            background: #6e6e6e
+            border-radius: 10px
+
     
     // ? Main breack points for responsive
     // font-size to define em
+        
+    @include media.by-max-width(420px) 
+        font-size: 14px
+
     @include media.by-max-width(600px) 
         font-size: 16px
     
@@ -30,15 +55,16 @@
     
 body
     width: 100vw
-    height: 100vh
-
-    background: palete.$general-bg
+    min-height: 100vh
+    height: fit-content
 
     margin: 0
 
     padding: 0
 
-    overflow: hidden
+    overflow-x: hidden
+
+    background: palete.$general-bg
 
 //Unstyling link
 a
@@ -73,3 +99,8 @@ p,span,input,label,select,option,textarea,button,a
     color: palete.$text
 
 
+.centered
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
