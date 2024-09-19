@@ -3,7 +3,7 @@
     import Submit from "@components/admin/Submit.svelte";
 </script>
 
-<form class="form-container">
+<form class="form-container" method="POST">
     <h1>Ingrese sus datos</h1>
     <Field 
         name="phone" 
