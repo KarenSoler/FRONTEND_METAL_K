@@ -44,7 +44,7 @@ header
 	position: sticky
 	top:0
 	right: 0
-	z-index: 10
+	z-index: 2
 
 	width: 100vw
 	min-height: 6em

@@ -1,16 +1,11 @@
 <script lang='ts'>  // Texto personalizado para el modal
-    let triggerModal = false; // Señal para abrir el modal
+    let trigger = false; // Señal para abrir el modal
     let show:boolean = true; // Estado interno para mostrar el modal
     let route:string|undefined = undefined
+    let error:boolean = false
 
-    // let option = {
-    //     onclick:closeModal,
-    //     class:'modal-button'
-    // }
-    // Función para abrir el modal cuando se recibe la señal
-    $: if (triggerModal) {
-        show = true;
-    }
+    //Take external trigger
+    $: show = trigger
 
     // Función para cerrar el modal
     function closeModal() {
@@ -18,13 +13,17 @@
     }
 
     export{
-        route
+        route,
+        trigger
     }
 </script>
 
 {#if show}
     <div class='modal-bg'>
-        <div class="contenedor">
+        <div class="modal-container">
+            <h4 class="modal-title">
+                Modal
+            </h4>
             <p><slot/></p> 
             <span class="modal-options">
                 <slot name='option'>
@@ -46,9 +45,9 @@
 
 @use 'src/lib/styles/palete.sass' as palete
 .modal-bg
-    position: absolute
+    position: fixed
     top:0
-    left:0
+    z-index: 5
 
     width: 100vw
     height: 100vh
@@ -56,24 +55,59 @@
     background: palete.$modal-bg
 
 
-    .contenedor
+    .modal-container
         position: fixed
         top: 50%
         left: 50%
 
         display: flex
         flex-direction: column
-        gap: 0.5em
+        justify-content: flex-end
+        align-items: center
+        gap: 1em
 
-        background: palete.$container
-        padding: 1em
-        border-radius: 1em
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)
-        transform: translate(-50%, -50%)
         width: 80%
         max-width: 400px
+        min-height: 9em
+        height: fit-content
+
+        padding: 1em
+
+        transform: translate(-50%, -50%)
+
+        background: palete.$container
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5)
+
+        border-radius: 1em
+
         text-align: center
-        z-index: 1000
+
+        .modal-title
+            position: absolute
+
+            top:0
+            left: 0
+
+            width: 100%
+
+            padding: 0.5em 0
+
+            background: palete.$general-tittle
+            box-shadow: red 0 2px 0 0px
+
+            border-radius: 1rem 1rem 0 0
+
+            text-align: center
+        
+        p
+            width: 80%
+            height: auto
+            
+            margin-top: 2.5em
+
+            text-align: center
+            color: palete.$text
+
         .modal-options
             display: flex
             justify-content: center
@@ -96,6 +130,7 @@
                 border-radius: 0.5em
 
                 font-size: 1em
+                color: palete.$text
 
                 &:hover
                     background: palete.$button-hover

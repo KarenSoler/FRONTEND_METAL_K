@@ -4,6 +4,7 @@
     import Modal from '@components/Modal.svelte'
 
     export let form
+    export let error
 </script>
 
 <form class="form-container" method="POST" action='?/login'>
@@ -22,12 +23,12 @@
         placeholder="Ingrese la contraseña" 
         required="Este campo es obligatorio" 
     />
-    <Modal>
-        {form?.message}
-    </Modal>
     <a href="/admin/recover-pass">¿Ha olvidado su contraseña?</a>
     <Submit>Enviar</Submit>
 </form>
+<Modal trigger={form?.incorrect}>
+    {form?.message}
+</Modal>
 
 <style lang='sass' global>
 @use 'src/lib/styles/media' as media
