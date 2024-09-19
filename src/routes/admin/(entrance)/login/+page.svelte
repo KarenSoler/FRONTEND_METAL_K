@@ -1,9 +1,12 @@
 <script lang='ts'>
     import Field from "@components/Field.svelte";
     import Submit from "@components/admin/Submit.svelte";
+    import Modal from '@components/Modal.svelte'
+
+    export let form
 </script>
 
-<form class="form-container" method="POST">
+<form class="form-container" method="POST" action='?/login'>
     <h1>Ingrese sus datos</h1>
     <Field 
         name="phone" 
@@ -11,15 +14,17 @@
         placeholder="Ingrese su número de teléfono" 
         regex={{ pattern: /^[0-9]+$/, message: "Solo se permiten números" }} 
         required="Este campo es obligatorio" 
-        logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
+        logic={(value:string) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
     />
-
     <Field 
         name="password" 
         label="Contraseña" 
         placeholder="Ingrese la contraseña" 
         required="Este campo es obligatorio" 
     />
+    <Modal>
+        {form?.message}
+    </Modal>
     <a href="/admin/recover-pass">¿Ha olvidado su contraseña?</a>
     <Submit>Enviar</Submit>
 </form>

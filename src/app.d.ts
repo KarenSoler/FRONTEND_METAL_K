@@ -3,13 +3,14 @@ declare global {
 	namespace App {
 	}
 
-	//TODO Components
-	// ? Header
+	//? Components
+	//Header
 	interface HeaderModule{
 		name:string
 		route:string
 	}
 
+	//? DTOs
 	interface Product{
 		id: number
 		images: string[],
@@ -49,6 +50,16 @@ declare global {
 		longitude: string
 		latitude: string
 	}
+
+	//? FormAction
+	interface ApiResponseData{
+		status:'ok'|'error'|undefined
+		message: string|undefined
+		[key:string]:any
+		[Symbol.iterator]()
+	}
 }
+
+  
 
 export {};

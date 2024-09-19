@@ -4,21 +4,17 @@ import axios from "axios";
 
 export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     let pathname = route.id
-    console.log(pathname)
     const token:string|undefined = cookies.get('token')
-    let tokenResponse:boolean|undefined = undefined
-    await MKaxios.get(`/admin/${token}`)
-    .then((r)=>{
-        tokenResponse=true
-    })
-    .catch((e)=>{
-        console.log('unvalid')
+    let response: {[key:string]:any} = {}
+    try{
+        response = (await MKaxios.get(`/admin/${token}`)).data
+    }
+    catch(e){
         cookies.delete('token',{path:'/'})
         cookies.delete('current',{path:'/'})
-        tokenResponse=false
-    })
+    }
     
-    if(!tokenResponse){
+    if(response.status == 'error'){
         if(pathname != '/admin/(entrance)/login')
             redirect(307,'/admin/login')
     }

@@ -1,27 +1,25 @@
 import { PVE_API_URL } from "$env/static/private";
 import { MKaxios } from "$lib/api/MKAxios";
-import { redirect, type Cookies } from "@sveltejs/kit";
+import ApiResponse from "$lib/api/ResponseAPI";
+import { fail, redirect, type Cookies, type HttpError } from "@sveltejs/kit";
+import type { AxiosResponse } from "axios";
 
 export const actions = {
-    default: async({cookies,request}:{cookies:Cookies,request:Request})=>{
+    login: async({cookies,request,url}:{cookies:Cookies,request:Request,url:URL})=>{
         const formData = await request.formData()
-        let response: boolean|undefined
-        let body:{[key:string]:any} = {}
-        formData.forEach((v,k)=>{
-            body[k]=v
-        })
-        await MKaxios.post('/admin/login',body)
-        .then((r)=>{
-            cookies.set('current',JSON.stringify(r.data.admin),{path:'/'})
-            cookies.set('token',r.data.token,{path:'/'})
-            if(r.data.status =='ok') response = true
-        })
-        .catch((e)=>{
-            console.log(e)
-            response = false
-        })
-        if(!response){
-            redirect(303,'/admin/enterprise')
+        let response:ApiResponse = new ApiResponse()
+        try{
+            response.getData((await MKaxios.post('/admin/login',formData)).data)
+            cookies.set('current',JSON.stringify(response.result.admin),{path:'/'})
+            cookies.set('token',response.result.token,{path:'/'})
         }
+        catch(e:any){
+            //! If raising a Exception by reading data from undefined, it's could be here
+            response.getData(e.response.data.detail)
+            return fail(400,{incorrect:true,message:response.message})
+        }
+        response.isOk(()=>{
+            redirect(303,'/admin/enterprise')
+        })
     }
 }

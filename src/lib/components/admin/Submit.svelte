@@ -1,6 +1,6 @@
 <script lang='ts'>
     let disabled:boolean = true
-    let formaction:string = ""
+    let formaction:string|undefined = undefined
 
     export {disabled,formaction}
 </script>

@@ -93,4 +93,21 @@
 		],
 		"description": "Svelte Page Base Structure"
 	},
+	"svelte-action":{
+		"prefix": "svelte-action",
+		"body":[
+			"$name: async({request}:{request:Request})=>{",
+			"\tconst formData = await request.formData()",
+			"\tlet response:ApiResponse = new ApiResponse()",
+			"\ttry{",
+			"\t\tresponse.getData((await MKaxios.post('$url',formData)).data)",
+			"\t}",
+			"\tcatch(e:any){",
+			"\t\t//! If raising a Exception by reading data from undefined, it's could be here",
+			"\t\tresponse.getData(e.response.data.detail)",
+			"\t\treturn fail(400,{})",
+			"\t}",
+			"}"
+		]
+	}
 }
