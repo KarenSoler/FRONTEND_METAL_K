@@ -5,7 +5,7 @@
     export {disabled,formaction}
 </script>
 
-<button type="submit" {formaction}>
+<button type="submit" {formaction} {disabled}>
     {#if $$slots.default}
         <slot/>
     {:else}
@@ -14,7 +14,6 @@
 </button>
 
 <style lang='sass'>
-@use 'src/lib/styles/palete.sass' as palete
 @use 'src/lib/styles/admin/elements.sass' as elements
 
 button

@@ -1,8 +1,9 @@
 <script lang='ts'>
-    import { writable } from 'svelte/store';
-
 //Imports
+    import { writable, type Writable } from 'svelte/store';
     import type { ErrorInput, RegexValidation } from '../types/Form';
+    import type { error } from 'console';
+
 // States
     let label:string|undefined = undefined
     let name:string
@@ -12,6 +13,9 @@
     let value = writable(defaultValue)
     let disabled:boolean|(()=>boolean) = true
 
+    //External error seting
+    let externalError:Writable<boolean>|undefined = undefined
+
     //Validations 
     let touched:boolean
     let error:ErrorInput|undefined
@@ -20,7 +24,8 @@
     let logic:((value:string)=>string|undefined)|undefined = undefined
 
     //External style setting
-    let external:string|undefined = undefined
+    let externalClass:string|undefined = undefined
+    
 //Functions
     function update(event:Event){
         let input=event.target
@@ -37,7 +42,6 @@
 
     //Validations centralizer
     function validater(value:string){
-        console.log(value)
         while(true){
             if(!requiredValidation(value)) break
             if(!regexValidation(value)) break 
@@ -90,7 +94,6 @@
             error=undefined 
             return true
         }
-        return true
     }
 
     function logicValidation(value:string){
@@ -111,10 +114,30 @@
         return true
     }
 //Reactive
+    externalError?.subscribe((value)=>{
+        console.log(value)
+        if(!value && error){
+            externalError.set(true)
+        }
+    })
     //Setting id
     $:if(!id) id = name
 
     $: if(touched) validater($value)
+
+    $: {
+        console.log(error)
+        if(externalError){
+            if(error){
+                console.log(':v')
+                externalError.set(true)
+            }
+            else{
+                externalError.set(false)
+            }
+        }
+    }
+                
 
 //Props
     export{
@@ -126,11 +149,12 @@
         regex,
         required,
         logic,
-        external as class
+        externalClass as class,
+        externalError as error
     }
 </script>
 <!-- ? Simple text input -->
-    <div class={external} class:input={true} class:error={error}>
+    <div class={externalClass} class:input={true} class:error={error}>
         {#if label}
                 <label class="label" for={id}>
                     {label}
