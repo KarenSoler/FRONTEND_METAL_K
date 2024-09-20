@@ -20,13 +20,13 @@ declare global {
 	}
 
 	interface Tags{
-		id: int 
+		id: number 
 		title: string
 		description: string
 	}
 
 	interface TagsGroups{
-		id:int
+		id:number
 		title: string
 		description: string
 		icon: string

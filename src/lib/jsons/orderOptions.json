@@ -142,37 +142,43 @@
             "id":1,
             "title":"Pintura",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "icon":""
+            "icon":"",
+            "tags": [1, 2, 3, 4, 5]
         },
         {
             "id":2,
             "title":"Cerradura",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "icon":""
+            "icon":"",
+            "tags": [17, 18, 19]
         },
         {
             "id":3,
             "title":"Vidrio",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "icon":""
+            "icon":"",
+            "tags": [1, 2, 3, 4, 5]
         },
         {
             "id":4,
             "title":"Instalacion",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "icon":""
+            "icon":"",
+            "tags": [1, 2, 3, 4, 5]
         },
         {
             "id":5,
             "title":"Apertura",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "icon":""
+            "icon":"",
+            "tags": [1, 2, 3, 4, 5]
         },
         {
             "id":6,
             "title":"Forma",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            "icon":""
+            "icon":"",
+            "tags": [1, 2, 3, 4, 5]
         }
     ]
 }

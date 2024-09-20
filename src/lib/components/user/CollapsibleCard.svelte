@@ -11,92 +11,192 @@
     let tags = feature_list.tags
     let tagGroups = feature_list.tagGroups
 
+    // Variable para controlar si las categorías se muestran
+    let showCategories = true 
+
+
     //Función para seleccionar una categoría
     function selectCategory(category: Category){
         selectedCategories.set(category)//Aqui se actualiza el store (selectedCategories) con la categoría seleccionada
-    
-        //Inicializar los grupos asociados a la categoria desde el primero
-        const firstGroupId: TagsGroups | null = 1
-        selectedGroup.set(firstGroupId)
+        showCategories = false// Oculta las categorías al seleccionar una
 
-        //se actualiza selectedTag con los tags pertenecientes a selectedGroup en el momento
-        const relatedTags = category.sections[firstGroupId].map(tagId => {
-            return feature_list.tags.find(tag => tag.id === tagId)
-        })
-        availableTags.set(relatedTags)
+        //Inicializar los grupos asociados a la categoria desde el primero
+        const firstGroupId = 1
+        const firstGroup = feature_list.tagGroups.find(group => group.id === firstGroupId)
+        
+        if(firstGroup){
+            //Se convierten los id de los tags en objetos Tags
+            const groupWithTags: TagsGroups = {
+                ...firstGroup,
+                tags: firstGroup.tags.map(tagId => feature_list.tags.find(tag => tag.id === tagId)).filter((tag): tag is Tags => tag !== undefined)
+            }
+
+            selectedGroup.set(groupWithTags)//Se actualizó no solo con el id, sino que con el grupo de tags asociados
+
+        } 
+
+
+       // Verificar si la categoría seleccionada tiene secciones para el primer grupo
+       if (category.sections && category.sections[firstGroupId]){
+            const relatedTags = category.sections[firstGroupId]
+            .map((tagId : number) => feature_list.tags.find(tag => tag.id === tagId))
+            .filter((tag): tag is Tags => tag !== undefined)
+            
+            availableTags.set(relatedTags) //se actualiza selectedTag con los tags pertenecientes a selectedGroup en el momento
+        }
     }
+
+
+
 
     //Función para seleccionar el tag, que se guarde y pasar al siguiente grupo de tags
     function selectTag(tag: Tags){
         selectedTags.update(tags => [...tags, tag])
 
         //Obtiene el grupo de tags actual desde el store
-        let currentGroup = get(selectedGroup) ?? 0
+        let currentGroup = get(selectedGroup)
         //Se incrementan los grupos (iniciado en 1) para mostrar el siguientr
-        currentGroup += 1
-        selectedGroup.set(currentGroup)
+        if (typeof currentGroup === 'object' && currentGroup !== null){
+            let nextGroupId = currentGroup.id + 1
+        
 
-        //Filtra los tags del siguiente grupo y actualiza el store
-        const selectedCat: Category | null = get(selectedCategories)//Obtiene la categoría seleccionada desde el store selectedCategory
-        //Condicionar que pide que haya una categoria seleccionada y que esta tenga una section conrrespondiente a currentGrpup
-        if(selectedCat && selectedCat.sections[currentGroup]){
-           //nextTags es una constante temporal que contiene los tags filtrados para el siguiente grupo currentGroup
-            const nextTagGroup = selectedCat.sections[currentGroup].map(tagId => {
-                return feature_list.tags.find(tag => tag.id == tagId)
-            })
-            availableTags.set(nextTagGroup)
-        }else{
-            availableTags.set([])
+            //Filtra los tags del siguiente grupo y actualiza el store
+            const selectedCat: Category | null = get(selectedCategories)//Obtiene la categoría seleccionada desde el store selectedCategory
+            
+            //Condicionar que pide que haya una categoria seleccionada y que esta tenga una section conrrespondiente a currentGrpup
+            if(selectedCat && selectedCat.sections[nextGroupId]){
+            //nextTags es una constante temporal que contiene los tags filtrados para el siguiente grupo currentGroup
+                const nextTagGroup = selectedCat.sections[nextGroupId]
+                .map((tagId: number) => feature_list.tags.find(tag => tag.id === tagId))
+                .filter((tag): tag is Tags => tag !== undefined)
+                availableTags.set(nextTagGroup)
+
+
+                const nextGroup = tagGroups.find(group => group.id == nextGroupId)
+
+                if (nextGroup) {
+                    //se asegura de que nextGroup tenga la propiedad tags como un array de Tags
+                    const groupWithTags: TagsGroups ={
+                        ...nextGroup,
+                        tags: nextGroup.tags.map(tagId => feature_list.tags.find(tag => tag.id === tagId)).filter((tag): tag is Tags => tag !== undefined)
+                    }
+                    selectedGroup.set(groupWithTags)
+
+                } else {
+                    selectedGroup.set(null)
+                }
+            }else{
+                availableTags.set([])
+            }
+            //si no se hace el if ansterior, me seguiria mostrando el mismo grupo de tags
         }
-        //si no se hace el if ansterior, me seguiria mostrando el mismo grupo de tags
     }
     
 </script>
 
+<main>
 <!-- Mostrar las categorías -->
-<!-- {#if categories.length != 0} -->
-    <div class="categories">
+    {#if showCategories}
+        <div class="categories">
         {#each categories as category}
-            <div class="category-card" on:click={()=> selectCategory(category)}>
-                <img src={category.icon} alt={category.name}>
-                <h3>{category.name}</h3>
-                <p>{category.description}</p>
+            <div class="category-card" on:click={() => selectCategory(category)}>
+            <img src={category.icon} alt={category.name}>
+            <h3>{category.name}</h3>
+            <p>{category.description}</p>
             </div>
         {/each}
-    </div>
-<!-- {/if} -->
+        </div>
+    {/if}
 
 <!-- Mostrar los tags disponibles -->
 {#if $availableTags.length != 0}
     <div class="tags">
-        {#each $availableTags as tag}
-            <div class="tags-card" on:click={() => selectTag(tag)}>
-                <h3>{tag.title}</h3>
-                <p>{tag.description}</p>
-            </div>
-        {/each}
+      {#each $availableTags as tag}
+        <div class="tags-card" on:click={() => selectTag(tag)}>
+          <h3>{tag.title}</h3>
+          <p>{tag.description}</p>
+        </div>
+      {/each}
     </div>
-{/if}
+  {/if}
 
 
 <!-- Mostrar los tags seleccionados -->
 {#if $selectedTags.length != 0}
     <div class="selected-tags">
-        <h3>Tags seleccionados:</h3>
-        <ul>
-            {#each $selectedTags as tag}
-                <li>{tag.title}</li>
-            {/each}
-        </ul>
+      <h3>Tags seleccionados:</h3>
+      <ul>
+        {#each $selectedTags as tag}
+          <li>{tag.title}</li>
+        {/each}
+      </ul>
     </div>
-{/if}
+  {/if}
+</main>
+    
+<style lang='sass'>
+@use '../../styles/user/palete' as palete
+
+h3
+    color: white
+
+.categories
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  margin: 20px
+
+.category-card
+  background-color: palete.$u-container
+  border: 1px solid palete.$u-border-container
+  border-radius: 5px
+  padding: 15px
+  margin: 10px
+  text-align: center
+  cursor: pointer
+  transition: box-shadow 0.3s
+
+  &:hover
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
+
+  p
+    color: palete.$u-text
+
+
+
+.tags
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  margin: 20px
+
+  .tags-card
+    background-color: palete.$u-container
+    border: 1px solid palete.$u-border-container
+    border-radius: 5px
+    padding: 15px
+    margin: 10px
+    text-align: center
+    cursor: pointer
+    shadow: none
+    transition: box-shadow 0.3s
+
+    &:hover
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
+
+    p
+    color: palete.$u-text
 
     
-    <style lang='sass'>
-    //Imports
-    
-    //Variables
-    
-    //Styles
-    
-    </style>
+
+.selected-tags
+  margin: 20px
+  padding: 10px
+  background-color: palete.$u-container
+  border: 1px solid #ddd
+
+  ul
+    list-style-type: none
+    padding: 0
+
+</style>

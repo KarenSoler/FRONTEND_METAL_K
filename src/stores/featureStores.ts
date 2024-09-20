@@ -1,9 +1,23 @@
 interface Category {
-	id: number;
-	name: string;
-	description: string;
-	sections: { [key: string]: number[] | undefined };
-	icon: string;
+	id: number
+	name: string
+	description: string
+	sections: { [key: string]: number[] | undefined }
+	icon: string
+}
+
+interface Tags {
+	id: number
+	title: string
+	description: string
+}
+
+interface TagsGroups {
+	id: number
+	title: string
+	description: string
+	icon: string
+    tags: Tags[]
 }
 
 import { writable, type Writable } from "svelte/store";
