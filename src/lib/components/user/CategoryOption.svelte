@@ -1,8 +1,8 @@
 <script lang='ts'>
 
-    import category_list from "../../../routes/test/categoryUser.json"
+    import category_list from "../../jsons/orderOptions.json"
     
-    let categories:Array<CategoryModule> = category_list.categories.map((category)=>{
+    let categories:Array<Category> = category_list.categories.map((category)=>{
         return category
     })
     

@@ -21,7 +21,7 @@ declare global {
 
 	interface Tags{
 		id: int 
-		titel: string
+		title: string
 		description: string
 	}
 
@@ -37,6 +37,7 @@ declare global {
 		id:int
 		name:string
 		description: string
+		sections: { [key: string]: number[] | undefined}
 		icon: string
 	}
 
