@@ -119,7 +119,7 @@
         }
     })
     //Setting id
-    $:if(!id) id = name
+    $:  if(!id) id = name
 
     $: if(touched) validater($value)
 
@@ -190,7 +190,6 @@
             color: red
 
     .input
-        
         width: 100%
 
         label
@@ -198,9 +197,7 @@
             font: 1em Nunito
 
         input
-
-            margin-bottom: 5px
-            margin-top: 15px
+            margin-top: 0.25em
 
             padding: 10px
 
