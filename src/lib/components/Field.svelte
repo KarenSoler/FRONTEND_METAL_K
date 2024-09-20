@@ -2,7 +2,6 @@
 //Imports
     import { writable, type Writable } from 'svelte/store';
     import type { ErrorInput, RegexValidation } from '../types/Form';
-    import type { error } from 'console';
 
 // States
     let label:string|undefined = undefined
@@ -115,7 +114,6 @@
     }
 //Reactive
     externalError?.subscribe((value)=>{
-        console.log(value)
         if(!value && error){
             externalError.set(true)
         }
@@ -126,10 +124,8 @@
     $: if(touched) validater($value)
 
     $: {
-        console.log(error)
         if(externalError){
             if(error){
-                console.log(':v')
                 externalError.set(true)
             }
             else{

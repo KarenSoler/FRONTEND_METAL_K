@@ -25,11 +25,6 @@
             }
         }
     }
-
-    src.subscribe((value) => {
-        console.log(value);
-    });
-
     //Rective
 
     //Props

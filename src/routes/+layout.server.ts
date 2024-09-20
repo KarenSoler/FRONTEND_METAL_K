@@ -1,22 +1,25 @@
 import { MKaxios } from "$lib/api/MKAxios";
+import ApiResponse from "$lib/api/ApiResponse";
 import { redirect, type Cookies, type RouteData } from "@sveltejs/kit";
 import axios from "axios";
 
 export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     let pathname = route.id
     const token:string|undefined = cookies.get('token')
-    let response: {[key:string]:any} = {}
+    let response = new ApiResponse()
     try{
-        response = (await MKaxios.get(`/admin/${token}`)).data
+        response.getData((await MKaxios.get(`/admin/${token}`)).data)
     }
-    catch(e){
+    catch(e:any){
+        response.getData(e.response.data.detail)
         cookies.delete('token',{path:'/'})
         cookies.delete('current',{path:'/'})
     }
     
-    if(response.status == 'error'){
-        if(pathname != '/admin/(entrance)/login')
-            redirect(307,'/admin/login')
-    }
-    
+    response.isOk(()=>{
+        if(pathname.match(/^.*\/\(entrance\)\//)) redirect(307,'/admin/enterprise')
+    },  
+    ()=>{
+        if(pathname.match(/^.*\/\(session\)\//)) redirect(307,'/admin/login')
+    })
 }

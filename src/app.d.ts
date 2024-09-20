@@ -52,10 +52,12 @@ declare global {
 	}
 
 	//? FormAction
+	type ApiStatus = 'ok'|'error'|'server'|undefined
+
 	interface ApiResponseData{
-		status:'ok'|'error'|undefined
+		status:ApiStatus
 		message: string|undefined
-		[key:string]:any
+		result: [key:string]
 		[Symbol.iterator]()
 	}
 }

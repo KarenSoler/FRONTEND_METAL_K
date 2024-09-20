@@ -2,7 +2,7 @@
     import Field from "@components/Field.svelte";
     import Submit from "@components/admin/Submit.svelte";
     import Modal from '@components/Modal.svelte'
-  import { writable } from "svelte/store";
+    import { writable } from "svelte/store";
 
     export let form
     export const error = writable<boolean>(false)

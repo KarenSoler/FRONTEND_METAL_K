@@ -1,7 +1,7 @@
 class ApiResponse{
-    status:'ok'|'error'|undefined
+    status:ApiStatus
     message: string|undefined
-    result: { [key: string]: any }={}
+    result: { [key: string]: any } ={}
 
     constructor(){
     }
@@ -9,13 +9,7 @@ class ApiResponse{
     getData(response:ApiResponseData) {
         this.status = response.status
         this.message = response.message
-        for(let i in response){
-            if(i!='status'&&i!='message'){
-                if(i!=undefined){
-                    this.result[i]=response.i
-                }
-            }
-        }
+        this.result = response.result
     }
 
     isOk=(fu:()=>any,errorFu?:(()=>any))=>{

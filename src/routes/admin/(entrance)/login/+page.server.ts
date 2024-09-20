@@ -1,6 +1,6 @@
 import { PVE_API_URL } from "$env/static/private";
 import { MKaxios } from "$lib/api/MKAxios";
-import ApiResponse from "$lib/api/ResponseAPI";
+import ApiResponse from "$lib/api/ApiResponse";
 import { fail, redirect, type Cookies, type HttpError } from "@sveltejs/kit";
 import type { AxiosResponse } from "axios";
 
