@@ -77,7 +77,7 @@
 
 <style lang='sass'>
 //Imports
-@use 'src/lib/styles/palete' as palete
+@use 'src/lib/styles/admin/palete' as palete
 //Variables
 
 //Styles
@@ -94,16 +94,21 @@
 .image-attacher
     position: relative
 
-    display: block
+    display: flex
 
     width: 100%
     height: 90%
 
+    overflow-y: scroll
+
     padding: 5%
 
-    background: palete.$input
+    background: palete.$input-bg
 
-    border-radius: 1em 
+    border-radius: 10px
+    border-color: palete.$section-border
+    border-width: 2px
+    border-style: solid
     
     .image-lister
         display: flex
@@ -117,10 +122,14 @@
 
         padding: 0.5em
 
+
+
     .image-added
-        width: 5em
-        height: 5em
+        display: flex
         object-fit: cover
+
+        width: 4.5em
+        height: 4.5em
 
         border-radius: 0.5em
 

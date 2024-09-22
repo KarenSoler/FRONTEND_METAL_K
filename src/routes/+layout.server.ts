@@ -7,6 +7,7 @@ export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     let pathname = route.id
     const token:string|undefined = cookies.get('token')
     let response = new ApiResponse()
+    console.log(token)
     try{
         response.getData((await MKaxios.get(`/admin/${token}`)).data)
     }

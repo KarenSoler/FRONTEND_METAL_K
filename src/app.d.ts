@@ -60,6 +60,16 @@ declare global {
 		result: [key:string]
 		[Symbol.iterator]()
 	}
+
+	//?
+	
+    
+    interface Contact{
+		type_id?: string|null
+        type?: string
+        value?: string
+        icon?: string
+    }
 }
 
   

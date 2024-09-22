@@ -2,7 +2,7 @@
     "modules":[
         {
             "name":"Empresa",
-            "route":"/admin/eterprise"
+            "route":"/admin/enterprise"
         },
         {
             "name":"Productos",

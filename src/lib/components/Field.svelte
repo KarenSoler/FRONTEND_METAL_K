@@ -2,6 +2,7 @@
 //Imports
     import { writable, type Writable } from 'svelte/store';
     import type { ErrorInput, RegexValidation } from '../types/Form';
+    import type { text } from 'stream/consumers';
 
 // States
     let label:string|undefined = undefined
@@ -10,10 +11,15 @@
     let id:string|undefined = undefined
     let defaultValue:string = ""
     let value = writable(defaultValue)
+
+    //modes
     let disabled:boolean|(()=>boolean) = true
+    let textarea:boolean = false
+    let password:boolean = false
 
     //External error seting
     let externalError:Writable<boolean>|undefined = undefined
+    let valueGetter:(value:string)=>void
 
     //Validations 
     let touched:boolean
@@ -118,7 +124,17 @@
             externalError.set(true)
         }
     })
+
+
+    value.subscribe((value)=>{
+        if(typeof valueGetter == 'function'){
+            valueGetter(value)
+        }
+    })
+
     //Setting id
+    $: value.set(defaultValue)
+    
     $:  if(!id) id = name
 
     $: if(touched) validater($value)
@@ -141,16 +157,19 @@
         placeholder,
         name,
         disabled,
-        defaultValue as value,
+        textarea,
+        password,
+        defaultValue as default,
         regex,
         required,
         logic,
         externalClass as class,
-        externalError as error
+        externalError as error,
+        valueGetter as value
     }
 </script>
 <!-- ? Simple text input -->
-    <div class={externalClass} class:input={true} class:error={error}>
+    <div class={externalClass} class:input={true} class:error={error} class:textarea>
         {#if label}
                 <label class="label" for={id}>
                     {label}
@@ -163,16 +182,28 @@
         {#if (required && !label)}
             <span>"*"</span>
         {/if}
-        <input 
-            type="text" 
-            {placeholder} 
-            class:input={true} 
-            {id} 
-            {name}
-            value = {$value}
-            on:input={update}
-            on:blur={firstClickHandler}
-        />
+        {#if textarea}
+            <textarea
+                {placeholder} 
+                class:input={true} 
+                {id} 
+                {name}
+                value = {$value}
+                on:input={update}
+                on:blur={firstClickHandler}
+            />
+        {:else}
+            <input 
+                type={password?"password":"text"}
+                {placeholder} 
+                class:input={true} 
+                {id} 
+                {name}
+                value = {$value}
+                on:input={update}
+                on:blur={firstClickHandler}
+            />
+        {/if}
         {#if error?.message}
             <span>
                 {error.message}
@@ -190,15 +221,22 @@
             color: red
 
     .input
+        display: flex
+        flex-direction: column
+        gap: 1em
+
         width: 100%
 
+
         label
+            display: flex
+
+            height: 1em
+
             color: palete.$tittle
             font: 1em Nunito
 
-        input
-            margin-top: 0.25em
-
+        input,textarea
             padding: 10px
 
             background: palete.$input
@@ -226,4 +264,10 @@
 
             &::placeholder
                 color: palete.$placeholder
+
+        textarea
+            display: flex
+            flex: auto
+            justify-content: start
+
 </style>

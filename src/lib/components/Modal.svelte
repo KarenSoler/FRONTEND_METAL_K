@@ -5,7 +5,7 @@
     let error:boolean = false
 
     //Take external trigger
-    $: show = trigger
+    $: show = (show)&&trigger
 
     // Función para cerrar el modal
     function closeModal() {
@@ -41,6 +41,7 @@
         </div>
     </div>
 {/if}
+
 <style lang='sass'>
 
 @use 'src/lib/styles/palete.sass' as palete

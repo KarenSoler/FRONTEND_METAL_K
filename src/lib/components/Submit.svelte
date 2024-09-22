@@ -1,8 +1,11 @@
 <script lang='ts'>
-    let disabled:boolean = true
+    let disabled:boolean = false
     let formaction:string = ""
 
-    export {disabled,formaction}
+    export {
+        disabled,
+        formaction
+    }
 </script>
 
 <button type="submit" {formaction}>
@@ -14,22 +17,22 @@
 </button>
 
 <style lang='sass'>
-    @use 'src/lib/styles/palete.sass' as palete
+@use 'src/lib/styles/palete.sass' as palete
 
-    button
-        width: 50%
-        height: 40px
-        font: 1em Nunito
+button
+    width: 50%
+    height: 40px
+    font: 1em Nunito
 
-        border-radius: 10px
+    border-radius: 10px
 
-        border: palete.$button-border
-        background: palete.$button
+    border: palete.$button-border
+    background: palete.$button
 
-        transition: background 0.5s ease-in-out
+    transition: background 0.5s ease-in-out
 
-        &:hover
-            background: palete.$button-hover
-                
+    &:hover
+        background: palete.$button-hover
+            
 </style>
 

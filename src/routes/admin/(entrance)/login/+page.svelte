@@ -22,6 +22,7 @@
     <Field 
         name="password" 
         label="Contraseña" 
+        password
         placeholder="Ingrese la contraseña" 
         required="Este campo es obligatorio" 
         error={error}

@@ -9,7 +9,7 @@ export const actions = {
         const formData = await request.formData()
         let response:ApiResponse = new ApiResponse()
         try{
-            response.getData((await MKaxios.post('/admin/login',formData)).data)
+            response.getData((await MKaxios.post('/admin/login',formData)).data)    
             cookies.set('current',JSON.stringify(response.result.admin),{path:'/'})
             cookies.set('token',response.result.token,{path:'/'})
         }
