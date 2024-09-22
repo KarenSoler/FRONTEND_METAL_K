@@ -12,7 +12,7 @@ declare global {
 
 	interface Product{
 		id: number
-		images: string[],
+		images: string[] | string,
 		category: int,
 		price: double,
 		time: number,

@@ -1,6 +1,10 @@
 <script lang='ts'>
+  //En este componente Se encuentran las tarjetas colapsables y la información actualizable para los titulos e informacion reactiva de las categorias o grupos d etags en el que se encuentran
+
     import feature_list from "../../jsons/orderOptions.json"
     import {selectedCategories, availableTags, selectedTags, selectedGroup} from "../../../stores/featureStores"
+    import {titlePersonalization, infoPersonalization} from "../../../stores/titleStore"
+
     import { get } from "svelte/store" //para traer el estado actual de los store
 
     /*let categories:Array<Category> = feature_list.categories.map((category)=>{
@@ -19,6 +23,11 @@
     function selectCategory(category: Category){
         selectedCategories.set(category)//Aqui se actualiza el store (selectedCategories) con la categoría seleccionada
         showCategories = false// Oculta las categorías al seleccionar una
+
+        //Titulo y texto reactivo de la seccion del formlario
+        titlePersonalization.set("Categorias")
+        infoPersonalization.set("Seleccione una de las categorías, así podrémos estar más informados de sus preferencias.")
+
 
         //Inicializar los grupos asociados a la categoria desde el primero
         const firstGroupId = 1
@@ -55,10 +64,18 @@
 
         //Obtiene el grupo de tags actual desde el store
         let currentGroup = get(selectedGroup)
-        //Se incrementan los grupos (iniciado en 1) para mostrar el siguientr
+
+
+        //El titulo y texto reactivo de la seccion del formulario se actualizará según la categoría en la que se esté
+        if (currentGroup){
+          titlePersonalization.set(currentGroup.title)
+          infoPersonalization.set(currentGroup.description || "Seleccione una opción en este grupo.")
+        }
+
+
+        //En esete if se incrementan los grupos (iniciado en 1) para mostrar el siguientr
         if (typeof currentGroup === 'object' && currentGroup !== null){
             let nextGroupId = currentGroup.id + 1
-        
 
             //Filtra los tags del siguiente grupo y actualiza el store
             const selectedCat: Category | null = get(selectedCategories)//Obtiene la categoría seleccionada desde el store selectedCategory
@@ -89,6 +106,16 @@
                 availableTags.set([])
             }
             //si no se hace el if ansterior, me seguiria mostrando el mismo grupo de tags
+        }
+    }
+
+    function selectTitle(category: Category){
+        let title = "Categorias"
+
+        const selectCat = get(selectedCategories)
+
+        if(selectCat){
+            title = ""
         }
     }
     

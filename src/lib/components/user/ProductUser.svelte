@@ -1,9 +1,9 @@
 <script lang='ts'>
     import { writable } from 'svelte/store';
-    import image_list from "../../../lib/jsons/imageUser.json";
+    import image_list from "../../../lib/jsons/imageUser.json"
 
     let focus = false
-    let images:Array<ImageModule> = image_list.images.map((image)=> {
+    let images:Array<Product> = image_list.images.map((image)=> {
         return image;  // Cierra correctamente la función de retorno
     })
     
@@ -14,7 +14,7 @@
     //metodo para colapsar la tarjeta comparando el id de una imagen expandida (expandedImage) con el id de la imagen que unopase y quiera colapsar (si son iguales toma como que está abierta y se colapsa)
     //El toggle es porque alterna entre estados, si no cumple la condición, en lugar de colapsarla, la expande
     function toggleImage(id: number) {
-        expandedImage = expandedImage === id ? null : id;
+        expandedImage = expandedImage === id ? null : id
     }
 
 
@@ -26,7 +26,7 @@
         <!-- <div class="image-space-container"> -->
             <div class="image-container {expandedImage === image.id ? 'expanded' : ''}" on:click={() => toggleImage(image.id)}>
                 <figure class="image-item">
-                    <img class="image-product" src={image.route} alt={image.category}>
+                    <img class="image-product" src={Array.isArray(image.images) ? image.images[0] : image.images} alt={image.category}>
                 </figure>
 
                 <!-- Información del producto -->
