@@ -11,6 +11,7 @@ import Submit from "@components/Submit.svelte"
 import ImageSelector from "@components/admin/ImageSelector.svelte"
 import bg from '$lib/images/user-bg.svg'
 
+
 // Controla si mostrar el formulario
 let showForm: boolean = false;
 
