@@ -14,13 +14,12 @@
 //Rective
 
 </script>
-
 <form class='enterprise-form' method="POST">
     <ImageSelector unique name='logo' label='Logo' class='attacher-logo-i'/>
     <Field name='branch' label='Marca' required class='branch-i'/>
     <Field name='slogan' label='Slogan' required class='slogan-i'/>
     <Field name='description' label='¿Quienes somos?' required textarea class={'who-i'}/>
-    <ImageSelector name='enterprise_imgaes' label='Imagenes empresariales' class='attacher-enterprise-i'/>
+    <ImageSelector name='enterprise_pictures' label='Imagenes empresariales' class='attacher-enterprise-i'/>
     <ContactManager class='contacts-i'/>
     <Submit class="keep">Guardar</Submit>
 </form>

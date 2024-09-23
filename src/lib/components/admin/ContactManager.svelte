@@ -1,19 +1,18 @@
 <script lang='ts'>
     //Imports
     import { updated } from '$app/stores';
-import delete_icon from '$lib/images/delete-icon.svg'
+    import delete_icon from '$lib/images/delete-icon.svg'
     import add_icon from '$lib/images/plus_u.svg'
     import contact_types from '$lib/jsons/contact_types.json'
     import Button from '@components/admin/Button.svelte'
     import Field from '@components/Field.svelte'
     import Modal from '@components/Modal.svelte'
-  import { afterUpdate, onMount } from 'svelte';
+    import { afterUpdate, onMount } from 'svelte';
     import { get, writable } from 'svelte/store';
     //States
     let contacts = writable<Array<Contact>>([{
         value:"Kra 29",
-        type:"Fabrica",
-        icon:"/src/lib/images/factory_icon.png"
+        type_id:"1"
     }])
     let types:Array<{[key:string]:any}> = []
     let type:string = "none"
@@ -39,11 +38,12 @@ import delete_icon from '$lib/images/delete-icon.svg'
                 reset = true
                 return value
             })
-            // current.set({
-            //     value:undefined,
-            //     type: undefined,
-            //     icon: undefined
-            // })
+            current.set({
+                type_id:undefined,
+                value:undefined,
+                type: undefined,
+                icon: undefined
+            })
         }
     }
 
@@ -96,13 +96,13 @@ import delete_icon from '$lib/images/delete-icon.svg'
         {#each $contacts as contact,i}
             <div class="contact-registed">
                 <picture class="contact-icon">
-                    <img src={contact.icon} alt={`${contact.type}-icon`}/>
+                    <img src={types[contact.type_id].icon} alt={`${types[contact.type_id].name}-icon`}/>
                 </picture>
                 <span class="contact-value">
                     {contact.value}
                 </span>
                 <span class="contact-type">
-                    {contact.type}
+                    {types[contact.type_id].name}
                 </span>
                 <Button src={delete_icon} class='delete-contact' event={()=>{}}/>
             </div>

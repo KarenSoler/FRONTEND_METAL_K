@@ -65,7 +65,7 @@ declare global {
 	
     
     interface Contact{
-		type_id?: string|null
+		type_id: int|"none"
         type?: string
         value?: string
         icon?: string

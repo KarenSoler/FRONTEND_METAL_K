@@ -12,6 +12,8 @@
     let label:string = ''
     let name:string
     let id:string = ''
+    let files = writable<Array<any>>([])
+    let JSONFiles:string 
 
     //External style setting
     let externalClass:string|undefined = undefined
@@ -27,11 +29,16 @@
                 reader.onload = ((e:any)=>{
                     images.push(e.target.result)
                     src.set(images)
+                    files.update((value)=>{
+                        value.push(e.target.result)
+                        return value
+                    })
                 })
                 reader.readAsDataURL(f)
             }
         }
     }
+    
     //Rective
     $:  if(!id) id = name
 
@@ -41,6 +48,13 @@
             images.push(defaultValue)
         }
         return images
+    })
+
+    files.subscribe(async (value)=>{
+        if(value[0]){
+            console.log(value)
+        }
+        JSONFiles = JSON.stringify(value)
     })
 
     //Props
@@ -53,6 +67,7 @@
     }
 </script>
 <div class={externalClass} class:attacher-container={true}>
+    <input type="hidden"  bind:value={JSONFiles}   {name}/>
     {#if label}
         <label for={name}>{label}</label>
     {/if}

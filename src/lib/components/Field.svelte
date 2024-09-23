@@ -19,7 +19,7 @@
 
     //External error seting
     let externalError:Writable<boolean>|undefined = undefined
-    let valueGetter:(value:string)=>void
+    let valueGetter:((value:string)=>void)|undefined = undefined
 
     //Validations 
     let touched:boolean
