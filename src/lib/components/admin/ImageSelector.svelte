@@ -57,24 +57,31 @@
 
 <style lang='sass'>
 //Imports
-@use 'src/lib/styles/palete' as palete
+@use 'src/lib/styles/user/palete' as palete
 //Variables
 
 //Styles
     
 .image-attacher
     position: relative
-
-    display: block
-
-    width: 100%
-    height: 100%
-
-    padding: 5%
-
-    background: palete.$input
-
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%   // Asegura que ocupe todo el ancho disponible
+    max-width: 20em // Limitar el ancho máximo para que no se estire demasiado
+    height: 10em   // Ajusta la altura para evitar que se aplaste
+    padding: 2em   // Un buen padding para que el ícono tenga espacio alrededor
+    
     border-radius: 1em 
+    border: 2px dashed 
+    text-align: center
+    cursor: pointer
+    transition: background 0.3s ease
+
+    &:hover
+        background: lighten(#a7bac76e, 5%)
+
     
     .image-lister
         display: flex

@@ -4,6 +4,8 @@
     import feature_list from "../../jsons/orderOptions.json"
     import {selectedCategories, availableTags, selectedTags, selectedGroup} from "../../../stores/featureStores"
     import {titlePersonalization, infoPersonalization} from "../../../stores/titleStore"
+    import {titleFeatures, infoFeatures} from "../../../stores/titleStore"
+
 
     import { get } from "svelte/store" //para traer el estado actual de los store
 
@@ -24,9 +26,6 @@
         selectedCategories.set(category)//Aqui se actualiza el store (selectedCategories) con la categoría seleccionada
         showCategories = false// Oculta las categorías al seleccionar una
 
-        //Titulo y texto reactivo de la seccion del formlario
-        titlePersonalization.set("Categorias")
-        infoPersonalization.set("Seleccione una de las categorías, así podrémos estar más informados de sus preferencias.")
 
 
         //Inicializar los grupos asociados a la categoria desde el primero
@@ -42,6 +41,9 @@
 
             selectedGroup.set(groupWithTags)//Se actualizó no solo con el id, sino que con el grupo de tags asociados
 
+            //Titulo y texto reactivo de la seccion del formlario
+            titleFeatures.set(groupWithTags.title)
+            infoFeatures.set (groupWithTags.description || "Seleccione una de las categorías, así podrémos estar más informados de sus preferencias.")
         } 
 
 
@@ -68,8 +70,8 @@
 
         //El titulo y texto reactivo de la seccion del formulario se actualizará según la categoría en la que se esté
         if (currentGroup){
-          titlePersonalization.set(currentGroup.title)
-          infoPersonalization.set(currentGroup.description || "Seleccione una opción en este grupo.")
+          titleFeatures.set(currentGroup.title)
+          infoFeatures.set(currentGroup.description || "Seleccione una opción en este grupo.")
         }
 
 
@@ -84,9 +86,11 @@
             if(selectedCat && selectedCat.sections[nextGroupId]){
             //nextTags es una constante temporal que contiene los tags filtrados para el siguiente grupo currentGroup
                 const nextTagGroup = selectedCat.sections[nextGroupId]
-                .map((tagId: number) => feature_list.tags.find(tag => tag.id === tagId))
-                .filter((tag): tag is Tags => tag !== undefined)
+                  .map((tagId: number) => feature_list.tags.find(tag => tag.id === tagId))
+                  .filter((tag): tag is Tags => tag !== undefined)
+
                 availableTags.set(nextTagGroup)
+
 
 
                 const nextGroup = tagGroups.find(group => group.id == nextGroupId)
@@ -98,6 +102,10 @@
                         tags: nextGroup.tags.map(tagId => feature_list.tags.find(tag => tag.id === tagId)).filter((tag): tag is Tags => tag !== undefined)
                     }
                     selectedGroup.set(groupWithTags)
+
+                    // Aquí se actualiza el título y descripción de nuevo con los grupos que se escojan despues del firstGroup
+                    titleFeatures.set(groupWithTags.title)
+                    infoFeatures.set(groupWithTags.description || "Seleccione una opción en este grupo.")
 
                 } else {
                     selectedGroup.set(null)
@@ -127,9 +135,14 @@
         <div class="categories">
         {#each categories as category}
             <div class="category-card" on:click={() => selectCategory(category)}>
-            <img src={category.icon} alt={category.name}>
-            <h3>{category.name}</h3>
-            <p>{category.description}</p>
+            
+            <img src={new URL(category.icon, import.meta.url).href}  alt={category.name}>
+
+            <div class="info-text">
+              <h3>{category.name}</h3>
+              <p>{category.description}</p>
+            </div>
+
             </div>
         {/each}
         </div>
@@ -174,20 +187,34 @@ h3
   margin: 20px
 
 .category-card
-  background-color: palete.$u-container
+  background-color: palete.$u-card-container
   border: 1px solid palete.$u-border-container
   border-radius: 5px
   padding: 15px
   margin: 10px
-  text-align: center
+  //text-align: center
   cursor: pointer
   transition: box-shadow 0.3s
+  display: flex
+
 
   &:hover
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
+  
+  .info-text
 
-  p
-    color: palete.$u-text
+    img
+    position: relative
+    margin: 20px
+
+    h3
+      text-align: left
+      color: palete.$u-title
+    p
+      color: palete.$u-text
+      margin: 15px auto
+      text-align: left
+
 
 
 
@@ -198,7 +225,7 @@ h3
   margin: 20px
 
   .tags-card
-    background-color: palete.$u-container
+    background-color: palete.$u-card-container
     border: 1px solid palete.$u-border-container
     border-radius: 5px
     padding: 15px
@@ -211,14 +238,21 @@ h3
     &:hover
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
 
+    h3
+      text-align: left
+      color: palete.$u-title
+
     p
-    color: palete.$u-text
+      color: palete.$u-text
+      margin: 15px auto
+      text-align: left
+
 
     
 
 .selected-tags
   margin: 20px
-  padding: 10px
+  padding: 8px
   background-color: palete.$u-container
   border: 1px solid #ddd
 

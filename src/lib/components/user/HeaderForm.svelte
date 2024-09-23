@@ -20,39 +20,43 @@
 </header>
 
 <style lang='sass'>
-    @use '../../styles/media' as media
-    @use '../../styles/user/palete' as palete
+@use '../../styles/media' as media
+@use '../../styles/user/palete' as palete
     
   
-    header
-        position: relative
-        z-index: 10
+header
+    position: relative
+    z-index: 10
     
-        min-height: 6em
-        height: auto
+    min-height: 6em
+    height: auto
+
+    background: palete.$u-general-bg
     
-        .logo
-            position: absolute
-            top: 1em
-            left: 2em
+    .logo
+        position: absolute
+        top: 1em
+        left: 2em
         
-            display: flex
-            flex-direction: row
-            flex-wrap: wrap
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
         
+        height: 4em
+        
+        font-family: Cabin
+
+        background: palete.$u-general-bg
+    
+        img
             height: 4em
-        
-            font-family: Cabin
-    
-            img
-                height: 4em
-                width: 4em
+            width: 4em
             
-            .dashboard_title
-                height: max-content
+        .dashboard_title
+            height: max-content
         
-                margin-left: 1em
+            margin-left: 1em
         
-                color: #E0E0E0
-                font-family: Cabin
+            color: #E0E0E0
+            font-family: Cabin
 </style>
