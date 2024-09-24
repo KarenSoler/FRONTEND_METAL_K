@@ -1,6 +1,6 @@
 import ApiResponse from "$lib/api/ApiResponse"
 import { MKaxios } from "$lib/api/MKAxios"
-import { fail } from "@sveltejs/kit"
+import { fail, type Cookies } from "@sveltejs/kit"
 
 export async function load(){
     let response:ApiResponse = new ApiResponse()
@@ -19,12 +19,15 @@ export async function load(){
 }
 
 export const actions = {
-    default: async({request}:{request:Request})=>{
+    default: async({request,cookies}:{request:Request,cookies:Cookies})=>{
         const formData = await request.formData()
-        console.log(formData)
         let response:ApiResponse = new ApiResponse()
         try{
-            response.getData((await MKaxios.put('/enterprise',formData)).data)
+            response.getData((await MKaxios.put('/enterprise',formData,{
+                headers:{
+                    Authorization:'Bearer '+cookies.get('token')
+                }
+            })).data)
             console.log(response)
         }
         catch(e:any){
