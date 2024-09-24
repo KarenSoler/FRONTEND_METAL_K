@@ -13,7 +13,7 @@
     let value = writable(defaultValue)
 
     //modes
-    let disabled:boolean|(()=>boolean) = true
+    let disabled:boolean = false
     let textarea:boolean = false
     let password:boolean = false
 
@@ -188,10 +188,11 @@
                 class:input={true} 
                 {id} 
                 {name}
+                {disabled}
                 value = {$value}
                 on:input={update}
                 on:blur={firstClickHandler}
-            />
+            ></textarea>
         {:else}
             <input 
                 type={password?"password":"text"}
@@ -199,6 +200,7 @@
                 class:input={true} 
                 {id} 
                 {name}
+                {disabled}
                 value = {$value}
                 on:input={update}
                 on:blur={firstClickHandler}
@@ -212,64 +214,67 @@
     </div>
 
 <style lang='sass'>
-    @use 'src/lib/styles/palete.sass' as palete
-    .error
+//Imports and Uses
+@use 'src/lib/styles/palete.sass' as palete
+@use 'src/lib/styles/admin/elements' as elements
+
+.error
+    color: red
+    font: 1em Nunito
+
+    span
         color: red
+
+.input
+    display: flex
+    flex-direction: column
+    gap: 1em
+
+    width: 100%
+
+
+    label
+        display: flex
+
+        height: 1em
+
+        color: palete.$tittle
         font: 1em Nunito
 
-        span
-            color: red
-
-    .input
-        display: flex
-        flex-direction: column
-        gap: 1em
-
-        width: 100%
-
-
-        label
-            display: flex
-
-            height: 1em
-
-            color: palete.$tittle
-            font: 1em Nunito
-
-        input,textarea
+    input,textarea
+        @include elements.text-input
             padding: 10px
+        // background: palete.$input
+        
+        // border: 1px solid palete.$input-border
+        // border-radius: 4px
 
-            background: palete.$input
-            
-            border: 1px solid palete.$input-border
-            border-radius: 4px
+        // font: 1em Nunito
 
-            font: 1em Nunito
+        // color: palete.$text
+        
+        // transition: border-color 0.3s ease-in-out
 
-            color: palete.$text
-            
-            transition: border-color 0.3s ease-in-out
+        // &:hover
+        //     border-color: palete.$input-border-hover
+        //     background: palete.$input-hover
+        //     outline: none
 
-            &:hover
-                border-color: palete.$input-border-hover
-                background: palete.$input-hover
-                outline: none
+        //     transition: 1.5s
 
-                transition: 1.5s
+        // &:active
+        //     border-color: palete.$input-border-hover
+        //     background: palete.$input-hover
+        //     outline: none
 
-            &:active
-                border-color: palete.$input-border-hover
-                background: palete.$input-hover
-                outline: none
+        //     transition: 1.5s
 
-                transition: 1.5s
+        // &::placeholder
+        //     color: palete.$placeholder
 
-            &::placeholder
-                color: palete.$placeholder
-
-        textarea
-            display: flex
-            flex: auto
-            justify-content: start
+    textarea
+        display: flex
+        flex: auto
+        justify-content: start
 
 </style>

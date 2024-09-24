@@ -1,18 +1,22 @@
 <script lang='ts'>
 	import {page} from '$app/stores'
-	import logo from '$lib/images/metalK_logo.svg'
 	import header_config from '$lib/jsons/header.json'
 	import { afterUpdate, beforeUpdate, getContext } from 'svelte';
-  import type { Writable } from 'svelte/store';
+  	import type { Writable } from 'svelte/store';
 
 	let user:Writable<any> = getContext('user')
 
 	let logged:boolean = false
 	let modules:Array<HeaderModule>=[]
+	let logo:string
 
 	//Typing header_config
 	user.subscribe((value)=>{
 		logged = (value)?true:false
+	})
+
+	page.subscribe((value)=>{
+		logo = value.data.enterprise.logo[0]
 	})
 
 	$: logged = ($user)?true:false

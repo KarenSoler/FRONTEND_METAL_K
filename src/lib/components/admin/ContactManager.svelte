@@ -65,6 +65,13 @@
         })
     }
 
+    function deleteContact(id:number){
+        contacts.update((value)=>{
+            value.slice(id,1)
+            return value
+        })
+    }
+
     //Rective
     $:{if(defaultValue)contacts.set(defaultValue)}
 
@@ -109,7 +116,7 @@
                     <span class="contact-type">
                         {types[contact.type_id].name}
                     </span>
-                    <Button src={delete_icon} class='delete-contact' event={()=>{}}/>
+                    <Button src={delete_icon} class='delete-contact' event={()=>deleteContact(i)}/>
                 </div>
             {/each}
         {/if}

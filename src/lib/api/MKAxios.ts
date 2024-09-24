@@ -1,8 +1,9 @@
 import axios from "axios"
-import { PVE_API_URL } from "$env/static/private";
+//import { PVE_API_URL } from "$env/static/private";
+import { env } from "$env/dynamic/public";
 
 const MKaxios = axios.create({
-    baseURL:PVE_API_URL
+    baseURL:env.PBE_API_URL
 })
 
 

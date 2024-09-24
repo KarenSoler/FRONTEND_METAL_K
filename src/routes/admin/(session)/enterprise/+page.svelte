@@ -14,11 +14,11 @@
 //Functions
 
 //Rective
-  $:enterprise = data.enterprise
+  $: if(data.enterprise) enterprise = data.enterprise
 </script>
 <form class='enterprise-form' method="POST">
     <ImageSelector unique name='logo' label='Logo' class='attacher-logo-i' default={enterprise.logo}/>
-    <Field name='branch' label='Marca' required class='branch-i' default={enterprise.branch}/>
+    <Field name='branch' label='Marca' class='branch-i' default={enterprise.branch} disabled/>
     <Field name='slogan' label='Slogan' required class='slogan-i' default={enterprise.slogan}/>
     <Field name='description' label='¿Quienes somos?' required textarea class={'who-i'} default={enterprise.description}/>
     <ImageSelector name='enterprise_pictures' label='Imagenes empresariales' class='attacher-enterprise-i' default={enterprise.pictures}/>

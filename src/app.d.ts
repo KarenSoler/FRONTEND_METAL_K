@@ -57,7 +57,7 @@ declare global {
 		slogan: string
 		description: string
 		logo: string
-		contacts: string
+		contacts: [Contact]
 		pictures: [string]
 
 	}
@@ -65,10 +65,10 @@ declare global {
 	//? FormAction
 	type ApiStatus = 'ok'|'error'|'server'|undefined
 
-	interface ApiResponseData<>{
+	interface ApiResponseData<R>{
 		status:ApiStatus
 		message: string|undefined
-		result: [key:string]
+		result: R extends null?{[key: string]: any}:R
 		[Symbol.iterator]()
 	}
 
