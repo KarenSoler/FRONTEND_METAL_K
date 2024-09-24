@@ -159,7 +159,7 @@ main
 .product-container
     background: palete.$u-products-bg
     display: grid
-    grid-template-columns: repeat(4, 10em)
+    grid-template-columns: repeat(4, 1fr)
     grid-gap: 20px
     width: 85vw
     margin: 0 auto //para que este centrado

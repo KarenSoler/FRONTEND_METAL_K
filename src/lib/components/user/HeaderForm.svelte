@@ -13,6 +13,9 @@
 		<picture>
 			<img src={logo} alt='logo'/>
 		</picture>
+        <div class='dashboard_title'>
+			<h1>METAL K</h1>
+		</div>
 		<div class='dashboard_title'>
 			<h2>{title}</h2>
 		</div>
@@ -30,7 +33,6 @@ header
     
     min-height: 6em
     height: auto
-
     background: palete.$u-general-bg
     
     .logo
@@ -40,12 +42,12 @@ header
         
         display: flex
         flex-direction: row
-        flex-wrap: wrap
-        
-        height: 4em
+        align-items: center
+        justify-content: space-between
+        width: 100%  // Para que ocupe todo el ancho del header
+        padding-right: 2em
         
         font-family: Cabin
-
         background: palete.$u-general-bg
     
         img
@@ -53,10 +55,16 @@ header
             width: 4em
             
         .dashboard_title
-            height: max-content
-        
             margin-left: 1em
-        
             color: #E0E0E0
             font-family: Cabin
+
+            
+
+            h2
+                text-align: right    
+                margin-left: auto  // Empuja el título hacia la derecha
+                font-size: 1.3em
+                margin-right: 50px 
+
 </style>

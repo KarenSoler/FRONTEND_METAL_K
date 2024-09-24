@@ -1,10 +1,15 @@
 <script lang='ts'>
     import { writable } from 'svelte/store';
     import image_list from "../../../lib/jsons/imageUser.json"
+    import feature_list from "../../jsons/orderOptions.json"
 
     let focus = false
     let images:Array<Product> = image_list.images.map((image)=> {
         return image;  // Cierra correctamente la función de retorno
+    })
+
+    let categories:Array<Category> = feature_list.categories.map((category)=>{
+        return category
     })
     
 
