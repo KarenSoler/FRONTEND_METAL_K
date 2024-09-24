@@ -10,16 +10,15 @@
     import { afterUpdate, onMount } from 'svelte';
     import { get, writable } from 'svelte/store';
     //States
-    let contacts = writable<Array<Contact>>([{
-        value:"Kra 29",
-        type_id:"1"
-    }])
+    let contacts = writable<Array<Contact>>([])
     let types:Array<{[key:string]:any}> = []
     let type:string = "none"
 
     let current = writable<Contact>({
         type_id:"none"
     })
+
+    let defaultValue:Array<Contact>=[]
 
     let reset:boolean = false
 
@@ -65,7 +64,11 @@
             return value
         })
     }
+
     //Rective
+    $:{if(defaultValue)contacts.set(defaultValue)}
+
+
     $:{
         types = (contact_types.map((type)=>{
             return type
@@ -74,13 +77,14 @@
 
     //Props
     export{
-        externalClass as class
+        externalClass as class,
+        defaultValue as default
     }
 </script>
 
 <div class={externalClass} class:contacts-container={true}>
     <input class="json-contact" name="contacts" type="hidden" value={JSON.stringify($contacts)}/>
-    <label>Contactos</label>
+    <label for={'contacts'}>Contactos</label>
     <div class="contact-enter">
         <!-- <Field name='' class="contact-input" placeholder="Numero, usuario o identificador" value={(input:string)=>{catchNewContact(input,'value')}} bind:this={contactInput}/> -->
         <input class="contact-input" value={reset?"":$current.value} placeholder="Numero, usuario o identificador" on:change={(e)=>{catchNewContact(e,'value')}}/>
@@ -93,20 +97,22 @@
         <Button src={add_icon} class='add-contact' event={addContact} theming/>
     </div>
     <div class="contacts-list">
-        {#each $contacts as contact,i}
-            <div class="contact-registed">
-                <picture class="contact-icon">
-                    <img src={types[contact.type_id].icon} alt={`${types[contact.type_id].name}-icon`}/>
-                </picture>
-                <span class="contact-value">
-                    {contact.value}
-                </span>
-                <span class="contact-type">
-                    {types[contact.type_id].name}
-                </span>
-                <Button src={delete_icon} class='delete-contact' event={()=>{}}/>
-            </div>
-        {/each}
+        {#if $contacts}
+            {#each $contacts as contact,i}
+                <div class="contact-registed">
+                    <picture class="contact-icon">
+                        <img src={types[contact.type_id].icon} alt={`${types[contact.type_id].name}-icon`}/>
+                    </picture>
+                    <span class="contact-value">
+                        {contact.value}
+                    </span>
+                    <span class="contact-type">
+                        {types[contact.type_id].name}
+                    </span>
+                    <Button src={delete_icon} class='delete-contact' event={()=>{}}/>
+                </div>
+            {/each}
+        {/if}
     </div>
 </div>
 <Modal trigger={error}>

@@ -6,9 +6,9 @@
     //States
     let unique:boolean = false
     let alt: string = 'image'
-    let defaultValue: string|undefined = undefined
+    let defaultValue: Array<string>|string|undefined = undefined
     let src = writable<string[]>([])
-    let accept: string = '.png,.jpg,.svg'
+    let accept: string = '.png'
     let label:string = ''
     let name:string
     let id:string = ''
@@ -20,16 +20,17 @@
 
     //Functions
     function imageTaken(e:Event){
-        let images:string[]=[]
+        //let images:string[]=[]
+        src.set([])
         //@ts-ignore
         if(e.target.files){
             //@ts-ignore
             for(let f of e.target.files){
                 const reader = new FileReader()
                 reader.onload = ((e:any)=>{
-                    images.push(e.target.result)
-                    src.set(images)
-                    files.update((value)=>{
+                    //images.push(e.target.result)
+                    //src.set(images)
+                    src.update((value)=>{
                         value.push(e.target.result)
                         return value
                     })
@@ -45,15 +46,23 @@
     $: src.update((value)=>{
         let images = value
         if(defaultValue && value.length==0){
-            images.push(defaultValue)
+            if(typeof defaultValue == 'string'){
+                images.push(defaultValue)
+            }
+            else{
+                for(let d of defaultValue){
+                    images.push(d)
+                }
+            }
         }
         return images
     })
 
+    src.subscribe((srcs)=>{
+        files.set(srcs)
+    })
+
     files.subscribe(async (value)=>{
-        if(value[0]){
-            console.log(value)
-        }
         JSONFiles = JSON.stringify(value)
     })
 

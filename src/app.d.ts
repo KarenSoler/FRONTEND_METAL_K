@@ -51,10 +51,21 @@ declare global {
 		latitude: string
 	}
 
+	interface Enterprise{
+		id?:int
+		branch: string
+		slogan: string
+		description: string
+		logo: string
+		contacts: string
+		pictures: [string]
+
+	}
+
 	//? FormAction
 	type ApiStatus = 'ok'|'error'|'server'|undefined
 
-	interface ApiResponseData{
+	interface ApiResponseData<>{
 		status:ApiStatus
 		message: string|undefined
 		result: [key:string]

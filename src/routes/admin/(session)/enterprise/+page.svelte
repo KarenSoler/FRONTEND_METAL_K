@@ -6,21 +6,23 @@
   import Submit from "@components/admin/Submit.svelte";
   import ContactManager from "@components/admin/ContactManager.svelte";
 //States
+  let enterprise:Enterprise
 
 //Data catching
+  export let data
 
 //Functions
 
 //Rective
-
+  $:enterprise = data.enterprise
 </script>
 <form class='enterprise-form' method="POST">
-    <ImageSelector unique name='logo' label='Logo' class='attacher-logo-i'/>
-    <Field name='branch' label='Marca' required class='branch-i'/>
-    <Field name='slogan' label='Slogan' required class='slogan-i'/>
-    <Field name='description' label='¿Quienes somos?' required textarea class={'who-i'}/>
-    <ImageSelector name='enterprise_pictures' label='Imagenes empresariales' class='attacher-enterprise-i'/>
-    <ContactManager class='contacts-i'/>
+    <ImageSelector unique name='logo' label='Logo' class='attacher-logo-i' default={enterprise.logo}/>
+    <Field name='branch' label='Marca' required class='branch-i' default={enterprise.branch}/>
+    <Field name='slogan' label='Slogan' required class='slogan-i' default={enterprise.slogan}/>
+    <Field name='description' label='¿Quienes somos?' required textarea class={'who-i'} default={enterprise.description}/>
+    <ImageSelector name='enterprise_pictures' label='Imagenes empresariales' class='attacher-enterprise-i' default={enterprise.pictures}/>
+    <ContactManager class='contacts-i' default={enterprise.contacts}/>
     <Submit class="keep">Guardar</Submit>
 </form>
 
@@ -32,6 +34,15 @@
 //Variables
 
 //Styles
+.modal
+  position: fixed
+  top: 0
+  z-index: 10
+  
+  padding: 2em
+
+  background: red
+
 .enterprise-form
     @include elements.section()
     @include elements.center-form()
@@ -45,6 +56,8 @@
     height: 90%
 
     padding: 2em
+
+    color: palete.$text
 
     label
       font-weight: 700 !important

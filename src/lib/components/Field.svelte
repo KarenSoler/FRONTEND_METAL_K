@@ -245,6 +245,8 @@
             border-radius: 4px
 
             font: 1em Nunito
+
+            color: palete.$text
             
             transition: border-color 0.3s ease-in-out
 

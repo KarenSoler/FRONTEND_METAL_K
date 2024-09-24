@@ -4,6 +4,7 @@ class ApiResponse{
     result: { [key: string]: any } ={}
 
     constructor(){
+
     }
 
     getData(response:ApiResponseData) {
@@ -11,6 +12,7 @@ class ApiResponse{
         this.message = response.message
         this.result = response.result
     }
+
 
     isOk=(fu:()=>any,errorFu?:(()=>any))=>{
         if(this.status=='ok') fu()
