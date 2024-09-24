@@ -13,7 +13,7 @@ declare global {
 	//? DTOs
 	interface Product{
 		id: number
-		images: string[],
+		images: string[] | string,
 		category: int,
 		price: double,
 		time: number,
@@ -21,13 +21,13 @@ declare global {
 	}
 
 	interface Tags{
-		id: int 
-		titel: string
+		id: number 
+		title: string
 		description: string
 	}
 
 	interface TagsGroups{
-		id:int
+		id:number
 		title: string
 		description: string
 		icon: string
@@ -38,6 +38,7 @@ declare global {
 		id:int
 		name:string
 		description: string
+		sections: { [key: string]: number[] | undefined}
 		icon: string
 	}
 

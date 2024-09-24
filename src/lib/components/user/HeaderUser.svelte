@@ -1,6 +1,6 @@
 <script lang='ts'>
-	import logo from '$lib/images/metalK_logo_w.svg'
-	import { title } from '../../../stores/titleStore';
+	import logo from '$lib/images/metalK_logo.svg'
+	import { title } from '../../../stores/titleStore'
 </script>
     
 <header>
