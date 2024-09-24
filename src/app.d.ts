@@ -56,7 +56,7 @@ declare global {
 		branch: string
 		slogan: string
 		description: string
-		logo: string
+		logo: [string]
 		contacts: [Contact]
 		pictures: [string]
 

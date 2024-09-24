@@ -7,6 +7,7 @@ export async function load(){
     let response = new ApiResponse<Enterprise>()
     try{
         response.getData((await MKaxios.get('/enterprise')).data)
+        //console.log(response.result)
         return {enterprise:response.result}
     }
     catch(e:any){

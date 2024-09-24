@@ -170,6 +170,7 @@
 </script>
 <!-- ? Simple text input -->
     <div class={externalClass} class:input={true} class:error={error} class:textarea>
+
         {#if label}
                 <label class="label" for={id}>
                     {label}
@@ -181,6 +182,9 @@
         
         {#if (required && !label)}
             <span>"*"</span>
+        {/if}
+        {#if (disabled && $value)}
+            <input type="hidden" value={$value} {name}/>
         {/if}
         {#if textarea}
             <textarea
@@ -244,33 +248,6 @@
     input,textarea
         @include elements.text-input
             padding: 10px
-        // background: palete.$input
-        
-        // border: 1px solid palete.$input-border
-        // border-radius: 4px
-
-        // font: 1em Nunito
-
-        // color: palete.$text
-        
-        // transition: border-color 0.3s ease-in-out
-
-        // &:hover
-        //     border-color: palete.$input-border-hover
-        //     background: palete.$input-hover
-        //     outline: none
-
-        //     transition: 1.5s
-
-        // &:active
-        //     border-color: palete.$input-border-hover
-        //     background: palete.$input-hover
-        //     outline: none
-
-        //     transition: 1.5s
-
-        // &::placeholder
-        //     color: palete.$placeholder
 
     textarea
         display: flex

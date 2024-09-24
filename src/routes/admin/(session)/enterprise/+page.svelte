@@ -1,20 +1,24 @@
 <script lang='ts'>
 //Imports
+  //Components
   import ImageSelector from "@components/admin/ImageSelector.svelte";
-  import logo from "$lib/images/metalK_logo.svg"
   import Field from "@components/Field.svelte";
   import Submit from "@components/admin/Submit.svelte";
   import ContactManager from "@components/admin/ContactManager.svelte";
+
+  //Storage
+  import { page } from "$app/stores";
 //States
   let enterprise:Enterprise
 
 //Data catching
-  export let data
 
 //Functions
 
 //Rective
-  $: if(data.enterprise) enterprise = data.enterprise
+  page.subscribe((value)=>{
+    enterprise=value.data.enterprise
+  })
 </script>
 <form class='enterprise-form' method="POST">
     <ImageSelector unique name='logo' label='Logo' class='attacher-logo-i' default={enterprise.logo}/>
