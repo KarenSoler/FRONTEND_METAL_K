@@ -58,6 +58,15 @@
             return tag ? tag.title : 'Tag no encontrado'
         }).join(', ')
     }
+
+    function getImages(imgIds: Array<number>): Array<string> {
+    return imgIds.map(imgId => {
+        let img = images.find(i => i.id === imgId);
+        return img ? img.images[0] : 'Imagen no encontrada';  // Retorna la primera imagen si existe
+    })
+
+   
+}
 </script>
 
 <!-- Tarjeta/Imagen de producto -->
@@ -77,22 +86,29 @@
   <div class="modal-overlay" on:click={closeModal}>
       <div class="modal-content" on:click|stopPropagation>
 
-        <ul>
+        <ul class="carousel">
             {#each images as image}
                 <li>
-                    <img class="image-carousel" src={Array.isArray(selectedImage.images) ? selectedImage.images[0] : selectedImage.images} alt={getCategoryName(selectedImage.category)}>
+                    <img class="image-carousel" src={Array.isArray(image.images) ? image.images[0] : image.images} alt={getCategoryName(selectedImage.category)}>
                 </li>
             {/each}
         </ul>
-
+        
+        <div>
           <h3>{getCategoryName(selectedImage.category)}</h3>
+        </div>
+
           <h5>Precio</h5>
           <p>{selectedImage.price}</p>
           <h5>Tiempo</h5>
           <p>{selectedImage.time} días</p>
           <h5>Características</h5>
           <p>{getTags(selectedImage.tags)}</p>
-          <button on:click={closeModal}>Cerrar</button>
+
+          <div>
+            <button on:click={closeModal}>Cerrar</button>
+          </div>
+          
       </div>
   </div>
 {/if}
@@ -114,6 +130,7 @@
     width: 12em
     height: 13em 
     display: flex
+    display: inline-block
     flex-wrap: wrap
     cursor: pointer
     transition: all 0.3s ease
@@ -129,6 +146,20 @@ figure
         flex-wrap: wrap
         grid-gap: 10em
 
+
+    
+
+.image-product
+    border-radius: 8px
+    width: 75%
+    height: 75%
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7)
+    object-fit: cover
+    border: 0.3px solid palete.$u-border-container
+    z-index: 10
+
+
+
 /*img.image-product
         width: 100%
         height: 100%
@@ -138,15 +169,6 @@ figure
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7)
         cursor: pointer*/
 
-.image-product
-    border-radius: 8px
-    position: relative
-    width: 75%
-    height: 75%
-    object-fit: cover
-    border: 0.3px solid palete.$u-border-container
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7)
-    z-index: 10
 
 .modal-overlay
     position: fixed
@@ -159,17 +181,24 @@ figure
     justify-content: center
     align-items: center
     z-index: 1000
+    overflow: scroll
+
 
 .modal-content
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 1.5em
+
+    width: 90%
+    max-width: 500px
+
     background-color: palete.$u-container
     padding: 2em
     border-radius: 8px
-    width: 90%
-    max-width: 500px
+   
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
-    text-align: center
+    text-align: left
 
-    justify-content: columns
 
     h5
         color: palete.$u-title
@@ -190,25 +219,29 @@ figure
         margin-top: 20px
 
         transition: background 0.5s ease-in-out
+        
 
         &:hover
             background: palete.$u-button-hover
             cursor: pointer
 
-.image-carousel
-    border-radius: 5px
-    display:flex
-    position: relative
-    width: 20%
-    height: 20%
+.carousel 
+    display: flex
+    flex-wrap: nowrap
+    overflow-x: auto // Permitir scroll horizontal
+    scroll-snap-type: x mandatory
+    gap: 10px
+    padding-bottom: 10px
+
+
+.image-carousel 
+    flex: 0 0 auto // Evitar que las imágenes se estiren
+    width: 100px // Ancho de las imágenes en el carrusel
+    height: 100px// Alto de las imágenes
     object-fit: cover
+    border-radius: 5px
     border: 0.3px solid palete.$u-border-container
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7)
-    z-index: 10
-    overflow-x: auto
-
-    gap: 6px
-
-    scroll-snap-type: x mandatory
+    scroll-snap-align: start// Ajustar la imagen al borde
 
 </style>

@@ -1,8 +1,8 @@
 <script lang='ts'>
 	import logo from '$lib/images/metalK_logo.svg'
-    import HeaderUser from '@components/user/HeaderUser.svelte'
+    import HeaderUser from '@components/user/HeaderUser.svelte';
     import bg from '$lib/images/user-bg.svg'
-    import ProductUser from '@components/user/ProductUser.svelte'
+    import ProductAdmin from "@components/user/ProductUser.svelte";
 
     export let info = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas  las cuales contenian pasajes de Lorem Ipsum, "
     export let imgEnterprice = logo
@@ -32,12 +32,12 @@
         </div>
 
         <div class="filter-option">
-            <button type="button" class="category-option"><h2>Todos los productos ⯯</h2></button>
+            <h2>Todos los productos ⯯</h2>
         </div>
         <div class="product-container">
-            <!-- <figure class="product-image">  -->
-                <ProductUser/>
-          <!-- </figure>  -->
+            <figure class="product-image">
+                <ProductAdmin/>
+            </figure>
         </div>
     </div>
     
@@ -142,24 +142,14 @@ main
     box-shadow: rgba(10, 10, 10, 0.5) 0px 15px 20px 0px  
     z-index:10
 
-    .category-option
-        background: none
-        border: none
-        display: block
-        margin: 0 auto
-
-        &:hover
-            cursor: pointer
+    h2
+        color: palete.$u-header
+        text-align: center
         
-        h2
-            color: palete.$u-header
-            text-align: center
-            
 
 .product-container
     background: palete.$u-products-bg
     display: grid
-    grid-template-columns: repeat(4, 1fr)
     grid-gap: 20px
     width: 85vw
     margin: 0 auto //para que este centrado
@@ -169,8 +159,9 @@ main
     padding: 60px 60px 60px 10vw
     z-index:1
 
-   
-
+.product-image
+    padding: 20px
+    justify-content: center
     
   
 </style>
