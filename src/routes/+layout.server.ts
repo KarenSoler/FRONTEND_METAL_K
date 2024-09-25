@@ -7,9 +7,8 @@ export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     //Cookies
     const anyAdmin = cookies.get('anyAdmin')
     const token = cookies.get('token')
-    console.log(pathname)
-    console.log(anyAdmin)
-    console.log(token)
+    
+    //Token Validation Request
     let response = new ApiResponse()
     try{
         response.getData((await MKaxios.get(`/admin/${token}`)).data)
@@ -19,13 +18,15 @@ export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
         cookies.delete('token',{path:'/'})
         cookies.delete('current',{path:'/'})
     }
+
+    //Redirction 
     response.isOk(()=>{
         if(!anyAdmin)cookies.set('anyAdmin','1',{path:'/'})
         if(pathname.match(/^((.*\/\(entrance\)\/)||(\/))$/)) redirect(307,'/admin/enterprise')
     },  
     ()=>{
+        //If there was any log in before
         if(anyAdmin){
-            console.log('B1')
             if(pathname.match(/^((.*\/)||(.*\/\(session\)\/).*)$/)) redirect(307,'/admin/login')
         }
         else{

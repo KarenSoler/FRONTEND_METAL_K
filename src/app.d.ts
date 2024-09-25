@@ -73,15 +73,28 @@ declare global {
 		[Symbol.iterator]()
 	}
 
-	//?
-	
-    
+	//? Enterprise
     interface Contact{
 		type_id: int|"none"
         type?: string
         value?: string
         icon?: string
     }
+
+	//? Solicitude
+	interface OptionSection{
+		title: string
+		id: int
+		description: string
+		options: [Option]
+	}
+
+	interface Option{
+		key: string
+		id: int
+		description: string
+		icon?: string
+	}
 }
 
   
