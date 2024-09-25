@@ -45,8 +45,6 @@ export{
     flex-direction: column
     justify-content: center
 
-    margin: 10px
-
     padding: 15px 5%
 
     background-color: palete.$u-card-container
@@ -59,15 +57,18 @@ export{
 
     cursor: pointer
 
-    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out,transform 0.5s ease-in-out
     
     &:hover
         background-color: palete.$u-card-hover
         box-shadow: palete.$u-card-shadow 0 0 10px 0
+
+    &:active
+        transform: scale(0.98)  
     
     .option-img
         @include elements.icon-theming()
-        
+
         position: absolute
         top: 50%
         left: 1em

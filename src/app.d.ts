@@ -58,9 +58,8 @@ declare global {
 		slogan: string
 		description: string
 		logo: [string]
-		contacts: [Contact]
+		contacts: Contact[]
 		pictures: [string]
-
 	}
 
 	//? FormAction
@@ -84,9 +83,10 @@ declare global {
 	//? Solicitude
 	interface OptionSection{
 		title: string
+		icon?: string
 		id: int
 		description: string
-		options: [Option]
+		options: Option[]
 	}
 
 	interface Option{
