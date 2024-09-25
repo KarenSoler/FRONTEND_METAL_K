@@ -131,34 +131,34 @@
 
 <main>
 <!-- Mostrar las categorías -->
-    {#if showCategories}
-        <div class="categories">
-        {#each categories as category}
-            <div class="category-card" on:click={() => selectCategory(category)}>
-            
-            <img src={new URL(category.icon, import.meta.url).href}  alt={category.name}>
+  {#if showCategories}
+      <div class="categories">
+      {#each categories as category}
+          <div class="category-card" on:click={() => selectCategory(category)}>
+          
+          <img src={new URL(category.icon, import.meta.url).href}  alt={category.name}>
 
-            <div class="info-text">
-              <h3>{category.name}</h3>
-              <p>{category.description}</p>
-            </div>
+          <div class="info-text">
+            <h3>{category.name}</h3>
+            <p>{category.description}</p>
+          </div>
 
-            </div>
-        {/each}
-        </div>
-    {/if}
-
-<!-- Mostrar los tags disponibles -->
-{#if $availableTags.length != 0}
-    <div class="tags">
-      {#each $availableTags as tag}
-        <div class="tags-card" on:click={() => selectTag(tag)}>
-          <h3>{tag.title}</h3>
-          <p>{tag.description}</p>
-        </div>
+          </div>
       {/each}
-    </div>
+      </div>
   {/if}
+
+  <!-- Mostrar los tags disponibles -->
+  {#if $availableTags.length != 0}
+      <div class="tags">
+        {#each $availableTags as tag}
+          <div class="tags-card" on:click={() => selectTag(tag)}>
+            <h3>{tag.title}</h3>
+            <p>{tag.description}</p>
+          </div>
+        {/each}
+      </div>
+    {/if}
 
 
 <!-- Mostrar los tags seleccionados -->

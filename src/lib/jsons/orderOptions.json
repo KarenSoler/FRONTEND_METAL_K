@@ -9,7 +9,7 @@
                     "2":[5,6,7],
                     "5":[13,14,15]
                 },
-                "icon":"../images/gate_icon.svg"
+                "icon":"/src/lib/images/gate.svg"
             },
             {
                 "id":2,
