@@ -3,10 +3,15 @@
     //Background
     import bg from '$lib/images/user-bg.svg'
     import HeaderForm from '@components/user/HeaderForm.svelte';
+  import { setContext } from 'svelte';
+  import { writable } from 'svelte/store';
 
 //States
 
-//Data catching
+   //Data catching
+   const solicitude = writable({name:'juan'})
+
+   setContext('solicitude',solicitude)
 
 //Functions
 

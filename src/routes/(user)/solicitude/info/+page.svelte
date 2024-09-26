@@ -21,6 +21,8 @@ import { getContext } from "svelte";
         console.log(value)
     })
 
+    console.log(get(order))
+
 
 //Functions
 
