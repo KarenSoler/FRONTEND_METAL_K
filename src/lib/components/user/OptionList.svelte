@@ -20,7 +20,7 @@
 </script>
 
 <form class:option-section={true} class={externalClass} method="POST">
-    <h1><svelte:element this={section.icon}/>{section.title}</h1>
+    <h1><svelte:element this={section.icon&&'img'}/>{section.title}</h1>
     <p>{section.description}</p>
     <nav class="option-menu invisible-scroll">
         {#each section.options as option}
