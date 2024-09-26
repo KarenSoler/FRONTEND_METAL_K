@@ -65,10 +65,10 @@ declare global {
 	//? FormAction
 	type ApiStatus = 'ok'|'error'|'server'|undefined
 
-	interface ApiResponseData<R>{
+	interface ApiResponseData<R={[key: string]: any}>{
 		status:ApiStatus
 		message: string|undefined
-		result: R extends null?{[key: string]: any}:R
+		result: R
 		[Symbol.iterator]()
 	}
 

@@ -1,7 +1,7 @@
-class ApiResponse<R>{
+class ApiResponse<R={[key: string]: any}>{
     status:ApiStatus
     message: string|undefined
-    result:( R extends null?{[key: string]: any}:R)|undefined
+    result:R|undefined
 
     constructor(){
 

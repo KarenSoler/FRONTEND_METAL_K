@@ -22,8 +22,6 @@ export function load({params}:{params:{[key:string]:any}}){
     for(let sec in categories[category].sections){
         let section = categories[category].sections[sec]
 
-        console.log(section.length)
-
         let [tagGroupRoute,tagGroupInfo] = Object.entries(tagGroups).filter((tg)=>tg[1].id == parseInt(sec))[0]
         Object.assign(sections,{
             [tagGroupRoute]:{

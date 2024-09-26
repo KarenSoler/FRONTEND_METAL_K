@@ -8,10 +8,6 @@ import { get } from "svelte/store"
 export function load(){
     let section:OptionSection
     let categories:{[key:string]:any}  = order_options.categories
-    order.subscribe((value)=>{
-        console.log('.v')
-        console.log(value)
-    })
 
     order.set({
         category:undefined,
