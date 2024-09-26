@@ -3,6 +3,24 @@
     import { page } from '$app/stores';
     import OptionList from '@components/user/OptionList.svelte'
     import { order } from '@stores/order.js';
+    import { afterUpdate, getContext } from "svelte";
+    import type { Writable } from "svelte/store";
+
+//Imports
+
+//States
+
+//Data catching
+    // let solicitude:Writable<{[key:string]:any}> = getContext('solicitude')
+
+    // solicitude.subscribe((value)=>{
+    //     console.log(value)
+    // })
+
+    // afterUpdate(()=>{
+    //     solicitude.set({ege:12})
+    // })
+
 
 //States
     let section:OptionSection

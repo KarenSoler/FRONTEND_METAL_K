@@ -1,13 +1,18 @@
 <script lang='ts'>
+//Imports
   import ImageSelector from "@components/admin/ImageSelector.svelte";
   import Field from "@components/Field.svelte";
-  import Submit from "@components/Submit.svelte";
+  import Submit from "@components/admin/Submit.svelte";
+  import { writable } from "svelte/store";
 
 //Imports
 
 //States
+    export const error = writable<boolean>(false)
 
 //Data catching
+    
+
 
 //Functions
 
@@ -16,7 +21,7 @@
 </script>
 
 
-<form class="form-container">
+<form class="form-container" method="post">
     <h2>Ingrese sus datos</h2>
 
     <Field 
@@ -24,6 +29,7 @@
         label="Nombre" 
         placeholder="Ingrese su nombre y apellido" 
         required="Este campo es obligatorio" 
+        {error}
     />
     <Field 
         name="phone" 
@@ -32,21 +38,23 @@
         regex={{ pattern: /^[0-9]+$/, message: "Solo se permiten números" }} 
         required="Este campo es obligatorio" 
         logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
+        {error}
     />
     <Field 
         name="address" 
         label="Dirección de trabajo" 
         placeholder="Ingrese su dirección" 
         required="Este campo es obligatorio" 
+        {error}
     />
 
     <ImageSelector name="planes" class="planes-attacher" label="Planos"/>
 
-    <label for="planes"> ¿Desea agendar una cita?
-        <input type="checkbox" id="planes" name="planes" value="planes">
+    <label for="visit"> ¿Desea agendar una cita?
+        <input type="checkbox" id="visit" name="visit">
     </label>
 
-    <Submit>Enviar</Submit>
+    <Submit disabled={$error}>Enviar</Submit>
 </form>
 
 <style lang='sass' global>
@@ -60,8 +68,6 @@
 
 .form-container
     @include elements.section()
-
-    background: palete.$u-container
 
     display: flex
     justify-content: center
