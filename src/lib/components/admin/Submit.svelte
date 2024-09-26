@@ -1,11 +1,18 @@
 <script lang='ts'>
-    let disabled:boolean = true
-    let formaction:string = ""
+    let disabled:boolean = false
+    let formaction:string|undefined = undefined
 
-    export {disabled,formaction}
+    //External style setting
+    let externalClass:string|undefined = undefined
+
+    export {
+        disabled,
+        formaction,
+        externalClass as class
+    }
 </script>
 
-<button type="submit" {formaction}>
+<button type="submit" {formaction} {disabled}  class={externalClass}>
     {#if $$slots.default}
         <slot/>
     {:else}
@@ -14,8 +21,8 @@
 </button>
 
 <style lang='sass'>
-@use 'src/lib/styles/palete.sass' as palete
 @use 'src/lib/styles/admin/elements.sass' as elements
+@use 'src/lib/styles/admin/palete.sass' as palete
 
 button
     width: 50%
@@ -23,6 +30,8 @@ button
     font: 1em Nunito
 
     border-radius: 10px
+    
+    color: palete.$text
 
     @include elements.form-button()  
 </style>

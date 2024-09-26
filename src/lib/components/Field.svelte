@@ -1,8 +1,9 @@
 <script lang='ts'>
-    import { writable } from 'svelte/store';
-
 //Imports
+    import { writable, type Writable } from 'svelte/store';
     import type { ErrorInput, RegexValidation } from '../types/Form';
+    import type { text } from 'stream/consumers';
+
 // States
     let label:string|undefined = undefined
     let name:string
@@ -10,7 +11,15 @@
     let id:string|undefined = undefined
     let defaultValue:string = ""
     let value = writable(defaultValue)
-    let disabled:boolean|(()=>boolean) = true
+
+    //modes
+    let disabled:boolean = false
+    let textarea:boolean = false
+    let password:boolean = false
+
+    //External error seting
+    let externalError:Writable<boolean>|undefined = undefined
+    let valueGetter:((value:string)=>void)|undefined = undefined
 
     //Validations 
     let touched:boolean
@@ -20,7 +29,8 @@
     let logic:((value:string)=>string|undefined)|undefined = undefined
 
     //External style setting
-    let external:string|undefined = undefined
+    let externalClass:string|undefined = undefined
+    
 //Functions
     function update(event:Event){
         let input=event.target
@@ -37,7 +47,6 @@
 
     //Validations centralizer
     function validater(value:string){
-        console.log(value)
         while(true){
             if(!requiredValidation(value)) break
             if(!regexValidation(value)) break 
@@ -90,7 +99,6 @@
             error=undefined 
             return true
         }
-        return true
     }
 
     function logicValidation(value:string){
@@ -111,10 +119,37 @@
         return true
     }
 //Reactive
+    externalError?.subscribe((value)=>{
+        if(!value && error){
+            externalError.set(true)
+        }
+    })
+
+
+    value.subscribe((value)=>{
+        if(typeof valueGetter == 'function'){
+            valueGetter(value)
+        }
+    })
+
     //Setting id
-    $:if(!id) id = name
+    $: value.set(defaultValue)
+    
+    $:  if(!id) id = name
 
     $: if(touched) validater($value)
+
+    $: {
+        if(externalError){
+            if(error){
+                externalError.set(true)
+            }
+            else{
+                externalError.set(false)
+            }
+        }
+    }
+                
 
 //Props
     export{
@@ -122,15 +157,20 @@
         placeholder,
         name,
         disabled,
-        defaultValue as value,
+        textarea,
+        password,
+        defaultValue as default,
         regex,
         required,
         logic,
-        external as class
+        externalClass as class,
+        externalError as error,
+        valueGetter as value
     }
 </script>
 <!-- ? Simple text input -->
-    <div class={external} class:input={true} class:error={error}>
+    <div class={externalClass} class:input={true} class:error={error} class:textarea>
+
         {#if label}
                 <label class="label" for={id}>
                     {label}
@@ -143,16 +183,33 @@
         {#if (required && !label)}
             <span>"*"</span>
         {/if}
-        <input 
-            type="text" 
-            {placeholder} 
-            class:input={true} 
-            {id} 
-            {name}
-            value = {$value}
-            on:input={update}
-            on:blur={firstClickHandler}
-        />
+        {#if (disabled && $value)}
+            <input type="hidden" value={$value} {name}/>
+        {/if}
+        {#if textarea}
+            <textarea
+                {placeholder} 
+                class:input={true} 
+                {id} 
+                {name}
+                {disabled}
+                value = {$value}
+                on:input={update}
+                on:blur={firstClickHandler}
+            ></textarea>
+        {:else}
+            <input 
+                type={password?"password":"text"}
+                {placeholder} 
+                class:input={true} 
+                {id} 
+                {name}
+                {disabled}
+                value = {$value}
+                on:input={update}
+                on:blur={firstClickHandler}
+            />
+        {/if}
         {#if error?.message}
             <span>
                 {error.message}
@@ -161,52 +218,40 @@
     </div>
 
 <style lang='sass'>
-    @use 'src/lib/styles/palete.sass' as palete
-    .error
+//Imports and Uses
+@use 'src/lib/styles/palete.sass' as palete
+@use 'src/lib/styles/admin/elements' as elements
+
+.error
+    color: red
+    font: 1em Nunito
+
+    span
         color: red
+
+.input
+    display: flex
+    flex-direction: column
+    gap: 1em
+
+    width: 100%
+
+
+    label
+        display: flex
+
+        height: 1em
+
+        color: palete.$tittle
         font: 1em Nunito
 
-        span
-            color: red
-
-    .input
-        
-        width: 100%
-
-        label
-            color: palete.$tittle
-            font: 1em Nunito
-
-        input
-
-            margin-bottom: 5px
-            margin-top: 15px
-
+    input,textarea
+        @include elements.text-input
             padding: 10px
 
-            background: palete.$input
-            
-            border: 1px solid palete.$input-border
-            border-radius: 4px
+    textarea
+        display: flex
+        flex: auto
+        justify-content: start
 
-            font: 1em Nunito
-            
-            transition: border-color 0.3s ease-in-out
-
-            &:hover
-                border-color: palete.$input-border-hover
-                background: palete.$input-hover
-                outline: none
-
-                transition: 1.5s
-
-            &:active
-                border-color: palete.$input-border-hover
-                background: palete.$input-hover
-                outline: none
-
-                transition: 1.5s
-
-            &::placeholder
-                color: palete.$placeholder
 </style>

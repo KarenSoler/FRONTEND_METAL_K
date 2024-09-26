@@ -1,4 +1,4 @@
-
+@use 'src/lib/styles/palete' as glpalete
 
 :root
     //ol=overlap
@@ -32,20 +32,27 @@
 @media (prefers-color-scheme: light)
     :root
         --general-bg: #f6f6f6
+        --hight-bg: #d1d1d1
         --text: #202020
         --section-bg: #edf0e8
         --section-border: #c7c7c7f6
+        --touch-hover-shadow: #83bdffa2
+        --contrast: #4b4b4b
 
 
 @media (prefers-color-scheme: dark)
     :root
         --general-bg: #202020
+        --hight-bg: #5c5c5c
         --text: #edf0e8
         --section-bg: #292929
         --section-border: #474747
+        --touch-hover-shadow: #dbdbdb8f
+        --contrast: #dfdfdf
 
 // ? Asing to a variable each color
 $general-bg: var(--general-bg)
+$hight-bg: var(--hight-bg)
 $main-ol: var(--main-ol) 
 $secondary-ol: var(--secondary-ol) 
 $hover-ol: var(--hover-ol) 
@@ -61,5 +68,10 @@ $touch-able: var(--touch-able)
 $touch-hover: var(--touch-hover)
 $touch-active: var(--touch-active)
 $touch-disabled: var(--touch-disabled)
+$touch-hover-shadow: var(--touch-hover-shadow)
 $disabled-text: var(--disabled-text)
-        
+$input-bg: glpalete.$input
+$input-border: glpalete.$input-border
+$input-placeholder: glpalete.$placeholder
+$delete-option: glpalete.$delete-option
+$contrast: var(--contrast)

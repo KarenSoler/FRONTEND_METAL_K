@@ -1,9 +1,14 @@
 <script lang='ts'>
     import Field from "@components/Field.svelte";
     import Submit from "@components/admin/Submit.svelte";
+    import Modal from '@components/Modal.svelte'
+    import { writable } from "svelte/store";
+
+    export let form
+    export const error = writable<boolean>(false)
 </script>
 
-<form class="form-container">
+<form class="form-container" method="POST" action='?/login'>
     <h1>Ingrese sus datos</h1>
     <Field 
         name="phone" 
@@ -11,18 +16,23 @@
         placeholder="Ingrese su número de teléfono" 
         regex={{ pattern: /^[0-9]+$/, message: "Solo se permiten números" }} 
         required="Este campo es obligatorio" 
-        logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
+        logic={(value:string) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
+        error={error}
     />
-
     <Field 
         name="password" 
         label="Contraseña" 
+        password
         placeholder="Ingrese la contraseña" 
         required="Este campo es obligatorio" 
+        error={error}
     />
     <a href="/admin/recover-pass">¿Ha olvidado su contraseña?</a>
-    <Submit>Enviar</Submit>
+    <Submit disabled={$error}>Enviar</Submit>
 </form>
+<Modal trigger={form?.incorrect}>
+    {form?.message}
+</Modal>
 
 <style lang='sass' global>
 @use 'src/lib/styles/media' as media

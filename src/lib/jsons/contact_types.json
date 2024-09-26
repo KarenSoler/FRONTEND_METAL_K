@@ -1,0 +1,18 @@
+[
+    {
+        "name":"Fabrica",
+        "icon":"/src/lib/images/factory_icon.png"
+    },
+    {
+        "name":"Intagram",
+        "icon":"/src/lib/images/instagram_icon.svg"
+    },
+    {
+        "name":"Facebook",
+        "icon":"/src/lib/images/facebook_icon.svg"
+    },
+    {
+        "name":"X (Twitter)",
+        "icon":"/src/lib/images/x_icon.svg"
+    }
+]

@@ -77,7 +77,7 @@ $: showForm = $selectedCategories !== null && $availableTags.length === 0 && $se
                  required="Este campo es obligatorio" 
              />
 
-             <ImageSelector/>
+             <ImageSelector name="planes" class="planes-attacher" label="Planos"/>
 
              <input type="checkbox" id="planes" name="planes" value="planes">
              <label for="planes"> ¿Desea agendar una cita?</label><br>
@@ -90,8 +90,8 @@ $: showForm = $selectedCategories !== null && $availableTags.length === 0 && $se
     </div>
 </main>
 
-<style lang='sass'>
-@use '../../../lib/styles/user/palete' as palete
+<style lang='sass' global>
+@use 'src/lib/styles/user/palete' as palete
 @use 'src/lib/styles/admin/elements' as elements
 
 
@@ -178,7 +178,8 @@ main
         @include elements.text-link()
     label
         color: palete.$u-text
-        margin: 30px
+        // margin: 30px
         
-
+    .planes-attacher
+        height:10em
 </style>

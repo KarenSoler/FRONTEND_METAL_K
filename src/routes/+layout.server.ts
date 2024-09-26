@@ -1,17 +1,25 @@
+import { MKaxios } from "$lib/api/MKAxios";
+import ApiResponse from "$lib/api/ApiResponse";
 import { redirect, type Cookies, type RouteData } from "@sveltejs/kit";
 
-export function load({cookies,route}:{cookies:Cookies,route:RouteData}){
+export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     let pathname = route.id
-    cookies.set('current',JSON.stringify({name:'Juan'}),{path:'/'})
-    console.log(pathname)
-    console.log(cookies.getAll())
-    const current:string|undefined = cookies.get('current')
-    if(current && pathname!='/test'){
-        console.log('Hay usuario')
-        //redirect(307,'/test')
+    const token:string|undefined = cookies.get('token')
+    let response = new ApiResponse()
+    console.log(token)
+    try{
+        response.getData((await MKaxios.get(`/admin/${token}`)).data)
     }
-    else {
-        console.log('no hay sesion')
-        //redirect(307,'/')
+    catch(e:any){
+        response.getData(e.response.data.detail)
+        cookies.delete('token',{path:'/'})
+        cookies.delete('current',{path:'/'})
     }
+
+    response.isOk(()=>{
+        if(pathname.match(/^.*\/\(entrance\)\//)) redirect(307,'/admin/enterprise')
+    },  
+    ()=>{
+        if(pathname.match(/^.*\/\(session\)\//)) redirect(307,'/admin/login')
+    })
 }

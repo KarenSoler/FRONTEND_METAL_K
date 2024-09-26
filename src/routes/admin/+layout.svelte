@@ -1,11 +1,37 @@
 <script lang='ts'>
+  import { afterNavigate, invalidate, invalidateAll } from '$app/navigation';
+
 //Imports
 import AdminHeader from '@admin-components/AdminHeader.svelte'
+import { afterUpdate, beforeUpdate, onMount, setContext } from 'svelte';
+  import { writable } from 'svelte/store';
 //States
+export let data
+let user = writable(data.currentAdmin)
+
+setContext('user',user)
+
+$: {
+    user.set(data.currentAdmin)
+}
 
 //Data catching
+//@ts-ignore
 
-//Functions
+// //Functions
+
+afterNavigate(()=>{
+  rerunLoadFunction()
+})
+
+function rerunLoadFunction() {
+    // any of these will cause the `load` function to rerun
+    invalidate('app:random');
+    invalidate('https://api.example.com/random-number');
+    invalidate(url => url.href.includes('random-number'));
+    invalidateAll();
+}
+
 
 //Rective
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="85.974304mm"
+   height="91.369759mm"
+   viewBox="0 0 85.974304 91.369759"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="74.940836,128.07446"
+       end_point="118.32587,128.07446"
+       center_point="96.633353,128.07446"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-32.048939,-82.389585)">
+    <path
+       id="path1"
+       style="fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       transform="rotate(30)"
+       d="m 173.04032,72.049164 c 0,18.86651 -12.67189,35.380846 -30.89554,40.263856 -18.22365,4.88301 -37.455,-3.08287 -46.888254,-19.421753 -9.433255,-16.338876 -6.716242,-36.976653 6.624394,-50.31729 13.34064,-13.340641 33.97842,-16.057655 50.3173,-6.624395"
+       sodipodi:nodetypes="csssc" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:6.92979;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 74.940834,128.07446 h 43.385036 l -17.41542,-17.41542 m -25.969616,17.41542 h 43.385036 l -17.41542,17.41542"
+       id="path2"
+       inkscape:path-effect="#path-effect3"
+       inkscape:original-d="M 74.940834,128.07446 H 118.32587 L 100.91045,110.65904"
+       transform="matrix(1.1544363,0,0,1.1544363,-22.575866,-19.495931)" />
+  </g>
+</svg>

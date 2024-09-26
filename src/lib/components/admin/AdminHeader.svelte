@@ -1,15 +1,39 @@
 <script lang='ts'>
 	import {page} from '$app/stores'
-	import logo from '$lib/images/metalK_logo.svg'
 	import header_config from '$lib/jsons/header.json'
-	
+	import { afterUpdate, beforeUpdate, getContext } from 'svelte';
+  	import type { Writable } from 'svelte/store';
+
+	let user:Writable<any> = getContext('user')
+
+	let logged:boolean = false
+	let modules:Array<HeaderModule>=[]
+	let logo:string
+
 	//Typing header_config
-	let modules:Array<HeaderModule> = header_config.modules.map((module)=>{
-		return module
+	user.subscribe((value)=>{
+		logged = (value)?true:false
 	})
+
+	page.subscribe((value)=>{
+		logo = value.data.enterprise.logo[0]
+	})
+
+	$: logged = ($user)?true:false
+
+	$:{
+		modules = (logged)?(header_config.modules.map((module)=>{
+			return module
+		})):([
+			{
+				name:"Portafolio <img src='/src/lib/images/return.svg' alt='logout'/>",
+				route:"/user/HomePortfolio"
+			}
+		])
+	}
+	
 	
 </script>
-	
 <header>
 	<div class='logo'>
 		<picture>
@@ -21,12 +45,12 @@
 		</div>
 	</div>
 	<!-- Conditional menu printing -->
-	{#if modules.length != 0}
+	{#if (modules.length != 0)}
 		<nav class='menu'>
 				{#each modules as module}
 					<a href={module.route}>
 						<span>
-							{module.name}
+							{@html module.name}
 						</span>
 					</a>
 				{/each}
@@ -35,7 +59,7 @@
 
 </header>
 	
-<style lang='sass'>
+<style lang='sass' global>
 @use 'src/lib/styles/media' as media
 @use 'src/lib/styles/admin/palete' as palete
 
@@ -44,7 +68,7 @@ header
 	position: sticky
 	top:0
 	right: 0
-	z-index: 10
+	z-index: 2
 
 	width: 100vw
 	min-height: 6em
@@ -103,7 +127,8 @@ header
 			align-items: center
 	
 			height: 6em
-			width: 6em
+			width: auto
+			//max-width: 8em
 	
 	
 			background: palete.$main-ol
@@ -124,6 +149,36 @@ header
 				background: palete.$active-ol
 				
 				color: palete.$uncontrast-ol
+
+				img
+					filter:  brightness(0)
+
+			span
+				position: relative
+
+				display: flex
+				justify-content: center
+				align-items: center
+				gap: 0.5em
+
+
+				width: fit-content
+				height: 1em
+
+				margin: 0 1em
+
+				text-align: center
+
+				img
+					position: relative
+
+					width: 2em
+					height: 2em
+
+					filter:  brightness(1)
+
+					transition: filter 1s ease-in-out
+
 
 	//Responsive for mobile
 	@include media.by-max-width(460px)

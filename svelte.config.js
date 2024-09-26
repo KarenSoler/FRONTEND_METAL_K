@@ -3,6 +3,12 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { sveltePreprocess } from 'svelte-preprocess';
 
 const config = {
+	onwarn: (warning, handler) => {
+	  // suppress warnings on `vite dev` and `vite build`; but even without this, things still work
+	  if (warning.code === "a11y-click-events-have-key-events") return;
+	  if (warning.code === "a11y-no-static-element-interactions") return;
+	  handler(warning);
+	},
 	preprocess: vitePreprocess(),
 	//SASS Compiler
 	preprocess: sveltePreprocess({

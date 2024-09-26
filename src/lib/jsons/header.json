@@ -1,13 +1,16 @@
 {
     "modules":[
         {
-            "name":"/",
-            "route":""
+            "name":"Empresa",
+            "route":"/admin/enterprise"
         },
-        
         {
-            "name":"aa",
-            "route":""
+            "name":"Productos",
+            "route":"/admin/products"
+        },
+        {
+            "name":"<img src='/src/lib/images/return.svg' alt='logout'/>",
+            "route":"/admin/logout"
         }
     ]
 }

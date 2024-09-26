@@ -3,13 +3,14 @@ declare global {
 	namespace App {
 	}
 
-	//TODO Components
-	// ? Header
+	//? Components
+	//Header
 	interface HeaderModule{
 		name:string
 		route:string
 	}
 
+	//? DTOs
 	interface Product{
 		id: number
 		images: string[] | string,
@@ -50,6 +51,39 @@ declare global {
 		longitude: string
 		latitude: string
 	}
+
+	interface Enterprise{
+		id?:int
+		branch: string
+		slogan: string
+		description: string
+		logo: [string]
+		contacts: [Contact]
+		pictures: [string]
+
+	}
+
+	//? FormAction
+	type ApiStatus = 'ok'|'error'|'server'|undefined
+
+	interface ApiResponseData<R>{
+		status:ApiStatus
+		message: string|undefined
+		result: R extends null?{[key: string]: any}:R
+		[Symbol.iterator]()
+	}
+
+	//?
+	
+    
+    interface Contact{
+		type_id: int|"none"
+        type?: string
+        value?: string
+        icon?: string
+    }
 }
+
+  
 
 export {};
