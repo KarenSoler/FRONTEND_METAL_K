@@ -1,12 +1,10 @@
 <script>
 
 	import {page} from '$app/stores'
-	import logo from '$lib/images/metalK_logo.svg'
 	import header_config from '$lib/jsons/header.json'
     
     export let title  = "Personalización"
-
-
+	let logo = $page.data.enterprise.logo
 </script>
 <header>
 	<div class='logo'>

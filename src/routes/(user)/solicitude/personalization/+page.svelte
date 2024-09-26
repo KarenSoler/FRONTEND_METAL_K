@@ -20,10 +20,7 @@ $: showForm = $selectedCategories !== null && $availableTags.length === 0 && $se
 
 </script>
 
-<header>
-    <HeaderForm/>
-</header>
-
+<HeaderForm/>
 <main class="main-page">
     <div class="background" style="background-image: url({bg});">
 

@@ -26,19 +26,19 @@ declare global {
 		description: string
 	}
 
-	interface TagsGroups{
+	interface TagsGroup{
 		id:number
 		title: string
 		description: string
 		icon: string
-		tags: Tags[]
+		tags?: Tags[]|number[]
 	}
 
 	interface Category{
 		id:int
 		name:string
 		description: string
-		sections: { [key: string]: number[] | undefined}
+		sections: { [key: string]: number[]}
 		icon: string
 	}
 
@@ -58,9 +58,8 @@ declare global {
 		slogan: string
 		description: string
 		logo: [string]
-		contacts: [Contact]
+		contacts: Contact[]
 		pictures: [string]
-
 	}
 
 	//? FormAction
@@ -73,15 +72,37 @@ declare global {
 		[Symbol.iterator]()
 	}
 
-	//?
-	
-    
+	//? Enterprise
     interface Contact{
 		type_id: int|"none"
         type?: string
         value?: string
         icon?: string
     }
+
+	//? Solicitude
+	interface OptionSection{
+		title: string
+		icon?: string
+		id: number
+		description: string
+		options: Option[]
+	}
+
+	interface Option{
+		key: string
+		value: string
+		id: int
+		description: string
+		icon?: string
+	}
+
+	interface Order{
+		category:number|undefined
+		tags:{
+			[key:string]:number|undefined
+		}
+	}
 }
 
   

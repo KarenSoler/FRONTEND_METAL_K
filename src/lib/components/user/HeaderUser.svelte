@@ -1,8 +1,9 @@
 <script lang='ts'>
-	import logo from '$lib/images/metalK_logo.svg'
+	import { page } from '$app/stores';
 	import { title } from '../../../stores/titleStore'
+
+	let logo = $page.data.enterprise.logo
 </script>
-    
 <header>
 	<div class='logo'>
 		<picture>

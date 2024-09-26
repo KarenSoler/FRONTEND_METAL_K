@@ -1,19 +1,19 @@
 {
-    "categories":[
-            {
+    "categories":{
+            "portones":{
                 "id":1,
-                "name":"portones",
+                "name":"Portones",
                 "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 "sections":{
                     "1":[1,3,4],
                     "2":[5,6,7],
                     "5":[13,14,15]
                 },
-                "icon":"../images/gate_icon.svg"
+                "icon":"/src/lib/images/gate.svg"
             },
-            {
+            "ventanas":{
                 "id":2,
-                "name":"ventanas",
+                "name":"Ventanas",
                 "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 "sections":{
                     "1":[1,2,3,4],
@@ -21,20 +21,20 @@
                     "5":[13,14,16],
                     "6":[17,18,19]
                 },
-                "icon":""
+                "icon":"/src/lib/images/gate.svg"
             },
-            {
+            "materas":{
                 "id":3,
-                "name":"materas",
+                "name":"Materas",
                 "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 "sections":{
                     "1":[1,2,3,4],
                     "4":[10,11,12],
                     "6":[17,18,19,20]
                 },
-                "icon":""
+                "icon":"/src/lib/images/gate.svg"
             }
-    ],
+    },
     "tags":[
         {
             "id":1,
@@ -137,48 +137,48 @@
             "description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         }
     ],
-    "tagGroups":[
-        {
+    "tagGroups":{
+        "pintura":{
             "id":1,
             "title":"Pintura",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             "icon":"",
             "tags": [1, 2, 3, 4, 5]
         },
-        {
+        "cerradura":{
             "id":2,
             "title":"Cerradura",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             "icon":"",
             "tags": [17, 18, 19]
         },
-        {
+        "vidrio":{
             "id":3,
             "title":"Vidrio",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             "icon":"",
             "tags": [1, 2, 3, 4, 5]
         },
-        {
+        "instalacion":{
             "id":4,
             "title":"Instalacion",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             "icon":"",
             "tags": [1, 2, 3, 4, 5]
         },
-        {
+        "apertura":{
             "id":5,
             "title":"Apertura",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             "icon":"",
             "tags": [1, 2, 3, 4, 5]
         },
-        {
+        "forma":{
             "id":6,
             "title":"Forma",
             "description":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             "icon":"",
             "tags": [1, 2, 3, 4, 5]
         }
-    ]
+    }
 }

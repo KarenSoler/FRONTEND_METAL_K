@@ -9,11 +9,7 @@
 
 </script>
 
-
-<header>
-    <HeaderUser/>
-</header>
-
+<HeaderUser/>
 <main class="home-page">
     <div class="background" style="background-image: url({bg});">
 

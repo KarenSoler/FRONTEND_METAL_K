@@ -7,7 +7,6 @@ export const actions = {
         const formData = await request.formData()
         let response = new ApiResponse<any>()
         try{
-            console.log(formData.get('branch'))
             response.getData((await MKaxios.put('/enterprise',formData,{
                 headers:{
                     Authorization:'Bearer '+cookies.get('token')
