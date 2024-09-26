@@ -1,9 +1,9 @@
 
 export function load(){
-    let order:Order = {
-        category:6,
-        tags:{}
-    }
+    // let order:Order = {
+    //     category:6,
+    //     tags:{}
+    // }
 
-    return {order:order}
+    // return {order:order}
 }

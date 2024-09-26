@@ -41,9 +41,9 @@
     //Catching first click
     
 
-    function firstClickHandler(){
-        touched=(!touched)?(true):(true)
-    }
+        function firstClickHandler(){
+            touched=(!touched)?(true):(true)
+        }
 
     //Validations centralizer
     function validater(value:string){

@@ -11,15 +11,15 @@
 //States
 
 //Data catching
-    let solicitude:Writable<{[key:string]:any}> = getContext('solicitude')
+    // let solicitude:Writable<{[key:string]:any}> = getContext('solicitude')
 
-    solicitude.subscribe((value)=>{
-        console.log(value)
-    })
+    // solicitude.subscribe((value)=>{
+    //     console.log(value)
+    // })
 
-    afterUpdate(()=>{
-        solicitude.set({ege:12})
-    })
+    // afterUpdate(()=>{
+    //     solicitude.set({ege:12})
+    // })
 
 
 //States

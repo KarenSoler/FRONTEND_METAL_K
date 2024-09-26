@@ -1,7 +1,7 @@
 <script lang='ts'>
     //Imports
     import plus from '$lib/images/plus_d.svg'
-    import { writable } from 'svelte/store';
+    import { writable, type Writable } from 'svelte/store';
 
     //States
     let unique:boolean = false
@@ -9,6 +9,12 @@
     let label:string = ''
     let name:string
     let id:string = ''
+    let error:boolean
+
+    //External error seting
+    let touched:boolean = false
+    let externalError:Writable<boolean>|undefined = undefined
+    let valueGetter:((value:string)=>void)|undefined = undefined
 
     //Catching of files
     let accept: string = '.png'
@@ -46,26 +52,28 @@
     }
 
     function tryChange(){
-        //alert(':v')
         hover=!hover
+    }
+
+    function firstClickHandler(){
+        touched=(!touched)?(true):(true)
     }
     
     //Rective
     $:  if(!id) id = name
 
     $: src.update((value)=>{
-        let images = value
         if(defaultValue && value.length==0){
             if(typeof defaultValue == 'string'){
-                images.push(defaultValue)
+                value.push(defaultValue)
             }
             else{
                 for(let d of defaultValue){
-                    images.push(d)
+                    value.push(d)
                 }
             }
         }
-        return images
+        return value
     })
 
     src.subscribe((srcs)=>{
@@ -91,7 +99,7 @@
         <label for={name}>{label}</label>
     {/if}
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div class:image-attacher={$src.length>0} class:void={$src.length<1} on:mouseenter={tryChange}  on:mouseleave={tryChange}>
+    <div class:image-attacher={$src.length>0} class:void={$src.length<1} on:mouseenter={tryChange}  on:mouseleave={tryChange} >
         {#if $src.length>0}
             <!-- {#if hover} -->
                 <div class="try-change">
@@ -111,7 +119,7 @@
             <img src={plus} {alt} class="add-icon"/>
             <span>Haga click o arrastre para subir imagenes</span>
         {/if}
-        <input type="file" on:change={imageTaken} multiple={!unique} {accept}/>
+        <input type="file" on:change={imageTaken} multiple={!unique} {accept} on:click={firstClickHandler}/>
     </div>
 </div>
 
