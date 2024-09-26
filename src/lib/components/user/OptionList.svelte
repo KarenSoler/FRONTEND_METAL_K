@@ -4,7 +4,8 @@
     import OptionCard from "./OptionCard.svelte";
 //States
     let section:OptionSection
-
+    let name:string
+    
     //External class
     let externalClass:string|undefined = undefined
 
@@ -13,6 +14,7 @@
 //Props
     export{
         section,
+        name,
         externalClass as class
     }
 </script>
@@ -20,9 +22,9 @@
 <form class:option-section={true} class={externalClass} method="POST">
     <h1><svelte:element this={section.icon}/>{section.title}</h1>
     <p>{section.description}</p>
-    <nav class="option-menu">
+    <nav class="option-menu invisible-scroll">
         {#each section.options as option}
-            <OptionCard {option}/>
+            <OptionCard {option} {name}/>
         {/each}
     </nav>
 </form>
@@ -63,7 +65,10 @@
         display: flex
         flex-direction: column
         gap: 0.5em
+        
         overflow-y: scroll
+
+        padding:1em
 
     
 </style>

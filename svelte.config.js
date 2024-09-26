@@ -25,7 +25,8 @@ const config = {
 		alias:{//Fast Routes Access 
 			'@components/*':'src/lib/components/*',
 			'@admin-components/*':'src/lib/components/admin/*',
-			'@user-components/*':'src/lib/components/user/*'
+			'@user-components/*':'src/lib/components/user/*',
+			'@stores/*':'src/stores/*'
 		},
 		env:{
 			privatePrefix:'PVE_',

@@ -26,19 +26,19 @@ declare global {
 		description: string
 	}
 
-	interface TagsGroups{
+	interface TagsGroup{
 		id:number
 		title: string
 		description: string
 		icon: string
-		tags: Tags[]
+		tags?: Tags[]|number[]
 	}
 
 	interface Category{
 		id:int
 		name:string
 		description: string
-		sections: { [key: string]: number[] | undefined}
+		sections: { [key: string]: number[]}
 		icon: string
 	}
 
@@ -84,16 +84,24 @@ declare global {
 	interface OptionSection{
 		title: string
 		icon?: string
-		id: int
+		id: number
 		description: string
 		options: Option[]
 	}
 
 	interface Option{
 		key: string
+		value: string
 		id: int
 		description: string
 		icon?: string
+	}
+
+	interface Order{
+		category:number|undefined
+		tags:{
+			[key:string]:number|undefined
+		}
 	}
 }
 

@@ -1,6 +1,6 @@
 import { MKaxios } from "$lib/api/MKAxios";
 import ApiResponse from "$lib/api/ApiResponse";
-import { redirect, type Cookies, type RouteData } from "@sveltejs/kit";
+import { redirect, type Cookies, type HttpError, type RouteData } from "@sveltejs/kit";
 
 export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     let pathname = route.id
@@ -14,9 +14,14 @@ export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
         response.getData((await MKaxios.get(`/admin/${token}`)).data)
     }
     catch(e:any){
-        response.getData(e.response.data.detail)
-        cookies.delete('token',{path:'/'})
-        cookies.delete('current',{path:'/'})
+        try{
+            response.getData(e.response.data.detail)
+            cookies.delete('token',{path:'/'})
+            cookies.delete('current',{path:'/'})
+        }
+        catch(e:any){
+            console.log(e)
+        }
     }
 
     //Redirction 

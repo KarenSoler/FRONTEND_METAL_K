@@ -11,7 +11,6 @@
 
 </script>
 
-html_here
 
 <style lang='sass'>
 //Imports

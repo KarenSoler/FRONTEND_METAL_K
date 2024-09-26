@@ -3,6 +3,7 @@
 
 //States
     let option:Option
+    let name:string
 
 //Functions
     function select(){
@@ -10,18 +11,21 @@
     }
 
 //Rective
+    //$:console.log(option)
 
 //Props
-export{
-    option
-}
+    export{
+        option,
+        name
+    }
 </script>
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <button 
     class="option-card" 
-    on:click={select} 
+    {name}
+    value={option.value}
     class:with-icon={option.icon}
 >
     <svelte:element this={option.icon&&'img'} class='option-img' src={option.icon}/>

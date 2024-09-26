@@ -17,4 +17,4 @@ export async function load(){
         // console.log(response.result)
         return fail(400,{})
     }
-}
+}                   
