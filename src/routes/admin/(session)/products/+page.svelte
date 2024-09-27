@@ -1,14 +1,13 @@
 <script lang='ts'>
-    //Imports
-    //States
-    //Data catching
-    
-      import AdminHeader from "@components/admin/AdminHeader.svelte";
-      import ProductAdmin from "@components/admin/ProductAdmin.svelte";
-    
-    //Functions
-    
-    //Rective
+//Imports
+    //Components
+    import ProductAdmin from "@components/admin/ProductAdmin.svelte";
+//States
+//Data catching
+
+//Functions
+
+//Rective
     
 </script>
 
@@ -33,7 +32,6 @@
     <ProductAdmin/>
     <ProductAdmin/>
     <ProductAdmin/>
-
     <ProductAdmin/>
     <ProductAdmin/>
     <ProductAdmin/>
@@ -42,7 +40,6 @@
     <ProductAdmin/>
     <ProductAdmin/>
     <ProductAdmin/>
-
     <ProductAdmin/>
     <ProductAdmin/>
     <ProductAdmin/>
@@ -52,6 +49,9 @@
     <ProductAdmin/>
     <ProductAdmin/>
 </div>
+<a class="add-product" href="./products/new">
+
+</a>
     
     
 <style lang='sass' global>
@@ -77,6 +77,22 @@ main
 
     background: palete.$general-bg
 
+.add-product
+    @include elements.generic-button()
+        position: fixed
+        bottom: 2em
+        right: 2em
+
+        width: 5em
+        height: 5em
+
+        background: url('/src/lib/images/pluss.svg')
+        background-position: 50% 50%
+        background-size: 100%
+
+        border-radius: 100%
+
+
 .product-title
     width: 100%
     height: 2em
@@ -91,9 +107,6 @@ main
     display: grid
     justify-content: center
     gap: 0.5em
-
-    
-
 
     @include media.by-max-width(600px)
         grid-template-columns: repeat(2,45vw)

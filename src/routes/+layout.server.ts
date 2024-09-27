@@ -25,20 +25,21 @@ export async function load({cookies,route}:{cookies:Cookies,route:RouteData}){
     }
 
     //Redirction 
-    response.isOk(()=>{
-        if(!anyAdmin)cookies.set('anyAdmin','1',{path:'/'})
-        if(pathname.match(/^((.*\/\(entrance\)\/)||(\/))$/)) redirect(307,'/admin/enterprise')
-    },  
-    ()=>{
-        //If there was any log in before
-        if(anyAdmin){
-            if(pathname.match(/^((.*\/)||(.*\/\(session\)\/).*)$/)) redirect(307,'/admin/login')
-        }
-        else{
-            if(pathname.match(/^((.*\/)||(.*\/\(session\)\/.*))$/)){console.log('?v'); redirect(307,'/HomePortfolio')}
-        }
-    })
-
+    if(pathname){
+        response.isOk(()=>{
+            if(!anyAdmin)cookies.set('anyAdmin','1',{path:'/'})
+            if(pathname.match(/^((.*\/\(entrance\)\/)||(\/))$/)) redirect(307,'/admin/enterprise')
+        },  
+        ()=>{
+            //If there was any log in before
+            if(anyAdmin){
+                if(pathname.match(/^((.*\/)||(.*\/\(session\)\/).*)$/)) redirect(307,'/admin/login')
+            }
+            else{
+                if(pathname.match(/^((.*\/)||(.*\/\(session\)\/.*))$/)){console.log('?v'); redirect(307,'/HomePortfolio')}
+            }
+        })
+    }
 }
 
 ///^((.*\/\(user\)\/)||(.*\/\(entrance\)\/))/

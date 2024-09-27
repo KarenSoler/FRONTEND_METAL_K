@@ -34,13 +34,15 @@
 .image-container
     position: relative
     box-sizing: border-box
+
     width: 100%
     height: 100%
-    display: inline-block
 
     overflow: visible
 
     picture
+        display: inline-block
+        box-sizing: border-box
         width: 100%
         height: 100%
         padding: 1em

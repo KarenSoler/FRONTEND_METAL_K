@@ -41,7 +41,7 @@
 
 
 <style lang='sass'>
-@use '../../../lib/styles/user/palete' as palete
+@use 'src/lib/styles/user/palete' as palete
 
 
 header
