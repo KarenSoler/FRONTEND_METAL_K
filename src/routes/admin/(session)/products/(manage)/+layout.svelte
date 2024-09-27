@@ -2,19 +2,25 @@
 //Imports
     //Storages
     import { page } from "$app/stores";
+    import orderOptins from '$lib/jsons/orderOptions.json'
 
     //Components
     import Field from "@components/Field.svelte";
     import ImageSelector from "@components/admin/ImageSelector.svelte";
-  import Submit from "@components/admin/Submit.svelte";
+    import Submit from "@components/admin/Submit.svelte";
 
 //States
     let title:string
     let date:string
-    let categories:Category[] = [{
-        name:'aaaaa',
-        id:1
-    }]
+    let categories:Category[] = Object.values(orderOptins.categories).map(cat=>{
+        return {
+            id:cat.id,
+            name: cat.name,
+            description: cat.description,
+            icon: cat.icon,
+            sections: cat.sections
+        }
+    })
     let edit:boolean = false
     let action:string
     let product:Product
