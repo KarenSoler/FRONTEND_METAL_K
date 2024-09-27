@@ -11,7 +11,11 @@
 //States
     let title:string
     let date:string
-    let categories:Category[]
+    let categories:Category[] = [{
+        name:'aaaaa',
+        id:1
+    }]
+    let action:string
 //Data catching
 
 //Functions
@@ -21,17 +25,17 @@
         if(page.route.id){
             if(page.route.id.includes('new')){
                 title = "Agregar producto"
+                action = "?/new_product"
             }
             if(page.route.id.includes('edit')){
                 title = "Editar producto"
+                action = "?/edit_product"
             }
         }
     })
-
-    $:console.log(date)
 </script>
 
-<form class="product-form" method="post">
+<form class="product-form" method="post" {action}>
     <h1>{title}</h1>
     <Field name="time" label="Tiempo de produccion" type="number" placeholder="Tiempo en dias"/>
     <Field name="price" label = "Precio total" type="number" placeholder="COP"/>

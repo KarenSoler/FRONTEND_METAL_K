@@ -3,25 +3,30 @@
 	import editIcon from '$lib/images/edit-icon.svg';
     import deleteIcon from '$lib/images/delete-icon.svg';
 
+    let product:Product
+
+    export{
+        product
+    }
 </script>
 
 
 <!-- Targeta/Imagen de producto -->
-<div class="image-container">
+<form class="image-container">
     <picture class="image-item">
         <img class="image-product" src={'https://th.bing.com/th/id/OIP.TONvJ9GlXR_HE9J7gyh6ugHaFj?rs=1&pid=ImgDetMain'} alt={'a'}>
     </picture>
     <div class='product-options'>
         <!-- Opción de editar -->
-        <div class="circle edit">
+        <a class="circle edit" href={`/admin/products/edit/${product.id}`}>
             <img class="icon edit" src={editIcon} alt="edit">
-        </div>
+        </a>
         <!-- Opción de eliminar -->
-        <div class="circle delete">
+        <button class="circle delete" value={product.id}>
             <img class="icon delete" src={deleteIcon} alt="delete">
-        </div>
+        </button>
     </div>
-</div>
+</form>
 
 
 

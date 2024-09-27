@@ -3,12 +3,13 @@
     //Components
     import ProductAdmin from "@components/admin/ProductAdmin.svelte";
 //States
-//Data catching
-
+    let products:Array<Product> = []
+    //Data catching
+    export let data
 //Functions
 
 //Rective
-    
+    $: if(data.products) products = data.products
 </script>
 
 <!-- <Modal>
@@ -16,38 +17,9 @@
 </Modal> -->
 <h1 class="product-title">Productos</h1>
 <div class='product-grid'>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
+    {#each products as product}
+        <ProductAdmin {product}/>
+    {/each}
 </div>
 <a class="add-product" href="./products/new">
 
