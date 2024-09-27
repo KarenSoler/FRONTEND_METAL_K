@@ -1,7 +1,7 @@
 <script lang='ts'>
     import { writable } from 'svelte/store';
-    import image_list from "../../../lib/jsons/imageUser.json"
-    import feature_list from "../../jsons/orderOptions.json"
+    import image_list from "$lib/jsons/imageUser.json"
+    import feature_list from "$lib/jsons/productInfo.json"
     import { onMount } from 'svelte';
 
     
@@ -9,9 +9,8 @@
         return image
     })
 
-    let categories:Array<Category> = feature_list.categories.map((category) => {
-        return category
-    })
+    //@ts-ignore
+    let categories:Array<Category> = feature_list.categories
 
     let tags:Array<Tags> = feature_list.tags.map((tag) => {
         return tag

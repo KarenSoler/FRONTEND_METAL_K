@@ -1,10 +1,60 @@
 <script lang='ts'>
     import Field from "@components/Field.svelte";
     import Submit from "@components/admin/Submit.svelte";
+    import { onMount } from "svelte";
 
+    let reCaptchaToken = ''
+
+    function onCaptchaVerified(token: string) {
+        reCaptchaToken = token
+        console.log('reCAPTCHA token: ', token)
+    }
+
+    onMount(() => {
+        const script = document.createElement('script')
+        script.src = "https://www.google.com/recaptcha/api.js?render=explicit"
+        script.async = true
+        script.defer = true
+
+        script.onload = () => {
+            console.log("reCAPTCHA ha terminado de cargar");
+
+            // Usamos setTimeout para asegurarnos que grecaptcha esté disponible
+            setTimeout(() => {
+                if (window.grecaptcha) {
+                    const recaptchaElement = document.querySelector('#g-recaptcha')
+                    if (recaptchaElement) {
+                        window.grecaptcha.render(recaptchaElement as HTMLElement, {
+                            'sitekey': '6LcSCFAqAAAAAK7zxz7oUrO3oZMnPQU_sJn9hS86',
+                            'callback': onCaptchaVerified
+                        })
+                    }
+                } else {
+                    console.error("el grecaptcha no es valido")
+                }
+            }, 500) // Intentar renderizar después de medio segundo
+        }
+
+        script.onerror = () => {
+            console.error("Failed to load reCAPTCHA script");
+        };
+
+        document.body.appendChild(script);
+    });
+
+    function handleSubmit(event: Event) {
+        event.preventDefault();
+        if (reCaptchaToken === '') {
+            alert('Por favor completa el reCAPTCHA');
+        } else {
+            console.log('Formulario enviado con token:', reCaptchaToken);
+        }
+    }
 </script>
 
-<form class="form-container">
+
+
+<form class="form-container" on:submit={handleSubmit}>
     <h1>¿Olvidaste tu contraseña?</h1>
 
     <p>Escribe aquí tu número de telefono asociado a tu cuenta para recordartelo</p>
@@ -16,6 +66,10 @@
         required="Este campo es obligatorio" 
         logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
     />
+
+    <div class="recaptcha-container">
+        <div class="g-recaptcha" id="g-recaptcha"></div> <!-- Contenedor para reCAPTCHA -->
+    </div>
 
     <Submit>Enviar</Submit>
 </form>

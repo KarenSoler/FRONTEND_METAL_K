@@ -103,8 +103,15 @@ declare global {
 			[key:string]:number|undefined
 		}
 	}
-}
 
+	declare interface Window {
+		grecaptcha: {
+			render: (container: HTMLElement | string, parameters: { sitekey: string, callback: (token: string) => void }) => void;
+		};
+	}
+	
+	
+}
   
 
 export {};

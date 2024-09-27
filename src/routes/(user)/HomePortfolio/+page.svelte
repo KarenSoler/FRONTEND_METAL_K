@@ -1,15 +1,18 @@
 <script lang='ts'>
 	import logo from '$lib/images/metalK_logo.svg'
-    import HeaderUser from '@components/user/HeaderUser.svelte';
+    import HeaderUser from '@components/user/HeaderUser.svelte'
     import bg from '$lib/images/user-bg.svg'
-    import ProductAdmin from "@components/user/ProductUser.svelte";
+    import ProductAdmin from "@components/user/ProductUser.svelte"
 
     export let info = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas  las cuales contenian pasajes de Lorem Ipsum, "
     export let imgEnterprice = logo
 
 </script>
 
+<header>
 <HeaderUser/>
+</header>
+
 <main class="home-page">
     <div class="background" style="background-image: url({bg});">
 
@@ -35,13 +38,19 @@
                 <ProductAdmin/>
             </figure>
         </div>
+
+        <div class="personalization-btn">
+            <img src="src/lib/images/hammer.svg" alt="martillo">
+            <img src="src/lib/images/craft-anvil.svg" alt="yunque">
+        </div>
     </div>
     
 </main>
 
 
 <style lang='sass'>
-@use '../../../lib/styles/user/palete' as palete
+@use 'src/lib/styles/media' as media
+@use 'src/lib/styles/user/palete' as palete
 
 
 header
@@ -160,4 +169,17 @@ main
     justify-content: center
     
   
+.personalization-btn
+    background: palete.$u-title
+    height: 20%
+    width: 20%
+    
+    position: relative
+    border: 7px solid #23538F
+    border-radius: 90px
+
+    img
+        height: 50%
+        width: 50%
+        align-items: center
 </style>
