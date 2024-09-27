@@ -15,8 +15,11 @@
         name:'aaaaa',
         id:1
     }]
+    let edit:boolean = false
     let action:string
-//Data catching
+    let product:Product
+    //Data catching
+    export let data
 
 //Functions
 
@@ -30,30 +33,38 @@
             if(page.route.id.includes('edit')){
                 title = "Editar producto"
                 action = "?/edit_product"
+                edit = true
+                if(data.currentProduct){
+                    product = data.currentProduct
+                }
             }
         }
     })
+
+    $:console.log(data)
 </script>
 
 <form class="product-form" method="post" {action}>
-    <h1>{title}</h1>
-    <Field name="time" label="Tiempo de produccion" type="number" placeholder="Tiempo en dias"/>
-    <Field name="price" label = "Precio total" type="number" placeholder="COP"/>
-    <Field type='date' name="date" label = "Fecha de finalizacion"/>
-    <div class="category-selector">
-        <label for="category">Categoria</label>
-        <select name="category">
-            <option value='none'>Seleccione categoria</option>
-            {#each categories as category}
-                <option value={category.id}>{category.name}</option>
-            {/each}
-        </select>
+    {#if product || !edit}
+        <h1>{title}</h1>
+        <Field name="time" label="Tiempo de produccion" type="number" placeholder="Tiempo en dias" default={product&&product.time}/>
+        <Field name="price" label = "Precio total" type="number" placeholder="COP" default={product&&product.price}/>
+        <Field type='date' name="date" label = "Fecha de finalizacion" default={product&&product.date}/>
+        <div class="category-selector">
+            <label for="category">Categoria</label>
+            <select name="category" value={product&&product.category}>
+                <option value='none'>Seleccione categoria</option>
+                {#each categories as category}
+                    <option value={category.id}>{category.name}</option>
+                {/each}
+            </select>
 
-    </div>
-    <ImageSelector name="pictures" class="pictures-selector"/>
-    <Submit>
-        Registrar
-    </Submit>
+        </div>
+        <ImageSelector name="pictures" class="pictures-selector" default={product&&product.images}/>
+        <Submit>
+            Registrar
+        </Submit>
+    {/if}
 </form>
 <slot/>
 

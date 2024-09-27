@@ -17,6 +17,7 @@ declare global {
 		category: int,
 		price: double,
 		time: number,
+		date: string,
 		tags: int[]
 	}
 

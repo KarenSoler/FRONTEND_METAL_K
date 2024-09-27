@@ -12,9 +12,9 @@
 
 
 <!-- Targeta/Imagen de producto -->
-<form class="image-container">
+<form class="image-container" method="post">
     <picture class="image-item">
-        <img class="image-product" src={'https://th.bing.com/th/id/OIP.TONvJ9GlXR_HE9J7gyh6ugHaFj?rs=1&pid=ImgDetMain'} alt={'a'}>
+        <img class="image-product" src={product.images[0]} alt={'a'}>
     </picture>
     <div class='product-options'>
         <!-- Opción de editar -->
@@ -22,7 +22,7 @@
             <img class="icon edit" src={editIcon} alt="edit">
         </a>
         <!-- Opción de eliminar -->
-        <button class="circle delete" value={product.id}>
+        <button class="circle delete" value={product.id} name="product" formaction="?/delete_product">
             <img class="icon delete" src={deleteIcon} alt="delete">
         </button>
     </div>

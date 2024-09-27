@@ -9,7 +9,7 @@
     let name:string
     let placeholder:string|undefined = undefined
     let id:string|undefined = undefined
-    let defaultValue:string = ""
+    let defaultValue:string|number = ""
     let value = writable(defaultValue)
 
     //modes
@@ -18,7 +18,7 @@
 
     //External error seting
     let externalError:Writable<boolean>|undefined = undefined
-    let valueGetter:((value:string)=>void)|undefined = undefined
+    let valueGetter:((value:string|number)=>void)|undefined = undefined
 
     //Validations 
     let touched:boolean
@@ -45,7 +45,10 @@
         }
 
     //Validations centralizer
-    function validater(value:string){
+    function validater(value:string|number){
+        if(typeof value == 'number'){
+            value = value.toString()
+        }
         while(true){
             if(!requiredValidation(value)) break
             if(!regexValidation(value)) break 
