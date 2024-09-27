@@ -159,29 +159,32 @@
         &:hover
             .try-change
                 width: 100%
+                padding: 0.5em
         
         .try-change
             position: sticky
             top: 0
             left: 0
-            z-index: 2
 
             display: flex
             justify-content: center
             align-items: center
+            align-content: center
 
+            box-sizing: border-box
             width: 0
-            height: 100%
 
             overflow: hidden
 
+            padding: 0em
+
             color: palete.$input-placeholder
+
+            text-overflow: ellipsis
 
             transition: width 1s ease-in-out
 
-            span
-                width: 60%
-                min-width: 200px
+            
 
         .image-lister
             display: flex
@@ -218,6 +221,8 @@
         gap:0.5em
 
         overflow: hidden
+        
+        padding: 0.5em
         
         border-style: dashed
         border-color: transparent

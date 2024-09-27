@@ -2,8 +2,50 @@
 //Imports
   import ImageSelector from "@components/admin/ImageSelector.svelte";
   import Field from "@components/Field.svelte";
-  import Submit from "@components/admin/Submit.svelte";
+  import Submit from "@components/Submit.svelte";
   import { writable } from "svelte/store";
+  import { onMount } from "svelte"
+  import L from 'leaflet'
+
+  // Variables de latitud y longitud iniciales
+  let lat = 4.635519054890594;
+  let lng = -74.1068586815587;
+
+  // Declarar variables para el mapa y marcador
+  let map: L.Map;
+  let marker: L.Marker | undefined
+
+  onMount(() => {
+    // Estilos de Leaflet
+    const leafletCSS = document.createElement('link');
+    leafletCSS.rel = 'stylesheet';
+    leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(leafletCSS);
+
+    // // Scripts de Leaflet
+    // const leafletScript = document.createElement('script');
+    // leafletScript.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    // leafletScript.onload = () => {
+
+      // Crear el mapa cuando Leaflet ya esté cargado
+      map = L.map('map').setView([lat, lng], 13);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      // Agregar marcador al hacer click en el mapa
+      map.addEventListener('click', (e) => {
+        if (marker) {
+          marker.removeFrom(map);
+        }
+        marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+      });
+    //};
+    // document.body.appendChild(leafletScript)
+  });
+
 
 //Imports
 
@@ -40,13 +82,15 @@
         logic={(value) => value.length < 10 ? "Ingrese como mínimo 10 números" : undefined} 
         {error}
     />
-    <Field 
+    <!-- <Field 
         name="address" 
         label="Dirección de trabajo" 
         placeholder="Ingrese su dirección" 
         required="Este campo es obligatorio" 
         {error}
-    />
+    /> -->
+
+    <div id="map"></div>
 
     <ImageSelector name="planes" class="planes-attacher" label="Planos"/>
 

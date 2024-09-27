@@ -14,8 +14,7 @@
 
     //modes
     let disabled:boolean = false
-    let textarea:boolean = false
-    let password:boolean = false
+    let type:'textarea'|'password'|'date'|'text'|'number' = 'text'
 
     //External error seting
     let externalError:Writable<boolean>|undefined = undefined
@@ -157,8 +156,7 @@
         placeholder,
         name,
         disabled,
-        textarea,
-        password,
+        type,
         defaultValue as default,
         regex,
         required,
@@ -169,7 +167,7 @@
     }
 </script>
 <!-- ? Simple text input -->
-    <div class={externalClass} class:input={true} class:error={error} class:textarea>
+    <div class={externalClass} class:input={true} class:error={error} class:textarea={type=='textarea'}>
 
         {#if label}
                 <label class="label" for={id}>
@@ -186,7 +184,7 @@
         {#if (disabled && $value)}
             <input type="hidden" value={$value} {name}/>
         {/if}
-        {#if textarea}
+        {#if type=='textarea'}
             <textarea
                 {placeholder} 
                 class:input={true} 
@@ -199,7 +197,7 @@
             ></textarea>
         {:else}
             <input 
-                type={password?"password":"text"}
+                {type}
                 {placeholder} 
                 class:input={true} 
                 {id} 
@@ -248,10 +246,20 @@
     input,textarea
         @include elements.text-input
             padding: 10px
+            
+    /* Para Chrome, Safari, Edge y Opera */
+    input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button 
+        -webkit-appearance: none
+        margin: 0
+    
+    input[type=number] 
+        -moz-appearance: textfield
+    
 
     textarea
         display: flex
         flex: auto
         justify-content: start
+        
 
 </style>

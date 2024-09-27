@@ -1,15 +1,15 @@
 <script lang='ts'>
-    //Imports
-    //States
+//Imports
+    //Components
+    import ProductAdmin from "@components/admin/ProductAdmin.svelte";
+//States
+    let products:Array<Product> = []
     //Data catching
-    
-      import AdminHeader from "@components/admin/AdminHeader.svelte";
-      import ProductAdmin from "@components/admin/ProductAdmin.svelte";
-    
-    //Functions
-    
-    //Rective
-    
+    export let data
+//Functions
+
+//Rective
+    $: if(data.products) products = data.products
 </script>
 
 <!-- <Modal>
@@ -17,41 +17,13 @@
 </Modal> -->
 <h1 class="product-title">Productos</h1>
 <div class='product-grid'>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
-    <ProductAdmin/>
+    {#each products as product}
+        <ProductAdmin {product}/>
+    {/each}
 </div>
+<a class="add-product" href="./products/new">
+
+</a>
     
     
 <style lang='sass' global>
@@ -77,6 +49,22 @@ main
 
     background: palete.$general-bg
 
+.add-product
+    @include elements.generic-button()
+        position: fixed
+        bottom: 2em
+        right: 2em
+
+        width: 5em
+        height: 5em
+
+        background: url('/src/lib/images/pluss.svg')
+        background-position: 50% 50%
+        background-size: 100%
+
+        border-radius: 100%
+
+
 .product-title
     width: 100%
     height: 2em
@@ -91,9 +79,6 @@ main
     display: grid
     justify-content: center
     gap: 0.5em
-
-    
-
 
     @include media.by-max-width(600px)
         grid-template-columns: repeat(2,45vw)
